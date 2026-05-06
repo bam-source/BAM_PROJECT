@@ -1799,36 +1799,6 @@
             }
         ];
 
-        // ══════════════════════════════════════════
-        // TESTIMONIALS
-        // ══════════════════════════════════════════
-        const TESTIMONIAL_IMAGES = [
-            "https://cdn.discordapp.com/attachments/1398773494724034580/1400143345304604842/WhatsApp_Image_2025-07-27_at_04.07.18_ecdc15a2.jpg?ex=69b18f1a&is=69b03d9a&hm=e874ea3b9b3e8055d8aaa0a6c7814a8bafaa5171046e5a5baaa3e1493756543e&",
-            "https://cdn.discordapp.com/attachments/1398773494724034580/1400520602758021251/IMG_5250.png?ex=69b0f434&is=69afa2b4&hm=bbe7ecfd83d23ebbb7bff957c7fad3f99de74283de29660a1292542efce327a0&",
-            "https://cdn.discordapp.com/attachments/1398773494724034580/1402673371690565662/WhatsApp_Image_2025-08-06_at_22.22.38.jpeg?ex=69b188e0&is=69b03760&hm=21071a95acc955006d54453716595ee9fc28893dba4706d8313b0cf77d377d0f&",
-            "https://cdn.discordapp.com/attachments/1398773494724034580/1404141201833066547/IMG_5289.JPG?ex=69b199e6&is=69b04866&hm=d8f6d95c5e5a284a70c50a15f33f3954fa339c41045f03d9074ffb0768af274d&",
-            "https://cdn.discordapp.com/attachments/1398773494724034580/1405016591594291220/IMG_5298.png?ex=69b17d6b&is=69b02beb&hm=00a7a222aad2bc8c2925055d215dd7dcb770ff344d4a0c0a430e145d6d62f5d2&",
-            "https://cdn.discordapp.com/attachments/1398773494724034580/1405224998804783234/IMG_5303.png?ex=69b196c3&is=69b04543&hm=09d75cd3eb74cbc30ea982db0313fee819d5427c05149174d491dd986f42f57b&",
-            "https://cdn.discordapp.com/attachments/1398773494724034580/1405224958673813604/IMG_5304.png?ex=69b196b9&is=69b04539&hm=e8466cfb245b8f1294ee48e7226ed8c5cdefd96b08b16fcc858b71757bc0ebf2&",
-            "https://cdn.discordapp.com/attachments/1398773494724034580/1406254819756216393/A0418BDD-296B-4269-A19E-8B96EBCAE1FC.jpg?ex=69b1615b&is=69b00fdb&hm=3563b30b3ca3f449597f57b09e8e5d7332a268c81160d2750db2312904bf8d68&",
-            "https://cdn.discordapp.com/attachments/1398773494724034580/1406293130990588044/0FDB0B46-93F7-419E-940B-DD56A5D43870.jpg?ex=69b1850a&is=69b0338a&hm=cdee8eea22441b5fdf154b99e2c1b0d017470c403abe1b598767676039a48376&",
-            "https://cdn.discordapp.com/attachments/1398773494724034580/1406482458685210634/IMG_5332.png?ex=69b18c9d&is=69b03b1d&hm=dfb5df11f3fbd39a3585720e9ac692d9c13cb0e16b0c87031ac4bdb9da89037f&",
-            "https://cdn.discordapp.com/attachments/1398773494724034580/1406554302163451915/Untitled.jpg?ex=69b126c6&is=69afd546&hm=fed498e0be8316c90a63e6005b53ecb4a3419a16985ae5b1b093b3e2b5061503&",
-            "https://cdn.discordapp.com/attachments/1398773494724034580/1406688266954215556/IMG_5524.png?ex=69b0fac9&is=69afa949&hm=cc7212b2f0ead70542bc5e77c63372e9f2c73702d59a3ecc81a0ef1fce1cb44a&",
-            "https://cdn.discordapp.com/attachments/1398773494724034580/1406688308423037032/IMG_5523.png?ex=69b0fad3&is=69afa953&hm=76641853c5ddc3b250f830a35493a90f3124eaba9fefd81e884a526c3a037249&",
-            "https://cdn.discordapp.com/attachments/1398773494724034580/1406898518714486814/IMG_5529.png?ex=69b115d9&is=69afc459&hm=c660a465a062808f011ec604ac5829bbb98fc4403e76fcb0e2efcce6d1d023b1&",
-            "https://cdn.discordapp.com/attachments/1415047580718465035/1415048902524014722/IMG_5771.png?ex=69b112bc&is=69afc13c&hm=a9a2129a7172f58b36cf89a095a08efb471a579eb5679c329b87337fab0463c4&",
-            "https://cdn.discordapp.com/attachments/1415047580718465035/1415048919594827846/IMG_5770.png?ex=69b112c0&is=69afc140&hm=02292f0bde78d2d6b010731607892c7350d57e27f55280caca4e8f10cf0a0e4e&",
-            "https://cdn.discordapp.com/attachments/1415047580718465035/1415318216141443112/IMG_5785.png?ex=69b164ce&is=69b0134e&hm=dbfac9230c9e81ddcf65c302c737a973c1332eb468d73b838cc5d3b0ef563e03&",
-            "https://cdn.discordapp.com/attachments/1415047580718465035/1416080164227518534/IMG_5825.png?ex=69b1876c&is=69b035ec&hm=35f69210934114251a671f9e1f9649d6bfe603cc0e8a3d66b8256ed43ace8bab&",
-            "https://cdn.discordapp.com/attachments/1415047580718465035/1453311910307954718/IMG_6046.png?ex=69b12fb0&is=69afde30&hm=ba5f8815fd522d8601ddbc19275a9612cc8d54bc78796a70224fadae181692b3&",
-            "https://cdn.discordapp.com/attachments/1415047580718465035/1456154145789837434/IMG_6053.png?ex=69b0faba&is=69afa93a&hm=85b669832f3a2be9e640fab715101e16a800569ed3cf2fa8bb96fdf648357ad9&",
-            "https://cdn.discordapp.com/attachments/1398773494724034580/1482123240150405191/IMG_6166.png?ex=69b7c894&is=69b67714&hm=6b80b5495aa1ab46e1a2f983ab43d1ccc5eb5880b6483c1502214d0ed5fd2044&",
-            "https://cdn.discordapp.com/attachments/1398773494724034580/1485197055524732980/IMG_6190.png?ex=69c0fd0b&is=69bfab8b&hm=d54d7f47a4689ab4deab0da54edc8c67d213e0fbfcc6cffdd02ee168a7d8a173&",
-            "https://cdn.discordapp.com/attachments/1415047580718465035/1485266851939487824/IMG_6191.png?ex=69c13e0c&is=69bfec8c&hm=1c9b5a5d240acf5861b847472812812244979ed44fff428491bbbb715cd574dd&",
-            "https://cdn.discordapp.com/attachments/1415047580718465035/1486250419264032788/IMG_6198.png?ex=69c4d211&is=69c38091&hm=c634949d34e6e354a8f1886074d63708ae568de725f2ac115f37b44073de3600&",
-            "https://cdn.discordapp.com/attachments/1415047580718465035/1486285527899443291/IMG_6201.png?ex=69c4f2c3&is=69c3a143&hm=e0eccf16721f06cd28031edae3441094c17ffe9954979de9f9f140549d6d247b&"
-        ];
 
         // ══════════════════════════════════════════
         // PRODUCTS
@@ -2005,31 +1975,65 @@
         // ══════════════════════════════════════════
         // RENDER TESTIMONIALS
         // ══════════════════════════════════════════
+        // ══════════════════════════════════════════
+        // TESTIMONIALS — AUTO FETCH FROM GITHUB
+        // ══════════════════════════════════════════
+        const GITHUB_USER = 'bam-source';       // ← ganti dengan username GitHub kamu
+        const GITHUB_REPO = 'BAM-MACRO-RECOIL';      // ← ganti dengan nama repo kamu
+        const GITHUB_FOLDER = 'testimoni';    // ← nama folder di repo
+
         const STAR_HTML = '<i class="fa-solid fa-star" style="color:var(--red-bright);font-size:7px;"></i>'.repeat(5);
 
-        function renderTestimonials() {
+        async function renderTestimonials() {
             const container = document.getElementById('testi-scroll-container');
-            container.innerHTML = TESTIMONIAL_IMAGES.map(url => {
-                const proxied = 'https://images.weserv.nl/?url=' + encodeURIComponent(url);
-                return `
-                <div class="testi-card" onclick="openLightbox('${proxied}')">
-                    <img src="${proxied}" alt="Testimonial" loading="lazy"
-                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                    <div class="testi-placeholder" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;gap:8px;background:#1a1010;">
-                        <i class="fa-solid fa-image" style="color:var(--red-dim);font-size:28px;"></i>
-                        <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-dim);">Testimoni</span>
-                    </div>
-                    <div class="testi-overlay"></div>
-                    <div class="testi-info">
-                        <div class="testi-verified">
-                            <div class="testi-verified-dot"></div>
-                            <span>Verified</span>
+
+            // Loading state
+            container.innerHTML = `<div style="display:flex;align-items:center;gap:10px;padding:20px;color:var(--gray-dim);">
+                <i class="fa-solid fa-spinner fa-spin" style="color:var(--red-bright);"></i>
+                <span style="font-family:'Rajdhani',sans-serif;font-size:13px;">Memuat testimoni...</span>
+            </div>`;
+
+            try {
+                const res = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FOLDER}`);
+                if (!res.ok) throw new Error('Gagal fetch');
+                const files = await res.json();
+
+                // Filter hanya file gambar
+                const images = files.filter(f => /\.(jpg|jpeg|png|gif|webp)$/i.test(f.name));
+
+                if (images.length === 0) {
+                    container.innerHTML = `<div style="padding:20px;color:var(--gray-dim);font-family:'Rajdhani',sans-serif;font-size:13px;">Belum ada testimoni.</div>`;
+                    return;
+                }
+
+                container.innerHTML = images.map(file => {
+                    const proxied = 'https://images.weserv.nl/?url=' + encodeURIComponent(file.download_url);
+                    return `
+                    <div class="testi-card" onclick="openLightbox('${proxied}')">
+                        <img src="${proxied}" alt="Testimoni" loading="lazy"
+                            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <div class="testi-placeholder" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;gap:8px;background:#1a1010;">
+                            <i class="fa-solid fa-image" style="color:var(--red-dim);font-size:28px;"></i>
+                            <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-dim);">Testimoni</span>
                         </div>
-                        <div class="testi-stars">${STAR_HTML}</div>
-                    </div>
-                    <div class="testi-zoom"><i class="fa-solid fa-magnifying-glass-plus" style="color:var(--red-bright);font-size:9px;"></i></div>
+                        <div class="testi-overlay"></div>
+                        <div class="testi-info">
+                            <div class="testi-verified">
+                                <div class="testi-verified-dot"></div>
+                                <span>Verified</span>
+                            </div>
+                            <div class="testi-stars">${STAR_HTML}</div>
+                        </div>
+                        <div class="testi-zoom"><i class="fa-solid fa-magnifying-glass-plus" style="color:var(--red-bright);font-size:9px;"></i></div>
+                    </div>`;
+                }).join('');
+
+            } catch (e) {
+                container.innerHTML = `<div style="padding:20px;color:var(--gray-dim);font-family:'Rajdhani',sans-serif;font-size:13px;">
+                    <i class="fa-solid fa-triangle-exclamation" style="color:var(--red-bright);margin-right:6px;"></i>
+                    Gagal memuat testimoni.
                 </div>`;
-            }).join('');
+            }
         }
 
         // ══════════════════════════════════════════
@@ -2167,10 +2171,10 @@
         // ══════════════════════════════════════════
         // INIT
         // ══════════════════════════════════════════
-        window.onload = () => {
+        window.onload = async () => {
             renderProducts();
             renderSocialLinks();
-            renderTestimonials();
+            await renderTestimonials();
             renderNews();
             renderMacroVideos();
         };
