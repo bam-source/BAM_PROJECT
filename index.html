@@ -1467,6 +1467,137 @@
             color: var(--red-bright);
             margin-top: 1px;
         }
+        /* ── DEMO VIDEO SECTION ── */
+        .demo-video-strip {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px 60px;
+        }
+
+        @media (max-width: 768px) {
+            .demo-video-strip { padding: 0 16px 48px; }
+        }
+
+        .demo-video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        @media (max-width: 640px) {
+            .demo-video-grid { grid-template-columns: 1fr; }
+        }
+
+        .demo-video-card {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .demo-video-card:hover {
+            border-color: var(--red-border);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(220,38,38,0.12);
+        }
+
+        .demo-video-thumb {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+            background: #0a0707;
+        }
+
+        .demo-video-thumb img {
+            position: absolute;
+            inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            transition: opacity 0.25s, transform 0.35s;
+        }
+
+        .demo-video-card:hover .demo-video-thumb img {
+            opacity: 0.8;
+            transform: scale(1.04);
+        }
+
+        .demo-video-thumb-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .demo-video-play {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .demo-video-play-btn {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: rgba(220,38,38,0.9);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 20px rgba(220,38,38,0.5);
+            transition: all 0.2s;
+        }
+
+        .demo-video-card:hover .demo-video-play-btn {
+            background: var(--red-bright);
+            box-shadow: 0 0 30px rgba(220,38,38,0.7);
+            transform: scale(1.1);
+        }
+
+        .demo-video-body {
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .demo-video-label {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #fff;
+        }
+
+        .demo-video-mode {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 10px;
+            color: var(--red-bright);
+            margin-top: 2px;
+        }
+
+        .demo-video-yt {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+        }
+
+        .demo-video-yt span {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray-dim);
+        }
     </style>
 </head>
 <body>
@@ -1605,6 +1736,83 @@
 
         </div>
     </section>
+
+    <!-- ════ DEMO VIDEO SECTION ════ -->
+    <div class="demo-video-strip">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+            <span class="section-tag">Demo</span>
+            <h2 class="section-title">Video Demo Macro</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="demo-video-grid">
+            <!-- Hold -->
+            <div class="demo-video-card" onclick="window.open('https://youtube.com/watch?v=kQkogbvjyO4','_blank')">
+                <div class="demo-video-thumb">
+                    <img id="demo-thumb-hold" src="" alt="Mode Hold">
+                    <div class="demo-video-thumb-overlay"></div>
+                    <div class="demo-video-play">
+                        <div class="demo-video-play-btn">
+                            <i class="fa-solid fa-play" style="color:#fff;font-size:14px;margin-left:3px;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-video-body">
+                    <div>
+                        <div class="demo-video-label">Mode Hold</div>
+                        <div class="demo-video-mode">Tahan RMB → Aktif</div>
+                    </div>
+                    <div class="demo-video-yt">
+                        <i class="fa-brands fa-youtube" style="color:#ef4444;font-size:11px;"></i>
+                        <span>YouTube</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Toggle -->
+            <div class="demo-video-card" onclick="window.open('https://youtube.com/watch?v=Pl_wKZWLln8','_blank')">
+                <div class="demo-video-thumb">
+                    <img id="demo-thumb-toggle" src="" alt="Mode Toggle">
+                    <div class="demo-video-thumb-overlay"></div>
+                    <div class="demo-video-play">
+                        <div class="demo-video-play-btn">
+                            <i class="fa-solid fa-play" style="color:#fff;font-size:14px;margin-left:3px;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-video-body">
+                    <div>
+                        <div class="demo-video-label">Mode Toggle</div>
+                        <div class="demo-video-mode">1x Klik → ON/OFF</div>
+                    </div>
+                    <div class="demo-video-yt">
+                        <i class="fa-brands fa-youtube" style="color:#ef4444;font-size:11px;"></i>
+                        <span>YouTube</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Fire Recoil -->
+            <div class="demo-video-card" onclick="window.open('https://youtube.com/watch?v=yAZevdf3xw8','_blank')">
+                <div class="demo-video-thumb">
+                    <img id="demo-thumb-firerecoil" src="" alt="Fire Recoil">
+                    <div class="demo-video-thumb-overlay"></div>
+                    <div class="demo-video-play">
+                        <div class="demo-video-play-btn">
+                            <i class="fa-solid fa-play" style="color:#fff;font-size:14px;margin-left:3px;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-video-body">
+                    <div>
+                        <div class="demo-video-label">Fire Recoil</div>
+                        <div class="demo-video-mode">Full Auto Control</div>
+                    </div>
+                    <div class="demo-video-yt">
+                        <i class="fa-brands fa-youtube" style="color:#ef4444;font-size:11px;"></i>
+                        <span>YouTube</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ════ MAIN CONTENT ════ -->
     <main class="container" style="padding-bottom:60px;">
@@ -1762,26 +1970,30 @@
     </div>
 
     <script>
-        // ══════════════════════════════════════════
-        // CONFIG
-        // ══════════════════════════════════════════
-        const CONFIG = {
-            social: {
-                whatsapp: "https://api.whatsapp.com/send/?phone=6289697523717",
-                tiktok:   "https://www.tiktok.com/@bampermana_",
-                youtube:  "https://www.youtube.com/channel/UCKydA45oOtKMmzxML44aTbg",
-                discord:  "https://discord.com/invite/zpuM9PRSdQ"
-            },
-            macroVideos: {
-                hold:       "kQkogbvjyO4",
-                toggle:     "Pl_wKZWLln8",
-                firerecoil: "yAZevdf3xw8"
-            }
+
+        // ╔══════════════════════════════════════════════════════════════╗
+        // ║                    ⚙️  KONFIGURASI UTAMA                     ║
+        // ║         Edit bagian ini untuk mengubah konten website        ║
+        // ╚══════════════════════════════════════════════════════════════╝
+
+        // ── 1. LINK SOSIAL MEDIA & KONTAK ─────────────────────────────
+        const SOCIAL = {
+            whatsapp: "https://api.whatsapp.com/send/?phone=6289697523717",
+            tiktok:   "https://www.tiktok.com/@bampermana_",
+            youtube:  "https://www.youtube.com/channel/UCKydA45oOtKMmzxML44aTbg",
+            discord:  "https://discord.com/invite/zpuM9PRSdQ"
         };
 
-        // ══════════════════════════════════════════
-        // NEWS
-        // ══════════════════════════════════════════
+        // ── 2. VIDEO DEMO (YouTube Video ID) ──────────────────────────
+        //    Cara ambil ID: youtube.com/watch?v=XXXX  →  ambil bagian XXXX
+        const DEMO_VIDEOS = {
+            hold:       "kQkogbvjyO4",   // Demo Mode Hold
+            toggle:     "Pl_wKZWLln8",   // Demo Mode Toggle
+            firerecoil: "yAZevdf3xw8"    // Demo Fire Recoil
+        };
+
+        // ── 3. INFO & UPDATE ──────────────────────────────────────────
+        //    Tambah item baru dengan menambah { } di bawah
         const NEWS_ITEMS = [
             {
                 title:  "INFO UPDATE - [ TIKTOK ]",
@@ -1799,134 +2011,123 @@
             }
         ];
 
-
-        // ══════════════════════════════════════════
-        // PRODUCTS
-        // ══════════════════════════════════════════
+        // ── 4. DAFTAR PRODUK ──────────────────────────────────────────
+        //    Untuk menambah produk baru, copy salah satu blok { } dan edit
+        //    videoId / videoId2: isi YouTube ID, atau "-" jika tidak ada
         const PRODUCTS = [
             {
-                id: "pubg-sw-lite",
-                name: "PUBG  -  Lite",
-                subtitle: "MODE HOLD / TOGGLE",
-                price: "Rp 100.000 (Lifetime)",
-                tag: "PUBG (Software)",
-                image: "https://4kwallpapers.com/images/wallpapers/playerunknowns-2732x2732-20844.jpg",
-                videoId: "YoyGEKerbjc",
+                id:          "pubg-sw-lite",
+                name:        "PUBG  -  Lite",
+                subtitle:    "MODE HOLD / TOGGLE",
+                price:       "Rp 100.000 (Lifetime)",
+                tag:         "PUBG (Software)",
+                image:       "https://4kwallpapers.com/images/wallpapers/playerunknowns-2732x2732-20844.jpg",
+                videoId:     "YoyGEKerbjc",
                 video1Label: "Demo Mode Hold",
-                videoId2: "n7DOgW1gn5w",
+                videoId2:    "n7DOgW1gn5w",
                 video2Label: "Demo Mode Toggle",
-                desc: "Macro PUBG ini dirancang aktif saat ADS (Aim Down Sight), membantu mengontrol recoil secara otomatis sehingga tembakan lebih stabil dan akurat.",
-                specs: ["OS: Windows 10 / 11", "Semua jenis mouse", "Tanpa injeksi kode", "Lifetime license"],
-                howto: ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"],
+                desc:        "Macro PUBG ini dirancang aktif saat ADS (Aim Down Sight), membantu mengontrol recoil secara otomatis sehingga tembakan lebih stabil dan akurat.",
+                specs:       ["OS: Windows 10 / 11", "Semua jenis mouse", "Tanpa injeksi kode", "Lifetime license"],
+                howto:       ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"]
             },
             {
-                id: "pubg-sw-fr",
-                name: "PUBG  -  Pro",
-                subtitle: "MODE HOLD / TOGGLE",
-                price: "Rp 150.000 (Lifetime)",
-                tag: "PUBG (Software)",
-                image: "https://gamerant.com/wp-content/uploads/2021/08/pubg-battlegrounds-silly-name.jpg",
-                videoId: "yCeOoyfk2Rk",
+                id:          "pubg-sw-fr",
+                name:        "PUBG  -  Pro",
+                subtitle:    "MODE HOLD / TOGGLE",
+                price:       "Rp 150.000 (Lifetime)",
+                tag:         "PUBG (Software)",
+                image:       "https://gamerant.com/wp-content/uploads/2021/08/pubg-battlegrounds-silly-name.jpg",
+                videoId:     "yCeOoyfk2Rk",
                 video1Label: "Demo Pro Mode Hold",
-                videoId2: "KuPa3mpymDo",
+                videoId2:    "KuPa3mpymDo",
                 video2Label: "Demo Pro Mode Toggle",
-                desc: "Macro PUBG Pro mendukung ADS dan hipfire. Kontrol recoil aktif di semua kondisi, berbeda dari versi Lite yang hanya ADS.",
-                specs: ["OS: Windows 10 / 11", "Semua jenis mouse", "Tanpa injeksi kode", "Lifetime license"],
-                howto: ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"],
+                desc:        "Macro PUBG Pro mendukung ADS dan hipfire. Kontrol recoil aktif di semua kondisi, berbeda dari versi Lite yang hanya ADS.",
+                specs:       ["OS: Windows 10 / 11", "Semua jenis mouse", "Tanpa injeksi kode", "Lifetime license"],
+                howto:       ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"]
             },
             {
-                id: "delta-v1-sw",
-                name: "Delta Force V1",
-                subtitle: "Garena & Steam Ready!",
-                price: "Rp 50.000 (Lifetime)",
-                tag: "DeltaForce (Software)",
-                image: "https://cdn-cf.gamivo.com/image_cover.jpg?f=524077&n=0c6d6469-85d0-4402-8cde-f9b042f00547.jpg&h=ab453b3db334aec27f4bded205e0d850",
-                videoId: "zG8VmiLS0rw",
+                id:          "delta-v1-sw",
+                name:        "Delta Force V1",
+                subtitle:    "Garena & Steam Ready!",
+                price:       "Rp 50.000 (Lifetime)",
+                tag:         "DeltaForce (Software)",
+                image:       "https://cdn-cf.gamivo.com/image_cover.jpg?f=524077&n=0c6d6469-85d0-4402-8cde-f9b042f00547.jpg&h=ab453b3db334aec27f4bded205e0d850",
+                videoId:     "zG8VmiLS0rw",
                 video1Label: "Demo Delta Force V1",
-                videoId2: "-",
-                video2Label: "Gameplay Proof",
-                desc: "Macro Delta Force V1 kompatibel versi Garena & Steam. Native logic tanpa library luar, aman dan stabil.",
-                specs: ["OS: Windows 10 / 11", "Garena & Steam", "Semua jenis mouse", "Lifetime license"],
-                howto: ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"],
+                videoId2:    "-",
+                video2Label: "-",
+                desc:        "Macro Delta Force V1 kompatibel versi Garena & Steam. Native logic tanpa library luar, aman dan stabil.",
+                specs:       ["OS: Windows 10 / 11", "Garena & Steam", "Semua jenis mouse", "Lifetime license"],
+                howto:       ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"]
             },
             {
-                id: "delta-v2-sw",
-                name: "Delta Force V2",
-                subtitle: "Garena & Steam Ready!",
-                price: "Rp 100.000 (Lifetime)",
-                tag: "DeltaForce (Software)",
-                image: "https://cdn-cf.gamivo.com/image_cover.jpg?f=524077&n=0c6d6469-85d0-4402-8cde-f9b042f00547.jpg&h=ab453b3db334aec27f4bded205e0d850",
-                videoId: "Od8l251f13M",
+                id:          "delta-v2-sw",
+                name:        "Delta Force V2",
+                subtitle:    "Garena & Steam Ready!",
+                price:       "Rp 100.000 (Lifetime)",
+                tag:         "DeltaForce (Software)",
+                image:       "https://cdn-cf.gamivo.com/image_cover.jpg?f=524077&n=0c6d6469-85d0-4402-8cde-f9b042f00547.jpg&h=ab453b3db334aec27f4bded205e0d850",
+                videoId:     "Od8l251f13M",
                 video1Label: "Demo Delta Force V2",
-                videoId2: "-",
-                video2Label: "Gameplay Proof",
-                desc: "Macro Delta Force V2 dengan kontrol lebih presisi. Setting lebih lengkap, cocok untuk player yang ingin performa maksimal.",
-                specs: ["OS: Windows 10 / 11", "Garena & Steam", "Semua jenis mouse", "Lifetime license"],
-                howto: ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"],
+                videoId2:    "-",
+                video2Label: "-",
+                desc:        "Macro Delta Force V2 dengan kontrol lebih presisi. Setting lebih lengkap, cocok untuk player yang ingin performa maksimal.",
+                specs:       ["OS: Windows 10 / 11", "Garena & Steam", "Semua jenis mouse", "Lifetime license"],
+                howto:       ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"]
             },
             {
-                id: "bloodstrike-sw",
-                name: "BloodStrike",
-                subtitle: "Windows & Steam Ready!",
-                price: "Rp 50.000 (Lifetime)",
-                tag: "BloodStrike (Software)",
-                image: "https://static.tophub.id/tophub/product/blood-strike-0_0dfWa-N75.webp?tr=w-640",
-                videoId: "-ucNJ4KahjI",
+                id:          "bloodstrike-sw",
+                name:        "BloodStrike",
+                subtitle:    "Windows & Steam Ready!",
+                price:       "Rp 50.000 (Lifetime)",
+                tag:         "BloodStrike (Software)",
+                image:       "https://static.tophub.id/tophub/product/blood-strike-0_0dfWa-N75.webp?tr=w-640",
+                videoId:     "-ucNJ4KahjI",
                 video1Label: "Demo BloodStrike",
-                videoId2: "-",
-                video2Label: "Gameplay Proof",
-                desc: "Macro BloodStrike untuk Windows & Steam. Optimasi FPS & input, respon cepat dan stabil di semua kondisi game.",
-                specs: ["OS: Windows 10 / 11", "Windows & Steam", "Semua jenis mouse", "Lifetime license"],
-                howto: ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"],
+                videoId2:    "-",
+                video2Label: "-",
+                desc:        "Macro BloodStrike untuk Windows & Steam. Optimasi FPS & input, respon cepat dan stabil di semua kondisi game.",
+                specs:       ["OS: Windows 10 / 11", "Windows & Steam", "Semua jenis mouse", "Lifetime license"],
+                howto:       ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"]
             },
             {
-                id: "pubg-hw",
-                name: "COMING SOON!!",
-                subtitle: "-",
-                price: "-",
-                tag: "(UNIT-X)",
-                image: "https://media.indiedb.com/images/games/1/43/42826/COMING_SOON.jpg",
-                videoId: "-",
-                video1Label: "Teaser",
-                videoId2: "-",
-                video2Label: "Preview",
-                desc: "Produk hardware Unit-X sedang dalam pengembangan. Stay tuned untuk update selanjutnya!",
-                specs: ["Info segera hadir", "Follow sosial media kami"],
-                howto: ["Pantau terus update di Discord & TikTok"],
+                id:          "coming-soon-hw",
+                name:        "COMING SOON!!",
+                subtitle:    "-",
+                price:       "-",
+                tag:         "(UNIT-X)",
+                image:       "https://media.indiedb.com/images/games/1/43/42826/COMING_SOON.jpg",
+                videoId:     "-",
+                video1Label: "-",
+                videoId2:    "-",
+                video2Label: "-",
+                desc:        "Produk hardware Unit-X sedang dalam pengembangan. Stay tuned untuk update selanjutnya!",
+                specs:       ["Info segera hadir", "Follow sosial media kami"],
+                howto:       ["Pantau terus update di Discord & TikTok"]
             }
         ];
 
-        // ══════════════════════════════════════════
-        // STATE
-        // ══════════════════════════════════════════
-        let activeVideoId = '';
+        // ── 5. GITHUB TESTIMONI ───────────────────────────────────────
+        //    Upload foto ke folder "testimoni" di repo, otomatis tampil
+        const GITHUB_USER   = 'bam-source';
+        const GITHUB_REPO   = 'BAM-MACRO-RECOIL';
+        const GITHUB_FOLDER = 'testimoni';
+
+        // ╔══════════════════════════════════════════════════════════════╗
+        // ║              🔧  FUNGSI — JANGAN DIEDIT                     ║
+        // ╚══════════════════════════════════════════════════════════════╝
+
+        let activeVideoId  = '';
         let activeVideoId2 = '';
 
-        // ══════════════════════════════════════════
-        // ACCORDION
-        // ══════════════════════════════════════════
-        function toggleAcc(id) {
-            const el   = document.getElementById(id);
-            const icon = document.getElementById(id + '-icon');
-            const open = el.style.display === 'block';
-            el.style.display = open ? 'none' : 'block';
-            if (icon) icon.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
-        }
+        const STAR_HTML = '<i class="fa-solid fa-star" style="color:var(--red-bright);font-size:7px;"></i>'.repeat(5);
 
-        function openAccordion(id) {
-            const el   = document.getElementById(id);
-            const icon = document.getElementById(id + '-icon');
-            if (el) { el.style.display = 'block'; if (icon) icon.style.transform = 'rotate(180deg)'; }
-        }
-
-        // ══════════════════════════════════════════
-        // RENDER NEWS
-        // ══════════════════════════════════════════
+        // Render info & update
         function renderNews() {
             const container = document.getElementById('hero-news-container');
             if (!container) return;
             const sorted = [...NEWS_ITEMS].sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0));
-            const badge = document.getElementById('hero-news-badge');
+            const badge  = document.getElementById('hero-news-badge');
             if (badge && sorted.length > 0) badge.textContent = sorted.length + ' baru';
             container.innerHTML = sorted.map(n => `
                 <div class="hero-news-item">
@@ -1935,7 +2136,7 @@
                         <div class="hero-news-meta">
                             <span class="hero-news-tag">${n.tag}</span>
                             <span class="hero-news-date">${n.date}</span>
-                            ${n.pinned ? '<span style="font-size:9px;color:var(--red-bright);"><i class="fa-solid fa-thumbtack" style="font-size:8px;"></i></span>' : ''}
+                            ${n.pinned ? '<i class="fa-solid fa-thumbtack" style="font-size:8px;color:var(--red-bright);"></i>' : ''}
                         </div>
                         <div class="hero-news-title">${n.title}</div>
                         <div class="hero-news-desc">${n.desc}</div>
@@ -1944,9 +2145,7 @@
             `).join('');
         }
 
-        // ══════════════════════════════════════════
-        // RENDER PRODUCTS
-        // ══════════════════════════════════════════
+        // Render produk
         function renderProducts() {
             const list = document.getElementById('product-list');
             list.innerHTML = PRODUCTS.map(p => {
@@ -1972,40 +2171,22 @@
             }).join('');
         }
 
-        // ══════════════════════════════════════════
-        // RENDER TESTIMONIALS
-        // ══════════════════════════════════════════
-        // ══════════════════════════════════════════
-        // TESTIMONIALS — AUTO FETCH FROM GITHUB
-        // ══════════════════════════════════════════
-        const GITHUB_USER = 'bam-source';       // ← ganti dengan username GitHub kamu
-        const GITHUB_REPO = 'BAM-MACRO-RECOIL';      // ← ganti dengan nama repo kamu
-        const GITHUB_FOLDER = 'testimoni';    // ← nama folder di repo
-
-        const STAR_HTML = '<i class="fa-solid fa-star" style="color:var(--red-bright);font-size:7px;"></i>'.repeat(5);
-
+        // Render testimoni dari GitHub
         async function renderTestimonials() {
             const container = document.getElementById('testi-scroll-container');
-
-            // Loading state
             container.innerHTML = `<div style="display:flex;align-items:center;gap:10px;padding:20px;color:var(--gray-dim);">
                 <i class="fa-solid fa-spinner fa-spin" style="color:var(--red-bright);"></i>
                 <span style="font-family:'Rajdhani',sans-serif;font-size:13px;">Memuat testimoni...</span>
             </div>`;
-
             try {
-                const res = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FOLDER}`);
+                const res    = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FOLDER}`);
                 if (!res.ok) throw new Error('Gagal fetch');
-                const files = await res.json();
-
-                // Filter hanya file gambar
+                const files  = await res.json();
                 const images = files.filter(f => /\.(jpg|jpeg|png|gif|webp)$/i.test(f.name));
-
                 if (images.length === 0) {
                     container.innerHTML = `<div style="padding:20px;color:var(--gray-dim);font-family:'Rajdhani',sans-serif;font-size:13px;">Belum ada testimoni.</div>`;
                     return;
                 }
-
                 container.innerHTML = images.map(file => {
                     const proxied = 'https://images.weserv.nl/?url=' + encodeURIComponent(file.download_url);
                     return `
@@ -2014,7 +2195,7 @@
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                         <div class="testi-placeholder" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;gap:8px;background:#1a1010;">
                             <i class="fa-solid fa-image" style="color:var(--red-dim);font-size:28px;"></i>
-                            <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-dim);">Testimoni</span>
+                            <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:10px;text-transform:uppercase;color:var(--gray-dim);">Testimoni</span>
                         </div>
                         <div class="testi-overlay"></div>
                         <div class="testi-info">
@@ -2027,18 +2208,14 @@
                         <div class="testi-zoom"><i class="fa-solid fa-magnifying-glass-plus" style="color:var(--red-bright);font-size:9px;"></i></div>
                     </div>`;
                 }).join('');
-
             } catch (e) {
                 container.innerHTML = `<div style="padding:20px;color:var(--gray-dim);font-family:'Rajdhani',sans-serif;font-size:13px;">
-                    <i class="fa-solid fa-triangle-exclamation" style="color:var(--red-bright);margin-right:6px;"></i>
-                    Gagal memuat testimoni.
+                    <i class="fa-solid fa-triangle-exclamation" style="color:var(--red-bright);margin-right:6px;"></i>Gagal memuat testimoni.
                 </div>`;
             }
         }
 
-        // ══════════════════════════════════════════
-        // RENDER SOCIAL LINKS
-        // ══════════════════════════════════════════
+        // Render link sosial media
         function renderSocialLinks() {
             const LINKS = [
                 { id: 'whatsapp', icon: 'fa-whatsapp', color: '#25d366', label: 'WhatsApp', bg: 'rgba(37,211,102,0.1)' },
@@ -2046,8 +2223,6 @@
                 { id: 'tiktok',   icon: 'fa-tiktok',   color: '#fff',    label: 'TikTok',   bg: 'rgba(255,255,255,0.06)' },
                 { id: 'youtube',  icon: 'fa-youtube',  color: '#ff0000', label: 'YouTube',  bg: 'rgba(255,0,0,0.1)' },
             ];
-
-            // Footer pills
             const footerEl = document.getElementById('footer-social-container');
             if (footerEl) footerEl.innerHTML = LINKS.map(l => `
                 <button onclick="goTo('${l.id}')" class="social-pill">
@@ -2055,8 +2230,6 @@
                     <span>${l.label}</span>
                 </button>
             `).join('');
-
-            // Modal links
             const modalEl = document.getElementById('social-links-container');
             if (modalEl) modalEl.innerHTML = LINKS.map(l => `
                 <div onclick="goTo('${l.id}')" class="social-link-row">
@@ -2069,115 +2242,95 @@
             `).join('');
         }
 
-        // ══════════════════════════════════════════
-        // MACRO VIDEO THUMBNAILS
-        // ══════════════════════════════════════════
+        // Render thumbnail video demo
         function renderMacroVideos() {
-            ['hold','toggle','firerecoil'].forEach(t => {
-                const img = document.getElementById('macro-img-' + t);
-                if (img) img.src = 'https://img.youtube.com/vi/' + CONFIG.macroVideos[t] + '/mqdefault.jpg';
+            const map = { hold: 'demo-thumb-hold', toggle: 'demo-thumb-toggle', firerecoil: 'demo-thumb-firerecoil' };
+            Object.entries(DEMO_VIDEOS).forEach(([key, videoId]) => {
+                const img = document.getElementById(map[key]);
+                if (img) img.src = 'https://img.youtube.com/vi/' + videoId + '/mqdefault.jpg';
             });
         }
 
-        // ══════════════════════════════════════════
-        // OPEN DETAIL
-        // ══════════════════════════════════════════
+        // Buka detail produk
         function openDetail(id) {
             const p = PRODUCTS.find(i => i.id === id);
             if (!p) return;
             activeVideoId  = p.videoId;
             activeVideoId2 = p.videoId2 || '-';
-
             document.getElementById('modal-title').innerText = p.name;
             document.getElementById('modal-price').innerText = p.price;
             document.getElementById('modal-tag').innerText   = p.tag;
-
             const vid1   = p.videoId  && p.videoId  !== '-';
             const vid2   = p.videoId2 && p.videoId2 !== '-';
             const thumb1 = vid1 ? `https://img.youtube.com/vi/${p.videoId}/mqdefault.jpg`  : '';
             const thumb2 = vid2 ? `https://img.youtube.com/vi/${p.videoId2}/mqdefault.jpg` : '';
             const label1 = p.video1Label || 'Video 1';
             const label2 = p.video2Label || 'Video 2';
-
             function videoBlock(thumbSrc, label, clickFn, borderRight) {
-                return `<div onclick="${clickFn}" style="flex:1;min-width:0;cursor:pointer;${borderRight?'border-right:1px solid var(--border);':''}position:relative;">
+                return `<div onclick="${clickFn}" style="flex:1;min-width:0;cursor:pointer;${borderRight ? 'border-right:1px solid var(--border);' : ''}position:relative;">
                     <div style="position:relative;width:100%;padding-bottom:56.25%;overflow:hidden;background:#000;">
                         <img src="${thumbSrc}" alt="${label}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.55;transition:opacity 0.25s;">
                         <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 55%);pointer-events:none;"></div>
                         <div style="position:absolute;top:6px;left:8px;display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:99px;background:rgba(220,38,38,0.2);border:1px solid rgba(220,38,38,0.4);">
                             <i class="fa-brands fa-youtube" style="color:#f87171;font-size:7px;"></i>
-                            <span style="font-size:6.5px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.08em;">${label}</span>
+                            <span style="font-size:6.5px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.05em;">${label}</span>
                         </div>
                         <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
                             <div style="width:34px;height:34px;border-radius:9px;background:rgba(220,38,38,0.9);display:flex;align-items:center;justify-content:center;box-shadow:0 0 14px rgba(220,38,38,0.6);">
                                 <i class="fa-brands fa-youtube" style="color:#fff;font-size:13px;"></i>
                             </div>
                         </div>
-                        <div style="position:absolute;bottom:6px;left:8px;font-size:7px;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.05em;">Klik untuk tonton</div>
+                        <div style="position:absolute;bottom:6px;left:8px;font-size:7px;color:rgba(255,255,255,0.45);text-transform:uppercase;">Klik untuk tonton</div>
                     </div>
                 </div>`;
             }
-
             const wrapper = document.getElementById('modal-video-wrapper');
             if (vid1 && vid2) {
                 wrapper.innerHTML = `<div style="display:flex;">${videoBlock(thumb1,label1,'playVideo(1)',true)}${videoBlock(thumb2,label2,'playVideo(2)',false)}</div>`;
             } else if (vid1) {
                 wrapper.innerHTML = `<div style="display:flex;">${videoBlock(thumb1,label1,'playVideo(1)',false)}</div>`;
             } else {
-                wrapper.innerHTML = `<div style="padding:20px;text-align:center;"><p style="font-size:11px;color:var(--red-bright);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;">Tidak ada video tersedia</p></div>`;
+                wrapper.innerHTML = `<div style="padding:20px;text-align:center;"><p style="font-size:11px;color:var(--red-bright);font-weight:700;text-transform:uppercase;">Tidak ada video tersedia</p></div>`;
             }
-
             document.getElementById('modal-desc').innerText = p.desc || '-';
-
-            document.getElementById('modal-specs').innerHTML = (p.specs || []).map(s =>
-                `<li><i class="fa-solid fa-check ico"></i>${s}</li>`).join('');
-
-            document.getElementById('modal-howto').innerHTML = (p.howto || []).map((h, i) =>
-                `<li><span class="ico" style="font-size:9px;font-weight:700;color:var(--red-bright);flex-shrink:0;">${i+1}.</span>${h}</li>`).join('');
-
+            document.getElementById('modal-specs').innerHTML  = (p.specs  || []).map(s => `<li><i class="fa-solid fa-check ico"></i>${s}</li>`).join('');
+            document.getElementById('modal-howto').innerHTML  = (p.howto  || []).map((h, i) => `<li><span class="ico" style="font-size:9px;font-weight:700;color:var(--red-bright);flex-shrink:0;">${i+1}.</span>${h}</li>`).join('');
             document.getElementById('detail-modal').classList.add('open');
             document.body.style.overflow = 'hidden';
         }
 
-        // ══════════════════════════════════════════
-        // HELPERS
-        // ══════════════════════════════════════════
-        function goTo(p) { window.open(CONFIG.social[p], '_blank'); }
-
-        function playVideo(n) {
-            const id = n === 2 ? activeVideoId2 : activeVideoId;
-            if (id && id !== '-') window.open(`https://youtube.com/watch?v=${id}`, '_blank');
-        }
-
-        function closeDetail()  { document.getElementById('detail-modal').classList.remove('open');  document.body.style.overflow='auto'; }
-        function openContact()  { document.getElementById('contact-modal').classList.add('open');    document.body.style.overflow='hidden'; }
-        function closeContact() { document.getElementById('contact-modal').classList.remove('open'); document.body.style.overflow='auto'; }
+        // Navigasi ke sosial media
+        function goTo(key)     { window.open(SOCIAL[key], '_blank'); }
+        function playVideo(n)  { const id = n === 2 ? activeVideoId2 : activeVideoId; if (id && id !== '-') window.open(`https://youtube.com/watch?v=${id}`, '_blank'); }
+        function closeDetail() { document.getElementById('detail-modal').classList.remove('open');  document.body.style.overflow = 'auto'; }
+        function openContact() { document.getElementById('contact-modal').classList.add('open');    document.body.style.overflow = 'hidden'; }
+        function closeContact(){ document.getElementById('contact-modal').classList.remove('open'); document.body.style.overflow = 'auto'; }
 
         function openLightbox(url) {
-            const lb  = document.getElementById('lightbox');
             const img = document.getElementById('lightbox-img');
-            img.onerror = () => { closeLightbox(); };
+            img.onerror = () => closeLightbox();
             img.src = url;
-            lb.classList.add('active');
+            document.getElementById('lightbox').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
         function closeLightbox() {
             document.getElementById('lightbox').classList.remove('active');
-            if (document.getElementById('detail-modal').classList.contains('open') || document.getElementById('contact-modal').classList.contains('open')) return;
-            document.body.style.overflow = 'auto';
+            const detailOpen  = document.getElementById('detail-modal').classList.contains('open');
+            const contactOpen = document.getElementById('contact-modal').classList.contains('open');
+            if (!detailOpen && !contactOpen) document.body.style.overflow = 'auto';
         }
 
-        // ══════════════════════════════════════════
-        // INIT
-        // ══════════════════════════════════════════
+        // Init
         window.onload = async () => {
             renderProducts();
             renderSocialLinks();
-            await renderTestimonials();
-            renderNews();
             renderMacroVideos();
+            renderNews();
+            await renderTestimonials();
         };
+
     </script>
+
 </body>
 </html>
