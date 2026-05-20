@@ -1449,36 +1449,44 @@
         .hero-update-slider-header {
             display: flex;
             align-items: center;
-            justify-content: space-between;
             gap: 12px;
             padding: 10px 12px;
             border-bottom: 1px solid rgba(255,255,255,0.06);
             background: rgba(255,255,255,0.02);
         }
 
-        .hero-update-slider-nav {
+        .hero-update-slider-controls {
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 0 8px 10px;
         }
 
         .hero-update-slider-btn {
-            width: 28px;
-            height: 28px;
-            border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.08);
-            background: rgba(255,255,255,0.03);
+            min-width: 108px;
+            height: 38px;
+            border-radius: 12px;
+            border: 1px solid rgba(220,38,38,0.18);
+            background: rgba(255,255,255,0.04);
             color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 8px;
             cursor: pointer;
             transition: all 0.2s ease;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
         .hero-update-slider-btn:hover {
-            border-color: rgba(220,38,38,0.32);
-            background: rgba(220,38,38,0.12);
+            border-color: rgba(220,38,38,0.35);
+            background: rgba(220,38,38,0.16);
+            transform: translateY(-1px);
         }
 
         .hero-update-slider-viewport {
@@ -1571,6 +1579,15 @@
             .hero-update-slide {
                 min-width: 100%;
                 flex-basis: 100%;
+            }
+
+            .hero-update-slider-controls {
+                padding-bottom: 8px;
+            }
+
+            .hero-update-slider-btn {
+                min-width: 0;
+                flex: 1;
             }
         }
 
@@ -1966,17 +1983,19 @@
                             <i class="fa-solid fa-video" style="color:var(--red-bright);font-size:12px;"></i>
                             <span class="highlight-card-title">Video Update Macro</span>
                         </div>
-                        <div class="hero-update-slider-nav">
-                            <button type="button" class="hero-update-slider-btn" id="hero-update-prev" aria-label="Update sebelumnya">
-                                <i class="fa-solid fa-chevron-left" style="font-size:10px;"></i>
-                            </button>
-                            <button type="button" class="hero-update-slider-btn" id="hero-update-next" aria-label="Update berikutnya">
-                                <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i>
-                            </button>
-                        </div>
                     </div>
                     <div class="hero-update-slider-viewport">
                         <div class="hero-update-slider-track" id="hero-update-track"></div>
+                    </div>
+                    <div class="hero-update-slider-controls">
+                        <button type="button" class="hero-update-slider-btn" id="hero-update-prev" aria-label="Update sebelumnya">
+                            <i class="fa-solid fa-chevron-left" style="font-size:10px;"></i>
+                            <span>Prev</span>
+                        </button>
+                        <button type="button" class="hero-update-slider-btn" id="hero-update-next" aria-label="Update berikutnya">
+                            <span>Next</span>
+                            <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i>
+                        </button>
                     </div>
                 </div>
             </div>
