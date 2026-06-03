@@ -148,6 +148,19 @@
             transform: translateY(-1px);
         }
 
+        .nav-menu-btn {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border: 1px solid rgba(239,68,68,0.28);
+            border-radius: 8px;
+            background: rgba(220,38,38,0.08);
+            color: #fff;
+            cursor: pointer;
+        }
+
         /* ── HERO ── */
         .hero {
             position: relative;
@@ -185,6 +198,30 @@
         }
 
         @media (max-width: 768px) {
+            nav { height: 52px; }
+            .nav-inner { position: relative; padding: 0 14px; gap: 8px; }
+            .logo-icon { width: 28px; height: 28px; border-radius: 7px; }
+            .logo-text { font-size: 17px; letter-spacing: 0.06em; }
+            .nav-cta { padding: 7px 11px; font-size: 11px; gap: 6px; border-radius: 7px; }
+            .nav-menu-btn { display: inline-flex; }
+            .nav-links {
+                position: absolute;
+                left: 14px;
+                right: 14px;
+                top: calc(100% + 8px);
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 6px;
+                padding: 8px;
+                border: 1px solid rgba(239,68,68,0.28);
+                border-radius: 10px;
+                background: rgba(13,10,10,0.98);
+                box-shadow: 0 16px 34px rgba(0,0,0,0.36);
+            }
+            nav.nav-open .nav-links { display: flex; }
+            .nav-link { display: flex; padding: 8px 10px; font-size: 11px; }
+            .nav-links .nav-cta { justify-content: center; width: 100%; }
             .hero {
                 width: calc(100% - 28px);
                 margin: 76px auto 22px;
@@ -195,7 +232,6 @@
                 gap: 14px;
             }
             .hero-visual { display: none; }
-            nav .nav-link { display: none; }
         }
 
         .hero-topline {
@@ -1737,6 +1773,54 @@
             .product-subtitle { font-size: 8.5px; }
         }
 
+        @media (max-width: 480px) {
+            nav { height: 50px; }
+            .nav-inner { padding: 0 12px; }
+            .logo-icon { width: 26px; height: 26px; }
+            .logo-text { font-size: 15px; letter-spacing: 0.05em; }
+            .nav-menu-btn { width: 30px; height: 30px; }
+            .nav-links { left: 12px; right: 12px; }
+            .hero {
+                width: calc(100% - 20px);
+                margin: 66px auto 20px;
+            }
+            .hero-topline { padding: 8px 10px; }
+            .hero-topline-pill { font-size: 8.5px; padding: 3px 7px; }
+            .hero-shell { padding: 12px; gap: 12px; }
+            .hero-title { font-size: clamp(34px, 11vw, 39px); }
+            .hero-stats { gap: 8px; }
+            .hero-stat-num { font-size: 18px; }
+            .hero-stat-label { font-size: 7.5px; letter-spacing: 0.07em; }
+            .hero-mini-demo-grid { gap: 5px; padding: 5px; }
+            .hero-mini-demo-thumb { padding-bottom: 24%; }
+            .hero-update-thumb { padding-bottom: 26%; }
+            .section { padding: 22px 0; }
+            .section-header { gap: 10px; margin-bottom: 16px; }
+            .section-title { font-size: 24px; }
+            .product-grid { gap: 8px; }
+            .product-body { padding: 8px; }
+            .product-name { font-size: 10.8px; }
+            .product-subtitle { font-size: 8px; margin-bottom: 6px; }
+            .product-price { font-size: 8.5px; padding: 3px 5px; }
+            .product-arrow { width: 19px; height: 19px; }
+        }
+
+        @media (max-width: 360px) {
+            .logo-text { font-size: 14px; }
+            .hero-actions { flex-direction: column; }
+            .btn-primary,
+            .btn-ghost { justify-content: center; width: 100%; }
+            .hero-stats {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 6px;
+            }
+            .hero-stat-num { font-size: 16px; }
+            .hero-stat-label { font-size: 6.8px; }
+            .hero-mini-demo-grid { grid-template-columns: 1fr; }
+            .hero-mini-demo-thumb { padding-bottom: 28%; }
+        }
+
         section > .highlight-card-header,
         section > .highlight-card-body {
             display: none;
@@ -2011,16 +2095,17 @@
     <!-- ════ NAVBAR ════ -->
     <nav>
         <div class="nav-inner">
-            <a href="#" class="nav-logo">
+            <a href="index.html" class="nav-logo">
                 <div class="logo-icon">
                     <i class="fa-solid fa-gun" style="color:#fff;font-size:13px;"></i>
                 </div>
                 <span class="logo-text">BAM<span>PROJECT</span></span>
             </a>
+            <button class="nav-menu-btn" onclick="toggleNavMenu()" aria-label="Buka menu navigasi"><i class="fa-solid fa-bars"></i></button>
             <div class="nav-links">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="macro-recoil.html" class="nav-link">Project Macro Game</a>
-                <a href="mod-game-indonesia.html" class="nav-link">Project Mod Game</a>
+                <a href="index.html" class="nav-link" onclick="closeNavMenu()">Home</a>
+                <a href="macro-recoil.html" class="nav-link" onclick="closeNavMenu()">Project Macro Game</a>
+                <a href="mod-game-indonesia.html" class="nav-link" onclick="closeNavMenu()">Project Mod Game</a>
                 <button class="nav-cta" onclick="openContact()">
                     <i class="fa-solid fa-headset"></i> Kontak Admin
                 </button>
@@ -2035,7 +2120,7 @@
                 <div class="hero-topline-left">
                     <div class="hero-topline-pill">
                         <i class="fa-solid fa-crosshairs"></i>
-                        <span id="hero-eyebrow-text">PROJECT MACRO GAME</span>
+                        <span id="hero-eyebrow-text">Kategori</span>
                     </div>
                     <span class="hero-topline-text"></span>
                 </div>
@@ -2267,7 +2352,7 @@
         <!-- ── PRODUCT CATALOG ── -->
         <div id="produk" class="section">
             <div class="section-header">
-                <span class="section-tag">PROJECT MACRO GAME</span>
+                <span class="section-tag">Kategori</span>
                 <h2 class="section-title">Project Macro Game</h2>
                 <div class="section-line"></div>
             </div>
@@ -2433,7 +2518,7 @@
         };
 
         const HERO_CONTENT = {
-            eyebrow: "PROJECT MACRO GAME",
+            eyebrow: "Kategori",
             titleLines: [
                 { text: "Project", className: "" },
                 { text: "Recoil", className: "line-red" },
@@ -2863,6 +2948,8 @@
         function closeDetail() { document.getElementById('detail-modal').classList.remove('open');  document.body.style.overflow = 'auto'; }
         function openContact() { document.getElementById('contact-modal').classList.add('open');    document.body.style.overflow = 'hidden'; }
         function closeContact(){ document.getElementById('contact-modal').classList.remove('open'); document.body.style.overflow = 'auto'; }
+        function toggleNavMenu() { document.querySelector('nav').classList.toggle('nav-open'); }
+        function closeNavMenu() { document.querySelector('nav').classList.remove('nav-open'); }
 
         function openLightbox(url) {
             const img = document.getElementById('lightbox-img');

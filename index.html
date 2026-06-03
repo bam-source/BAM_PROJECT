@@ -162,6 +162,18 @@
             white-space: nowrap;
         }
 
+        .nav-menu-btn {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border: 1px solid rgba(239,68,68,0.28);
+            border-radius: 8px;
+            background: rgba(220,38,38,0.08);
+            color: #fff;
+        }
+
         .page {
             position: relative;
             z-index: 1;
@@ -362,22 +374,6 @@
             align-items: center;
             gap: 8px;
             flex-shrink: 0;
-        }
-
-        .rail-btn {
-            width: 30px;
-            height: 30px;
-            border: 1px solid rgba(239,68,68,0.28);
-            border-radius: 8px;
-            background: rgba(220,38,38,0.08);
-            color: #fff;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .rail-btn:hover {
-            border-color: var(--red-bright);
-            background: rgba(220,38,38,0.18);
         }
 
         .category-product-title {
@@ -716,35 +712,61 @@
         }
 
         @media (max-width: 920px) {
+            nav { min-height: 54px; }
             .nav-inner {
-                flex-wrap: wrap;
+                position: relative;
+                min-height: 54px;
                 justify-content: space-between;
-                gap: 6px 10px;
-                padding: 8px 14px;
+                gap: 8px;
+                padding: 0 14px;
             }
+
+            .nav-menu-btn { display: inline-flex; }
 
             .category-nav {
-                order: 3;
-                width: 100%;
+                position: absolute;
+                left: 14px;
+                right: 14px;
+                top: calc(100% + 8px);
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                width: auto;
+                padding: 8px;
+                border: 1px solid rgba(239,68,68,0.28);
+                border-radius: 10px;
+                background: rgba(13,10,10,0.98);
+                box-shadow: 0 16px 34px rgba(0,0,0,0.36);
                 margin-left: 0;
-                justify-content: flex-start;
                 gap: 6px;
+                overflow: visible;
+                z-index: 120;
             }
 
+            nav.nav-open .category-nav { display: flex; }
+
             .category-tab {
-                height: 30px;
+                justify-content: flex-start;
+                width: 100%;
+                height: 32px;
                 padding: 0 10px;
                 font-size: 11px;
                 border-radius: 7px;
             }
 
             .nav-cta { height: 32px; padding: 0 12px; font-size: 12px; }
-            .page { padding-top: 106px; }
+            .page { padding-top: 72px; }
             .hero { grid-template-columns: 1fr; min-height: 0; }
         }
 
         @media (max-width: 720px) {
-            .page { padding: 104px 14px 28px; }
+            .page { padding: 70px 14px 28px; }
+            .nav-inner { min-height: 54px; padding: 6px 12px; }
+            .logo-icon { width: 28px; height: 28px; border-radius: 7px; }
+            .logo-text { font-size: 17px; letter-spacing: 0.06em; }
+            .category-nav { gap: 5px; }
+            .category-tab { height: 30px; padding: 0 9px; font-size: 10px; }
+            .nav-cta { height: 28px; padding: 0 10px; font-size: 10.5px; gap: 6px; border-radius: 7px; }
             h1 { font-size: 40px; margin-bottom: 10px; }
             .eyebrow { margin-bottom: 10px; padding: 3px 10px; font-size: 10px; }
             .section-tag { padding: 3px 9px; font-size: 10px; }
@@ -761,6 +783,8 @@
             .section { padding: 22px 0 4px; }
             .section-header { align-items: flex-start; flex-direction: column; }
             .category-product-head { align-items: flex-start; flex-direction: column; }
+            .category-product-title h3 { font-size: 15px; padding: 4px 9px; border-radius: 7px; }
+            .category-product-title span { font-size: 8.5px; padding: 2px 7px; }
             .category-product-section { padding: 12px; }
             .product-grid { gap: 8px; padding: 10px; }
             .product-grid .product-card { flex-basis: 136px; }
@@ -772,10 +796,56 @@
         }
 
         @media (max-width: 390px) {
-            .logo-text { font-size: 18px; }
+            .logo-text { font-size: 16px; }
+            .nav-cta i { display: none; }
             .nav-cta { padding: 0 10px; }
+            .category-product-title h3 { font-size: 13px; padding: 4px 8px; }
             .btn-primary,
             .btn-ghost { flex: 1 1 calc(50% - 8px); }
+        }
+
+        @media (max-width: 480px) {
+            .page { padding-left: 12px; padding-right: 12px; }
+            .category-nav { left: 12px; right: 12px; }
+            h1 { font-size: clamp(34px, 11vw, 40px); }
+            .hero-image { min-height: clamp(82px, 24vw, 96px); }
+            .hero-stats { gap: 5px; padding: 7px; }
+            .metric { padding: 6px 5px; }
+            .metric strong { font-size: 15px; }
+            .metric span { font-size: 7.5px; letter-spacing: 0.04em; }
+            .section-title { font-size: 22px; }
+            .category-product-section { padding: 10px; }
+            .category-product-head { gap: 10px; padding: 10px; }
+            .product-grid .product-card { flex-basis: 128px; }
+            .product-media { min-height: 70px; }
+            .product-body { padding: 8px; }
+            .product-title { font-size: 11px; }
+            .product-text { font-size: 8.2px; min-height: 20px; }
+            .product-price { font-size: 8.5px; padding: 3px 5px; }
+            .product-link { font-size: 9px; }
+        }
+
+        @media (max-width: 340px) {
+            .nav-inner { padding-left: 10px; padding-right: 10px; }
+            .logo-icon { width: 26px; height: 26px; }
+            .logo-text { font-size: 14px; }
+            .nav-menu-btn { width: 28px; height: 28px; }
+            .nav-cta {
+                width: 28px;
+                height: 28px;
+                padding: 0;
+                font-size: 0;
+            }
+            .nav-cta i {
+                display: inline-block;
+                font-size: 12px;
+            }
+            .page { padding-top: 66px; }
+            .hero-actions { flex-direction: column; }
+            .btn-primary,
+            .btn-ghost { width: 100%; flex-basis: auto; }
+            .hero-stats { grid-template-columns: 1fr; }
+            .product-grid .product-card { flex-basis: 122px; }
         }
     </style>
 </head>
@@ -786,6 +856,7 @@
                 <div class="logo-icon"><i class="fa-solid fa-layer-group" style="color:#fff;font-size:13px;"></i></div>
                 <span class="logo-text">BAM<span>PROJECT</span></span>
             </a>
+            <button class="nav-menu-btn" onclick="toggleNavMenu()" aria-label="Buka menu navigasi"><i class="fa-solid fa-bars"></i></button>
             <div class="category-nav" id="category-nav"></div>
             <button class="nav-cta" onclick="openContact()"><i class="fa-solid fa-headset"></i> Kontak Admin</button>
         </div>
@@ -860,7 +931,7 @@
         function renderCategoryNav() {
             const nav = document.getElementById('category-nav');
             nav.innerHTML = PROJECT_CATEGORIES.map(category => `
-                <a class="category-tab" href="${category.href}">
+                <a class="category-tab" href="${category.href}" onclick="closeNavMenu()">
                     <i class="fa-solid ${category.icon}"></i>
                     ${category.name}
                 </a>
@@ -936,8 +1007,6 @@
                                 </div>
                             </div>
                             <div class="category-actions">
-                                <button type="button" class="rail-btn" onclick="scrollCategory('${category.id}', -1)" aria-label="Produk sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
-                                <button type="button" class="rail-btn" onclick="scrollCategory('${category.id}', 1)" aria-label="Produk berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
                                 <a class="product-link" href="${category.href}">Buka <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
@@ -999,10 +1068,11 @@
         }
 
         function goTo(key) { window.open(SOCIAL[key], '_blank'); }
-        function scrollCategory(categoryId, direction) {
-            const rail = document.getElementById(`rail-${categoryId}`);
-            if (!rail) return;
-            rail.scrollBy({ left: direction * Math.max(220, rail.clientWidth * 0.75), behavior: 'smooth' });
+        function toggleNavMenu() {
+            document.querySelector('nav').classList.toggle('nav-open');
+        }
+        function closeNavMenu() {
+            document.querySelector('nav').classList.remove('nav-open');
         }
         function openLightbox(url) {
             document.getElementById('lightbox-img').src = url;
