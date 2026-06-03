@@ -3,92 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAM MACRO RECOIL</title>
+    <title>BAM PROJECT</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,400;0,700;0,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg:        #0d0b0b;
-            --bg2:       #120e0e;
-            --bg3:       #1a1010;
-            --red:       #dc2626;
-            --red-bright:#ef4444;
-            --red-dim:   #991b1b;
-            --red-glow:  rgba(220,38,38,0.18);
-            --red-border:rgba(220,38,38,0.22);
-            --red-subtle:rgba(220,38,38,0.06);
-            --white:     #ffffff;
-            --gray:      #9ca3af;
-            --gray-dim:  #6b7280;
-            --card-bg:   rgba(255,255,255,0.025);
-            --border:    rgba(255,255,255,0.06);
+            --bg: #0d0b0b;
+            --red: #dc2626;
+            --red-bright: #ef4444;
+            --red-border: rgba(220,38,38,0.22);
+            --red-subtle: rgba(220,38,38,0.08);
+            --white: #ffffff;
+            --gray: #9ca3af;
+            --gray-dim: #6b7280;
+            --card-bg: rgba(255,255,255,0.025);
+            --border: rgba(255,255,255,0.07);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
         html { scroll-behavior: smooth; }
-
         body {
-            background-color: var(--bg);
-            background-image:
-                radial-gradient(ellipse 80% 50% at 10% -10%, rgba(220,38,38,0.08) 0%, transparent 60%),
-                radial-gradient(ellipse 60% 40% at 90% 110%, rgba(153,27,27,0.06) 0%, transparent 60%);
-            color: var(--white);
-            font-family: 'Barlow', sans-serif;
             min-height: 100vh;
             overflow-x: hidden;
+            background-color: var(--bg);
+            background-image:
+                radial-gradient(ellipse 80% 50% at 10% -10%, rgba(220,38,38,0.08), transparent 60%),
+                radial-gradient(ellipse 60% 40% at 90% 110%, rgba(153,27,27,0.07), transparent 60%);
+            color: var(--white);
+            font-family: 'Barlow', sans-serif;
         }
 
-        /* ── NOISE TEXTURE OVERLAY ── */
         body::before {
             content: '';
             position: fixed;
             inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+            z-index: 0;
             opacity: 0.03;
             pointer-events: none;
-            z-index: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
         }
 
-        /* ── TYPOGRAPHY ── */
-        .font-display { font-family: 'Rajdhani', sans-serif; }
-
-        /* ── NAVBAR ── */
         nav {
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 100;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            background: rgba(10, 8, 8, 0.92);
+            min-height: 64px;
+            background: linear-gradient(180deg, rgba(18, 10, 10, 0.98), rgba(9, 7, 7, 0.96));
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--red-border);
+            border-bottom: 1px solid rgba(239,68,68,0.34);
+            box-shadow: 0 10px 26px rgba(0,0,0,0.26);
         }
 
         .nav-inner {
+            width: 100%;
             max-width: 1200px;
+            min-height: 64px;
             margin: 0 auto;
             padding: 0 24px;
-            width: 100%;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 18px;
         }
 
         .nav-logo {
             display: flex;
             align-items: center;
             gap: 10px;
+            color: #fff;
             text-decoration: none;
+            min-width: max-content;
         }
 
         .logo-icon {
-            width: 32px; height: 32px;
-            background: var(--red);
+            width: 32px;
+            height: 32px;
             border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
+            background: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             box-shadow: 0 0 16px rgba(220,38,38,0.5);
         }
 
@@ -96,640 +92,444 @@
             font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
             font-size: 20px;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: #fff;
         }
 
         .logo-text span { color: var(--red-bright); }
 
-        .nav-links {
+        .category-nav {
             display: flex;
+            justify-content: flex-end;
             align-items: center;
             gap: 8px;
+            min-width: 0;
+            margin-left: auto;
+            height: 100%;
+            overflow-x: auto;
+            scrollbar-width: none;
         }
 
-        .nav-link {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 600;
-            font-size: 14px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--gray);
+        .category-nav::-webkit-scrollbar { display: none; }
+
+        .category-tab,
+        .nav-cta,
+        .btn-primary,
+        .btn-ghost,
+        .product-link,
+        .social-pill {
+            border: 0;
+            cursor: pointer;
             text-decoration: none;
-            padding: 6px 14px;
-            border-radius: 6px;
-            transition: all 0.2s;
-        }
-
-        .nav-link:hover { color: #fff; background: rgba(255,255,255,0.05); }
-
-        .nav-cta {
             font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 0.08em;
             text-transform: uppercase;
-            background: var(--red);
-            color: #fff;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex; align-items: center; gap: 8px;
-            box-shadow: 0 4px 14px rgba(220,38,38,0.35);
+            letter-spacing: 0.06em;
         }
 
-        .nav-cta:hover {
-            background: var(--red-bright);
-            box-shadow: 0 4px 20px rgba(220,38,38,0.5);
-            transform: translateY(-1px);
-        }
-
-        /* ── HERO ── */
-        .hero {
-            position: relative;
-            padding: 140px 24px 80px;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        @media (max-width: 768px) {
-            .hero { grid-template-columns: 1fr; padding: 100px 16px 60px; gap: 40px; }
-            .hero-visual { display: none; }
-            nav .nav-link { display: none; }
-        }
-
-        .hero-eyebrow {
+        .category-tab {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 11px;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: var(--red-bright);
-            background: var(--red-subtle);
-            border: 1px solid var(--red-border);
-            padding: 5px 14px;
-            border-radius: 99px;
-            margin-bottom: 24px;
+            gap: 7px;
+            height: 36px;
+            padding: 0 12px;
+            border: 1px solid rgba(239,68,68,0.26);
+            border-radius: 8px;
+            background: rgba(220,38,38,0.08);
+            color: #f3f4f6;
+            font-size: 12px;
+            white-space: nowrap;
+            transition: all 0.2s;
         }
 
-        .hero-eyebrow .dot {
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: var(--red-bright);
-            box-shadow: 0 0 8px var(--red);
-            animation: blink 1.4s ease infinite;
-        }
-
-        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-
-        .hero-title {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-weight: 900;
-            font-size: clamp(62px, 8.5vw, 108px);
-            line-height: 0.92;
-            text-transform: uppercase;
-            letter-spacing: -0.01em;
-            margin-bottom: 40px;
-        }
-
-        .hero-title .line-red { color: var(--red-bright); display: block; }
-        .hero-title .line-dim { color: rgba(255,255,255,0.15); display: block; font-style: italic; }
-
-        .hero-desc {
-            font-size: 15px;
-            line-height: 1.7;
-            color: var(--gray);
-            margin-bottom: 0;
-            max-width: 420px;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 13px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            background: var(--red);
+        .category-tab:hover {
             color: #fff;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex; align-items: center; gap: 10px;
-            box-shadow: 0 6px 24px rgba(220,38,38,0.4);
+            border-color: var(--red-border);
+            background: rgba(220,38,38,0.18);
         }
 
-        .btn-primary:hover {
-            background: var(--red-bright);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(220,38,38,0.55);
-        }
-
-        .btn-ghost {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 13px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            background: transparent;
-            color: var(--gray);
-            border: 1px solid var(--border);
-            padding: 14px 28px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .btn-ghost:hover { border-color: rgba(255,255,255,0.2); color: #fff; }
-
-        .hero-stats {
-            display: flex;
-            gap: 32px;
-            margin-top: 48px;
-            padding-top: 32px;
-            border-top: 1px solid var(--border);
-        }
-
-        .hero-stat-num {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 32px;
-            color: var(--red-bright);
-            line-height: 1;
-        }
-
-        .hero-stat-label {
-            font-size: 11px;
-            color: var(--gray-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-weight: 600;
-            margin-top: 4px;
-        }
-
-        /* Hero Visual */
-        .hero-visual {
-            position: relative;
+        .nav-cta {
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .hero-visual-ring {
-            width: 420px; height: 420px;
-            border-radius: 50%;
-            border: 1px solid var(--red-border);
-            position: relative;
-            display: flex; align-items: center; justify-content: center;
-            animation: spin 20s linear infinite;
-        }
-
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        .hero-visual-ring::before {
-            content: '';
-            position: absolute;
-            inset: 20px;
-            border-radius: 50%;
-            border: 1px dashed rgba(220,38,38,0.1);
-        }
-
-        .hero-visual-center {
-            width: 260px; height: 260px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(220,38,38,0.12) 0%, transparent 70%);
-            border: 1px solid var(--red-border);
-            display: flex; align-items: center; justify-content: center;
-            animation: spin 20s linear infinite reverse;
-            flex-direction: column;
             gap: 8px;
+            background: var(--red);
+            color: #fff;
+            height: 36px;
+            padding: 0 16px;
+            border-radius: 8px;
+            box-shadow: 0 4px 14px rgba(220,38,38,0.35);
+            white-space: nowrap;
         }
 
-        .hero-visual-icon {
-            font-size: 56px;
-            color: var(--red);
-            text-shadow: 0 0 30px rgba(220,38,38,0.6);
+        .page {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 104px 24px 42px;
         }
 
-        .hero-visual-label {
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+            gap: 28px;
+            align-items: center;
+            min-height: 360px;
+        }
+
+        .hero-copybox {
+            max-width: 590px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+            padding: 4px 12px;
+            border: 1px solid var(--red-border);
+            border-radius: 99px;
+            background: var(--red-subtle);
+            color: var(--red-bright);
             font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
             font-size: 11px;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--red-bright);
         }
 
-        .hero-orbit-dot {
-            position: absolute;
-            width: 10px; height: 10px;
+        .eyebrow .dot {
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
-            background: var(--red);
-            box-shadow: 0 0 12px var(--red);
+            background: var(--red-bright);
+            box-shadow: 0 0 8px var(--red);
         }
 
-        /* ── MAIN CONTAINER ── */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-            z-index: 1;
+        h1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: clamp(50px, 6vw, 78px);
+            line-height: 0.96;
+            text-transform: uppercase;
+            margin-bottom: 16px;
         }
 
-        /* ── SECTION HEADER ── */
+        h1 span { color: var(--red-bright); }
+
+        .hero-copy {
+            max-width: 520px;
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        .btn-primary,
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 38px;
+            padding: 0 16px;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .btn-primary { background: var(--red); color: #fff; box-shadow: 0 8px 22px rgba(220,38,38,0.28); }
+        .btn-ghost { color: #fff; border: 1px solid var(--border); background: rgba(255,255,255,0.04); }
+
+        .hero-panel {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015));
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.32);
+        }
+
+        .hero-image {
+            min-height: 170px;
+            background:
+                linear-gradient(to top, rgba(13,11,11,0.96), rgba(13,11,11,0.12)),
+                url("https://4kwallpapers.com/images/wallpapers/playerunknowns-2732x2732-20844.jpg") center/cover;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 12px;
+        }
+
+        .metric {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: rgba(0,0,0,0.18);
+            padding: 10px;
+        }
+
+        .metric strong {
+            display: block;
+            color: var(--red-bright);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 19px;
+            line-height: 1;
+        }
+
+        .metric span {
+            display: block;
+            margin-top: 5px;
+            color: var(--gray);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .section { padding: 30px 0 6px; }
+
         .section-header {
             display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 32px;
+            align-items: end;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 16px;
         }
 
         .section-tag {
+            display: inline-block;
+            margin-bottom: 8px;
+            color: var(--red-bright);
             font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
-            font-size: 10px;
+            font-size: 11px;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--red-bright);
-            background: var(--red-subtle);
-            border: 1px solid var(--red-border);
-            padding: 4px 12px;
-            border-radius: 4px;
         }
 
         .section-title {
             font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 28px;
+            font-size: 26px;
+            line-height: 1;
             text-transform: uppercase;
-            letter-spacing: 0.02em;
         }
 
-        .section-line {
-            flex: 1;
-            height: 1px;
-            background: var(--border);
+        .section-desc {
+            max-width: 460px;
+            color: var(--gray);
+            font-size: 13px;
+            line-height: 1.5;
         }
 
-        /* ── DIVIDER ── */
-        .divider {
-            border: none;
-            border-top: 1px solid var(--border);
-            margin: 0;
+        .category-section-list {
+            display: grid;
+            gap: 16px;
         }
 
-        /* ── SECTION WRAPPER ── */
-        .section {
-            padding: 60px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        /* ── ACCORDION ── */
-        .accordion {
+        .category-product-section {
             border: 1px solid var(--red-border);
-            border-radius: 12px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.018);
             overflow: hidden;
-            margin-bottom: 8px;
         }
 
-        .accordion-trigger {
-            width: 100%;
-            background: var(--red-subtle);
-            border: none;
-            padding: 14px 18px;
+        .category-product-head {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            cursor: pointer;
-            transition: background 0.2s;
+            gap: 14px;
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(0,0,0,0.16);
         }
 
-        .accordion-trigger:hover { background: rgba(220,38,38,0.09); }
-
-        .accordion-trigger-left {
+        .category-actions {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            flex-shrink: 0;
         }
 
-        .accordion-trigger-left span {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 12px;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
+        .rail-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid rgba(239,68,68,0.28);
+            border-radius: 8px;
+            background: rgba(220,38,38,0.08);
             color: #fff;
+            cursor: pointer;
+            transition: all 0.2s;
         }
 
-        .acc-icon { color: var(--red-bright); font-size: 11px; }
-        .acc-chevron { color: #6b7280; font-size: 10px; transition: transform 0.3s; }
+        .rail-btn:hover {
+            border-color: var(--red-bright);
+            background: rgba(220,38,38,0.18);
+        }
 
-        .acc-badge {
-            font-size: 8px;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 99px;
-            background: var(--red-subtle);
-            border: 1px solid var(--red-border);
-            color: var(--red-bright);
+        .category-product-title {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            min-width: 0;
+        }
+
+        .category-product-title h3 {
             font-family: 'Rajdhani', sans-serif;
-            letter-spacing: 0.1em;
+            font-size: 20px;
+            line-height: 1;
             text-transform: uppercase;
         }
 
-        .accordion-body {
-            display: none;
-            border-top: 1px solid var(--red-border);
+        .category-product-title span {
+            color: var(--gray-dim);
+            font-size: 12px;
         }
 
-        /* ── PRODUCT GRID ── */
         .product-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            display: flex;
             gap: 12px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 14px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--red-dim) transparent;
         }
 
-        @media (min-width: 640px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (min-width: 1024px) { .product-grid { grid-template-columns: repeat(4, 1fr); } }
+        .product-grid::-webkit-scrollbar { height: 4px; }
+        .product-grid::-webkit-scrollbar-thumb { background: var(--red-dim); border-radius: 99px; }
+
+        .product-grid .product-card {
+            flex: 0 0 168px;
+            scroll-snap-align: start;
+        }
 
         .product-card {
-            background: var(--card-bg);
+            min-width: 0;
             border: 1px solid var(--border);
-            border-radius: 14px;
+            border-radius: 8px;
+            background: var(--card-bg);
             overflow: hidden;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            position: relative;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 14px;
-            opacity: 0;
-            background: linear-gradient(135deg, rgba(220,38,38,0.08) 0%, transparent 60%);
-            transition: opacity 0.25s;
-            pointer-events: none;
-            z-index: 1;
+            color: #fff;
+            text-decoration: none;
+            transition: transform 0.2s, border-color 0.2s, background 0.2s;
         }
 
         .product-card:hover {
+            transform: translateY(-2px);
             border-color: var(--red-border);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(220,38,38,0.12);
+            background: rgba(255,255,255,0.04);
         }
 
-        .product-card:hover::before { opacity: 1; }
-
-        .product-img-wrap {
-            width: 100%;
-            aspect-ratio: 1;
-            overflow: hidden;
-            background: #0f0b0b;
+        .product-media {
+            min-height: 96px;
             position: relative;
+            background-size: cover;
+            background-position: center;
         }
 
-        .product-img-wrap img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .product-card:hover .product-img-wrap img { transform: scale(1.07); }
-
-        .product-type-strip {
+        .product-media::after {
+            content: '';
             position: absolute;
-            bottom: 0; left: 0; right: 0;
-            padding: 4px 10px;
-            display: flex; align-items: center; gap: 5px;
-            backdrop-filter: blur(8px);
-            background: rgba(0,0,0,0.75);
-            border-top: 1px solid rgba(255,255,255,0.06);
+            inset: 0;
+            background: linear-gradient(to top, rgba(13,11,11,0.94), rgba(13,11,11,0.08));
         }
 
-        .product-type-strip span {
+        .product-category {
+            position: absolute;
+            left: 9px;
+            top: 9px;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 7px;
+            border: 1px solid var(--red-border);
+            border-radius: 99px;
+            background: rgba(13,11,11,0.72);
+            color: var(--red-bright);
             font-family: 'Rajdhani', sans-serif;
+            font-size: 9px;
             font-weight: 700;
-            font-size: 8px;
+            text-transform: uppercase;
             letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: #fff;
         }
 
-        .product-body { padding: 12px; }
+        .product-body { padding: 11px; }
 
-        .product-name {
+        .product-title {
             font-family: 'Rajdhani', sans-serif;
+            font-size: 16px;
             font-weight: 700;
-            font-size: 14px;
+            line-height: 1.05;
             text-transform: uppercase;
-            letter-spacing: 0.03em;
-            color: #fff;
-            margin-bottom: 2px;
-            font-style: italic;
         }
 
-        .product-subtitle {
-            font-size: 10px;
-            color: var(--gray-dim);
-            margin-bottom: 10px;
+        .product-text {
+            margin-top: 5px;
+            color: var(--gray);
+            font-size: 12px;
+            line-height: 1.35;
+            min-height: 32px;
         }
 
-        .product-footer {
+        .product-foot {
+            margin-top: 10px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding-top: 10px;
+            gap: 10px;
+            padding-top: 9px;
             border-top: 1px solid var(--border);
         }
 
         .product-price {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 11px;
-            letter-spacing: 0.02em;
-            background: var(--red);
+            flex-shrink: 0;
             color: #fff;
-            padding: 3px 8px;
+            background: var(--red);
             border-radius: 5px;
-            font-style: italic;
-        }
-
-        .product-arrow {
-            width: 24px; height: 24px;
-            border: 1px solid var(--red-border);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--red-bright);
-            font-size: 8px;
-            transition: all 0.2s;
-        }
-
-        .product-card:hover .product-arrow {
-            background: var(--red);
-            border-color: var(--red);
-            color: #fff;
-        }
-
-        /* ── UPGRADE CTA BANNER ── */
-        .upgrade-banner {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            align-items: flex-start;
-            padding: 28px 32px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, rgba(220,38,38,0.07) 0%, transparent 60%);
-            border: 1px solid var(--red-border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        @media (min-width: 640px) {
-            .upgrade-banner { flex-direction: row; align-items: center; justify-content: space-between; }
-        }
-
-        .upgrade-banner::before {
-            content: '';
-            position: absolute;
-            top: -30px; right: -30px;
-            width: 120px; height: 120px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(220,38,38,0.15) 0%, transparent 70%);
-        }
-
-        .upgrade-title {
+            padding: 3px 7px;
             font-family: 'Rajdhani', sans-serif;
+            font-size: 10px;
             font-weight: 700;
-            font-size: 20px;
-            text-transform: uppercase;
-            font-style: italic;
-            letter-spacing: 0.02em;
+            white-space: nowrap;
         }
 
-        .upgrade-title span { color: var(--red-bright); }
-        .upgrade-sub { font-size: 12px; color: var(--gray); margin-top: 4px; }
-
-        .social-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .social-pill {
-            display: flex;
+        .product-link {
+            display: inline-flex;
             align-items: center;
-            gap: 7px;
-            padding: 8px 14px;
-            border-radius: 8px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid var(--border);
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .social-pill:hover {
-            border-color: var(--red-border);
-            background: var(--red-subtle);
-            transform: translateY(-1px);
-        }
-
-        .social-pill span {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 11px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
+            gap: 6px;
             color: #fff;
+            font-size: 11px;
+            white-space: nowrap;
         }
 
-        /* ── STATS GRID ── */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 32px;
-        }
-
-        .stat-card {
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            transition: border-color 0.2s;
-        }
-
-        .stat-card:hover { border-color: var(--red-border); }
-
-        .stat-num {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 36px;
-            color: var(--red-bright);
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 9px;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: var(--gray-dim);
-            margin-top: 6px;
-        }
-
-        /* ── TESTIMONIAL SCROLL ── */
         .testi-scroll {
             display: flex;
-            gap: 14px;
+            gap: 12px;
             overflow-x: auto;
-            padding-bottom: 16px;
+            padding: 2px 0 14px;
             scroll-snap-type: x mandatory;
             scrollbar-width: thin;
             scrollbar-color: var(--red-dim) transparent;
         }
 
         .testi-scroll::-webkit-scrollbar { height: 4px; }
-        .testi-scroll::-webkit-scrollbar-thumb { background: var(--red-dim); border-radius: 10px; }
+        .testi-scroll::-webkit-scrollbar-thumb { background: var(--red-dim); border-radius: 99px; }
 
         .testi-card {
-            min-width: 220px;
-            max-width: 220px;
-            height: 190px;
-            flex-shrink: 0;
-            scroll-snap-align: start;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border);
             position: relative;
+            flex: 0 0 190px;
+            height: 160px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
             cursor: pointer;
-            transition: all 0.25s ease;
-        }
-
-        .testi-card:hover {
-            border-color: var(--red-border);
-            transform: scale(1.02);
+            scroll-snap-align: start;
+            background: rgba(255,255,255,0.025);
         }
 
         .testi-card img {
@@ -742,14 +542,15 @@
         .testi-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 55%);
+            background: linear-gradient(to top, rgba(0,0,0,0.78), transparent 55%);
             pointer-events: none;
         }
 
         .testi-info {
             position: absolute;
-            bottom: 0; left: 0; right: 0;
-            padding: 10px 12px;
+            left: 10px;
+            right: 10px;
+            bottom: 9px;
         }
 
         .testi-verified {
@@ -757,1979 +558,416 @@
             align-items: center;
             gap: 5px;
             margin-bottom: 4px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
         }
 
         .testi-verified-dot {
-            width: 5px; height: 5px;
+            width: 5px;
+            height: 5px;
             border-radius: 50%;
             background: var(--red-bright);
             box-shadow: 0 0 6px var(--red);
         }
 
-        .testi-verified span {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 8px;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: #fff;
-        }
-
         .testi-stars { display: flex; gap: 2px; }
 
-        .testi-zoom {
-            position: absolute;
-            top: 10px; right: 10px;
-            width: 26px; height: 26px;
-            background: rgba(0,0,0,0.6);
-            border-radius: 7px;
-            display: flex; align-items: center; justify-content: center;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* ── LIGHTBOX ── */
         .lightbox {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.97);
+            z-index: 220;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.94);
+            cursor: zoom-out;
+            padding: 20px;
+        }
+
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 92%; max-height: 88vh; border-radius: 8px; }
+
+        .social-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .social-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 36px;
+            padding: 0 13px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.04);
+            color: #fff;
+        }
+
+        footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid var(--border);
+            padding: 24px;
+            text-align: center;
+            color: var(--gray-dim);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
             z-index: 200;
             display: none;
             align-items: center;
             justify-content: center;
-            cursor: zoom-out;
-        }
-
-        .lightbox.active { display: flex; }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 88vh;
-            border-radius: 10px;
-        }
-
-        /* ── FOOTER ── */
-        footer {
-            padding: 40px 24px;
-            text-align: center;
-            border-top: 1px solid var(--red-border);
-        }
-
-        .footer-brand {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 13px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.15);
-        }
-
-        /* ── MODAL BASE ── */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 110;
-            background: rgba(0,0,0,0.93);
+            padding: 20px;
+            background: rgba(0,0,0,0.76);
             backdrop-filter: blur(12px);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-            overflow-y: auto;
         }
 
         .modal-overlay.open { display: flex; }
 
-        @keyframes modalIn {
-            from { opacity: 0; transform: translateY(20px) scale(0.97); }
-            to   { opacity: 1; transform: none; }
-        }
-
-        .modal-box {
-            background: #150f0f;
+        .contact-box {
+            width: min(420px, 100%);
             border: 1px solid var(--red-border);
-            border-radius: 18px;
-            overflow: hidden;
-            width: 100%;
-            max-width: 560px;
+            border-radius: 8px;
+            background: #120e0e;
+            padding: 24px;
             position: relative;
-            animation: modalIn 0.3s ease;
-            my: auto;
         }
 
         .modal-close {
             position: absolute;
-            top: 14px; right: 14px;
-            z-index: 10;
-            width: 32px; height: 32px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid var(--red-border);
-            color: #fff;
-            font-size: 12px;
-            cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            transition: all 0.2s;
-        }
-
-        .modal-close:hover { background: var(--red); }
-
-        /* Detail Modal specifics */
-        .modal-header {
-            padding: 20px 20px 16px;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-        }
-
-        .modal-tag-pill {
-            display: inline-block;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 9px;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            padding: 3px 10px;
-            border-radius: 99px;
-            background: var(--red-subtle);
-            border: 1px solid var(--red-border);
-            color: var(--red-bright);
-            margin-bottom: 6px;
-        }
-
-        .modal-title {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 20px;
-            text-transform: uppercase;
-            font-style: italic;
-            letter-spacing: 0.02em;
-        }
-
-        .modal-price {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 18px;
-            color: var(--red-bright);
-            font-style: italic;
-            white-space: nowrap;
-        }
-
-        .modal-lifetime {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            justify-content: flex-end;
-            margin-top: 4px;
-        }
-
-        .modal-lifetime span {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 8px;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: var(--red-bright);
-        }
-
-        .modal-video-wrap { border-bottom: 1px solid var(--border); }
-
-        .modal-info-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            border-bottom: 1px solid var(--border);
-        }
-
-        @media (min-width: 500px) { .modal-info-grid { grid-template-columns: repeat(3,1fr); } }
-
-        .modal-info-col {
-            padding: 16px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        @media (min-width: 500px) {
-            .modal-info-col { border-bottom: none; border-right: 1px solid var(--border); }
-            .modal-info-col:last-child { border-right: none; }
-        }
-
-        .modal-info-label {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 10px;
-        }
-
-        .modal-info-label span {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 9px;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: var(--red-bright);
-        }
-
-        .modal-info-text {
-            font-size: 11px;
-            color: #9ca3af;
-            line-height: 1.65;
-        }
-
-        .modal-info-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-
-        .modal-info-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 7px;
-            font-size: 11px;
-            color: #9ca3af;
-        }
-
-        .modal-info-list li .ico { color: var(--red-bright); font-size: 8px; margin-top: 2px; }
-
-        .modal-cta {
-            padding: 16px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .modal-btn-order {
-            flex: 1;
-            padding: 12px;
-            background: var(--red);
-            border: none;
-            border-radius: 10px;
-            color: #fff;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 12px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-            box-shadow: 0 4px 16px rgba(220,38,38,0.3);
-        }
-
-        .modal-btn-order:hover { background: var(--red-bright); }
-
-        .modal-btn-wa {
-            width: 46px;
-            border-radius: 10px;
-            background: rgba(255,255,255,0.04);
+            top: 12px;
+            right: 12px;
+            width: 34px;
+            height: 34px;
             border: 1px solid var(--border);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.04);
+            color: #fff;
             cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            color: #25d366;
-            font-size: 18px;
-            transition: all 0.2s;
-        }
-
-        .modal-btn-wa:hover { background: rgba(37,211,102,0.1); border-color: rgba(37,211,102,0.3); }
-
-        /* Contact Modal */
-        .contact-modal-box {
-            background: #150f0f;
-            border: 1px solid var(--red-border);
-            border-radius: 18px;
-            padding: 36px;
-            width: 100%;
-            max-width: 420px;
-            position: relative;
-            animation: modalIn 0.3s ease;
         }
 
         .contact-title {
             font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 26px;
+            font-size: 28px;
             text-transform: uppercase;
-            font-style: italic;
-            text-align: center;
-            margin-bottom: 28px;
+            margin-bottom: 16px;
         }
 
-        .social-link-row {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 14px 18px;
-            border-radius: 12px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            cursor: pointer;
-            transition: all 0.2s;
-            margin-bottom: 10px;
-        }
+        .contact-list { display: grid; gap: 10px; }
 
-        .social-link-row:hover {
-            background: var(--red-subtle);
-            border-color: var(--red-border);
-            transform: translateX(4px);
-        }
-
-        .social-link-icon {
-            width: 38px; height: 38px;
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .social-link-name {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 13px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: #fff;
-        }
-
-        /* ── NEWS CARDS ── */
-        .news-item {
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--red-border);
-            background: linear-gradient(135deg, var(--red-subtle) 0%, rgba(0,0,0,0.3) 100%);
-            padding: 14px 16px;
-            position: relative;
-            margin-bottom: 8px;
-        }
-
-        .news-item::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 0; bottom: 0;
-            width: 3px;
-            background: var(--red);
-            box-shadow: 0 0 8px rgba(220,38,38,0.6);
-        }
-
-        .news-item.pinned { padding-left: 20px; }
-
-        .news-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .news-tag-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 8px;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            padding: 3px 10px;
-            border-radius: 99px;
-            background: var(--red-subtle);
-            border: 1px solid var(--red-border);
-            color: var(--red-bright);
-        }
-
-        .news-date {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 10px;
-            color: var(--red-bright);
-        }
-
-        .news-pinned-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 8px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            padding: 2px 8px;
-            border-radius: 99px;
-            background: var(--red-subtle);
-            border: 1px solid var(--red-border);
-            color: var(--red-bright);
-        }
-
-        .news-title {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 15px;
-            text-transform: uppercase;
-            font-style: italic;
-            color: #fff;
-            letter-spacing: 0.02em;
-            margin-bottom: 6px;
-            line-height: 1.3;
-        }
-
-        .news-desc { font-size: 12px; color: #ef9f9f; line-height: 1.6; }
-
-        /* ── TECH GRID ── */
-        .tech-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
-            padding: 16px;
-        }
-
-        @media (min-width: 640px) { .tech-features { grid-template-columns: repeat(4, 1fr); } }
-
-        .tech-feature-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px;
-            border-radius: 10px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-        }
-
-        .tech-feature-item i { color: var(--red-bright); font-size: 14px; }
-
-        .tech-feature-title {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 11px;
-            text-transform: uppercase;
-            color: #fff;
-        }
-
-        .tech-feature-sub { font-size: 9px; color: var(--gray-dim); margin-top: 1px; }
-
-        .tech-modes {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            padding: 0 16px 16px;
-        }
-
-        .tech-mode-card {
-            border-radius: 10px;
-            overflow: hidden;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-        }
-
-        .tech-mode-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 12px;
-            background: var(--red-subtle);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .tech-mode-header i { color: var(--red-bright); font-size: 11px; }
-
-        .tech-mode-name {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 11px;
-            text-transform: uppercase;
-            font-style: italic;
-            color: #fff;
-            flex: 1;
-        }
-
-        .tech-mode-badge {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 7px;
-            padding: 2px 7px;
-            border-radius: 99px;
-            background: var(--red-subtle);
-            border: 1px solid var(--red-border);
-            color: var(--red-bright);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .tech-mode-body {
-            padding: 10px 12px;
-            font-size: 10px;
-            color: var(--gray);
-            line-height: 1.6;
-        }
-
-        /* Macro videos section */
-        .macro-video-wrap {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .macro-video-wrap img {
-            position: absolute;
-            inset: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            opacity: 0.55;
-            transition: opacity 0.25s;
-        }
-
-        .macro-video-wrap:hover img { opacity: 0.75; }
-
-        /* Utilities */
-        .text-red { color: var(--red-bright); }
-        .pulse-dot {
-            width: 7px; height: 7px;
-            border-radius: 50%;
-            background: var(--red-bright);
-            box-shadow: 0 0 8px var(--red);
-            animation: blink 1.4s ease infinite;
-        }
-
-        /* ── HERO HIGHLIGHT STRIP ── */
-        .hero-highlight-strip {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px 60px;
-            display: none;
-            grid-template-columns: 1fr;
-            gap: 16px;
-        }
-
-        @media (max-width: 768px) {
-            .hero-highlight-strip { padding: 0 16px 48px; }
-        }
-
-        .highlight-card {
-            border-radius: 16px;
-            border: 1px solid var(--red-border);
-            background: linear-gradient(135deg, rgba(220,38,38,0.05) 0%, rgba(0,0,0,0.3) 100%);
-            overflow: hidden;
-        }
-
-        .highlight-card-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 18px;
-            border-bottom: 1px solid var(--red-border);
-            background: rgba(220,38,38,0.04);
-        }
-
-        .highlight-card-title {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 13px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: #fff;
-            flex: 1;
-        }
-
-        .highlight-card-badge {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 10px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 2px 10px;
-            border-radius: 99px;
-            background: var(--red-subtle);
-            border: 1px solid var(--red-border);
-            color: var(--red-bright);
-        }
-
-        .highlight-card-body { padding: 14px 18px; }
-
-        .hero-info-card {
-            min-height: 0;
-        }
-
-        .hero-side-stack {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            justify-content: flex-start;
-            gap: 8px;
-        }
-
-        .hero-mini-demo {
-            flex: 0 0 auto;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.08);
-            background: linear-gradient(180deg, rgba(9,7,7,0.94) 0%, rgba(18,10,10,0.92) 100%);
-            box-shadow: inset 0 0 0 1px rgba(220,38,38,0.08);
-            overflow: hidden;
-        }
-
-        .hero-mini-demo-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 11px 14px;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            background: rgba(255,255,255,0.02);
-        }
-
-        .hero-mini-demo-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            padding: 8px;
-        }
-
-        .hero-mini-demo-card {
-            border-radius: 14px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.06);
-            background: rgba(255,255,255,0.02);
-            cursor: pointer;
-            transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
-        }
-
-        .hero-mini-demo-card:hover {
-            transform: translateY(-2px);
-            border-color: rgba(220,38,38,0.32);
-            box-shadow: 0 12px 28px rgba(220,38,38,0.12);
-        }
-
-        .hero-mini-demo-thumb {
-            position: relative;
-            width: 100%;
-            padding-bottom: 38%;
-            overflow: hidden;
-            background: #0a0707;
-        }
-
-        .hero-mini-demo-thumb img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.66;
-            transition: transform 0.3s ease, opacity 0.25s ease;
-        }
-
-        .hero-mini-demo-card:hover .hero-mini-demo-thumb img {
-            transform: scale(1.05);
-            opacity: 0.84;
-        }
-
-        .hero-mini-demo-body {
-            padding: 8px 9px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 6px;
-        }
-
-        .hero-mini-demo-label {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 11px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: #fff;
-        }
-
-        .hero-mini-demo-mode {
-            margin-top: 2px;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 600;
-            font-size: 9px;
-            color: var(--red-bright);
-        }
-
-        .hero-update-slider {
-            flex: 0 0 auto;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.08);
-            background: linear-gradient(180deg, rgba(9,7,7,0.94) 0%, rgba(18,10,10,0.92) 100%);
-            box-shadow: inset 0 0 0 1px rgba(220,38,38,0.08);
-            overflow: hidden;
-        }
-
-        .hero-update-slider-header {
+        .contact-item {
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 10px 12px;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            background: rgba(255,255,255,0.02);
-        }
-
-        .hero-update-slider-controls {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            padding: 0 8px 10px;
-        }
-
-        .hero-update-slider-btn {
-            min-width: 108px;
-            height: 38px;
-            border-radius: 12px;
-            border: 1px solid rgba(220,38,38,0.18);
-            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
             color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            text-decoration: none;
+            padding: 13px;
+            border-radius: 8px;
             font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
-            font-size: 11px;
-            letter-spacing: 0.08em;
             text-transform: uppercase;
         }
 
-        .hero-update-slider-btn:hover {
-            border-color: rgba(220,38,38,0.35);
-            background: rgba(220,38,38,0.16);
-            transform: translateY(-1px);
-        }
+        @media (max-width: 920px) {
+            .nav-inner {
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 8px 12px;
+                padding: 10px 16px;
+            }
 
-        .hero-update-slider-viewport {
-            overflow: hidden;
-            padding: 8px;
-        }
-
-        .hero-update-slider-track {
-            display: flex;
-            gap: 8px;
-            transition: transform 0.35s ease;
-            will-change: transform;
-        }
-
-        .hero-update-slide {
-            min-width: calc(50% - 4px);
-            flex: 0 0 calc(50% - 4px);
-        }
-
-        .hero-update-card {
-            border-radius: 14px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.06);
-            background: rgba(255,255,255,0.02);
-            cursor: pointer;
-            transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
-        }
-
-        .hero-update-card:hover {
-            transform: translateY(-2px);
-            border-color: rgba(220,38,38,0.32);
-            box-shadow: 0 12px 28px rgba(220,38,38,0.12);
-        }
-
-        .hero-update-thumb {
-            position: relative;
-            width: 100%;
-            padding-bottom: 46%;
-            overflow: hidden;
-            background: #0a0707;
-        }
-
-        .hero-update-thumb img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.68;
-            transition: transform 0.3s ease, opacity 0.25s ease;
-        }
-
-        .hero-update-card:hover .hero-update-thumb img {
-            transform: scale(1.05);
-            opacity: 0.86;
-        }
-
-        .hero-update-body {
-            padding: 8px 9px;
-        }
-
-        .hero-update-label {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 11px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: #fff;
-        }
-
-        .hero-update-mode {
-            margin-top: 2px;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 600;
-            font-size: 9px;
-            color: var(--red-bright);
-        }
-
-        @media (max-width: 768px) {
-            .hero-side-stack {
-                height: auto;
+            .category-nav {
+                order: 3;
+                width: 100%;
+                margin-left: 0;
                 justify-content: flex-start;
-                gap: 12px;
             }
 
-            .hero-mini-demo-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-update-slide {
-                min-width: 100%;
-                flex-basis: 100%;
-            }
-
-            .hero-update-slider-controls {
-                padding-bottom: 8px;
-            }
-
-            .hero-update-slider-btn {
-                min-width: 0;
-                flex: 1;
-            }
+            .nav-cta { padding: 8px 12px; font-size: 12px; }
+            .page { padding-top: 128px; }
+            .hero { grid-template-columns: 1fr; min-height: 0; }
+            .hero-panel { order: -1; }
         }
 
-        section > .highlight-card-header,
-        section > .highlight-card-body {
-            display: none;
-        }
-
-        /* News items inside hero */
-        .hero-news-item {
-            display: flex;
-            gap: 12px;
-            padding: 7px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
-        }
-        .hero-news-item:last-child { border-bottom: none; padding-bottom: 0; }
-
-        .hero-news-dot {
-            width: 3px;
-            border-radius: 99px;
-            background: var(--red);
-            box-shadow: 0 0 6px rgba(220,38,38,0.5);
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .hero-news-title {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 12px;
-            color: #fff;
-            line-height: 1.3;
-            margin-bottom: 2px;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-
-        .hero-news-desc {
-            font-size: 10px;
-            color: #ef9f9f;
-            line-height: 1.42;
-        }
-
-        .hero-news-meta {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 3px;
-        }
-
-        .hero-news-tag {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 9px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--red-bright);
-            background: var(--red-subtle);
-            border: 1px solid var(--red-border);
-            padding: 1px 7px;
-            border-radius: 99px;
-        }
-
-        .hero-news-date {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 600;
-            font-size: 10px;
-            color: var(--gray-dim);
-        }
-
-        /* Tech highlight items */
-        .tech-highlight-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        .tech-highlight-item {
-            display: flex;
-            align-items: center;
-            gap: 9px;
-            padding: 10px 11px;
-            border-radius: 10px;
-            background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: border-color 0.2s;
-        }
-
-        .tech-highlight-item:hover { border-color: var(--red-border); }
-
-        .tech-highlight-item i { color: var(--red-bright); font-size: 13px; flex-shrink: 0; }
-
-        .tech-highlight-name {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #fff;
-        }
-
-        .tech-highlight-sub { font-size: 10px; color: var(--gray-dim); }
-
-        .tech-mode-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-        }
-
-        .tech-mode-pill {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 9px 12px;
-            border-radius: 10px;
-            background: rgba(220,38,38,0.05);
-            border: 1px solid var(--red-border);
-        }
-
-        .tech-mode-pill i { color: var(--red-bright); font-size: 12px; flex-shrink: 0; }
-
-        .tech-mode-pill-name {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #fff;
-        }
-
-        .tech-mode-pill-badge {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 600;
-            font-size: 9px;
-            color: var(--red-bright);
-            margin-top: 1px;
-        }
-        /* ── DEMO VIDEO SECTION ── */
-        .demo-video-strip {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px 60px;
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .demo-video-strip { padding: 0 16px 48px; }
-        }
-
-        .demo-video-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-        }
-
-        @media (max-width: 640px) {
-            .demo-video-grid { grid-template-columns: 1fr; }
-        }
-
-        .demo-video-card {
-            border-radius: 14px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            background: var(--card-bg);
-            cursor: pointer;
-            transition: all 0.25s ease;
-            position: relative;
-        }
-
-        .demo-video-card:hover {
-            border-color: var(--red-border);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(220,38,38,0.12);
-        }
-
-        .demo-video-thumb {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            overflow: hidden;
-            background: #0a0707;
-        }
-
-        .demo-video-thumb img {
-            position: absolute;
-            inset: 0;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            opacity: 0.6;
-            transition: opacity 0.25s, transform 0.35s;
-        }
-
-        .demo-video-card:hover .demo-video-thumb img {
-            opacity: 0.8;
-            transform: scale(1.04);
-        }
-
-        .demo-video-thumb-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .demo-video-play {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .demo-video-play-btn {
-            width: 44px; height: 44px;
-            border-radius: 50%;
-            background: rgba(220,38,38,0.9);
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 20px rgba(220,38,38,0.5);
-            transition: all 0.2s;
-        }
-
-        .demo-video-card:hover .demo-video-play-btn {
-            background: var(--red-bright);
-            box-shadow: 0 0 30px rgba(220,38,38,0.7);
-            transform: scale(1.1);
-        }
-
-        .demo-video-body {
-            padding: 12px 14px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .demo-video-label {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #fff;
-        }
-
-        .demo-video-mode {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 600;
-            font-size: 10px;
-            color: var(--red-bright);
-            margin-top: 2px;
-        }
-
-        .demo-video-yt {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 4px 10px;
-            border-radius: 6px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid var(--border);
-        }
-
-        .demo-video-yt span {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--gray-dim);
+        @media (max-width: 720px) {
+            .page { padding: 122px 14px 32px; }
+            h1 { font-size: 46px; }
+            .hero { gap: 20px; }
+            .hero-image { min-height: 130px; }
+            .hero-stats { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+            .metric { padding: 8px; }
+            .metric strong { font-size: 17px; }
+            .metric span { font-size: 8.5px; }
+            .section-header { align-items: flex-start; flex-direction: column; }
+            .category-product-head { align-items: flex-start; flex-direction: column; }
+            .product-grid { gap: 10px; padding: 12px; }
+            .product-grid .product-card { flex-basis: 148px; }
+            .product-media { min-height: 86px; }
+            .product-body { padding: 9px; }
+            .product-title { font-size: 14px; }
+            .product-text { font-size: 11px; min-height: 30px; }
+            .product-foot { align-items: flex-start; flex-direction: column; gap: 7px; }
         }
     </style>
 </head>
 <body>
-
-    <!-- ════ NAVBAR ════ -->
     <nav>
         <div class="nav-inner">
-            <a href="#" class="nav-logo">
-                <div class="logo-icon">
-                    <i class="fa-solid fa-gun" style="color:#fff;font-size:13px;"></i>
-                </div>
-                <span class="logo-text">BAM<span>MACRO</span></span>
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon"><i class="fa-solid fa-layer-group" style="color:#fff;font-size:13px;"></i></div>
+                <span class="logo-text">BAM<span>PROJECT</span></span>
             </a>
-            <div class="nav-links">
-                <a href="#produk" class="nav-link">Produk</a>
-                <a href="#testimoni" class="nav-link">Testimoni</a>
-                <button class="nav-cta" onclick="openContact()">
-                    <i class="fa-solid fa-headset"></i> Kontak Admin
-                </button>
-            </div>
+            <div class="category-nav" id="category-nav"></div>
+            <button class="nav-cta" onclick="openContact()"><i class="fa-solid fa-headset"></i> Kontak Admin</button>
         </div>
     </nav>
 
-    <!-- ════ HERO ════ -->
-    <section>
-        <div class="hero">
-            <!-- Left: Text -->
-            <div>
-                <div class="hero-eyebrow">
-                    <div class="dot"></div>
-                    <span id="hero-eyebrow-text">Macro Recoil System</span>
-                </div>
-                <h1 class="hero-title" id="hero-title"></h1>
-                <p class="hero-desc" id="hero-desc"></p>
+    <main class="page">
+        <section class="hero">
+            <div class="hero-copybox">
+                <div class="eyebrow"><span class="dot"></span> Pusat Project Digital Game</div>
+                <h1>BAM <span>PROJECT</span></h1>
                 <div class="hero-actions">
-                    <button class="btn-primary" onclick="document.getElementById('produk').scrollIntoView({behavior:'smooth'})">
-                        <i class="fa-solid fa-crosshairs"></i> Lihat Produk
-                    </button>
+                    <a class="btn-primary" href="#produk"><i class="fa-solid fa-box-open"></i> Lihat Produk</a>
                     <button class="btn-ghost" onclick="openContact()">Hubungi Admin</button>
                 </div>
-                <div class="hero-stats" id="hero-stats">
-                    <div>
-                        <div class="hero-stat-num">500+</div>
-                        <div class="hero-stat-label">Total Pembeli</div>
-                    </div>
-                    <div>
-                        <div class="hero-stat-num">4.9★</div>
-                        <div class="hero-stat-label">Rating</div>
-                    </div>
-                    <div>
-                        <div class="hero-stat-num">100%</div>
-                        <div class="hero-stat-label">Lifetime Access</div>
-                    </div>
-                </div>
             </div>
-
-            <!-- Right: Visual -->
-            <div class="hero-side-stack">
-                <div class="highlight-card hero-info-card">
-                    <div class="highlight-card-header">
-                        <div class="pulse-dot"></div>
-                        <i class="fa-solid fa-newspaper" style="color:var(--red-bright);font-size:12px;"></i>
-                        <span class="highlight-card-title">Info & Update</span>
-                        <span id="hero-news-badge" class="highlight-card-badge"></span>
-                    </div>
-                    <div class="highlight-card-body" id="hero-news-container">
-                        <!-- rendered by JS -->
-                    </div>
-                </div>
-                <div class="hero-mini-demo">
-                    <div class="hero-mini-demo-header">
-                        <i class="fa-solid fa-clapperboard" style="color:var(--red-bright);font-size:12px;"></i>
-                        <span class="highlight-card-title">Video Demo</span>
-                    </div>
-                    <div class="hero-mini-demo-grid">
-                        <div class="hero-mini-demo-card" onclick="window.open('https://youtube.com/watch?v=kQkogbvjyO4','_blank')">
-                            <div class="hero-mini-demo-thumb">
-                                <img id="hero-demo-thumb-hold" src="" alt="Mode Hold">
-                                <div class="demo-video-thumb-overlay"></div>
-                                <div class="demo-video-play">
-                                    <div class="demo-video-play-btn">
-                                        <i class="fa-solid fa-play" style="color:#fff;font-size:14px;margin-left:3px;"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hero-mini-demo-body">
-                                <div>
-                                    <div class="hero-mini-demo-label">Mode Hold</div>
-                                    <div class="hero-mini-demo-mode">Tahan RMB → Aktif</div>
-                                </div>
-                                <div class="demo-video-yt">
-                                    <i class="fa-brands fa-youtube" style="color:#ef4444;font-size:11px;"></i>
-                                    <span>YouTube</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hero-mini-demo-card" onclick="window.open('https://youtube.com/watch?v=Pl_wKZWLln8','_blank')">
-                            <div class="hero-mini-demo-thumb">
-                                <img id="hero-demo-thumb-toggle" src="" alt="Mode Toggle">
-                                <div class="demo-video-thumb-overlay"></div>
-                                <div class="demo-video-play">
-                                    <div class="demo-video-play-btn">
-                                        <i class="fa-solid fa-play" style="color:#fff;font-size:14px;margin-left:3px;"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hero-mini-demo-body">
-                                <div>
-                                    <div class="hero-mini-demo-label">Mode Toggle</div>
-                                    <div class="hero-mini-demo-mode">1x Klik → ON/OFF</div>
-                                </div>
-                                <div class="demo-video-yt">
-                                    <i class="fa-brands fa-youtube" style="color:#ef4444;font-size:11px;"></i>
-                                    <span>YouTube</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-update-slider">
-                    <div class="hero-update-slider-header">
-                        <div style="display:flex;align-items:center;gap:10px;">
-                            <i class="fa-solid fa-video" style="color:var(--red-bright);font-size:12px;"></i>
-                            <span class="highlight-card-title">Video Update Macro</span>
-                        </div>
-                    </div>
-                    <div class="hero-update-slider-viewport">
-                        <div class="hero-update-slider-track" id="hero-update-track"></div>
-                    </div>
-                    <div class="hero-update-slider-controls">
-                        <button type="button" class="hero-update-slider-btn" id="hero-update-prev" aria-label="Update sebelumnya">
-                            <i class="fa-solid fa-chevron-left" style="font-size:10px;"></i>
-                            <span>Prev</span>
-                        </button>
-                        <button type="button" class="hero-update-slider-btn" id="hero-update-next" aria-label="Update berikutnya">
-                            <span>Next</span>
-                            <i class="fa-solid fa-chevron-right" style="font-size:10px;"></i>
-                        </button>
-                    </div>
-                </div>
+            <div class="hero-panel">
+                <div class="hero-image"></div>
+                <div class="hero-stats" id="hero-stats"></div>
             </div>
-        </div>
+        </section>
 
-        <!-- ── HERO HIGHLIGHT STRIP: INFO UPDATE + TEKNOLOGI ── -->
-        
-                <div class="highlight-card-header">
-                    <i class="fa-solid fa-microchip" style="color:var(--red-bright);font-size:12px;"></i>
-                    <span class="highlight-card-title">Teknologi & Mode</span>
-                </div>
-                <div class="highlight-card-body">
-                    <div class="tech-highlight-grid">
-                        <div class="tech-highlight-item">
-                            <i class="fa-solid fa-shield-halved"></i>
-                            <div><div class="tech-highlight-name">System Safe</div><div class="tech-highlight-sub">Tanpa injeksi kode</div></div>
-                        </div>
-                        <div class="tech-highlight-item">
-                            <i class="fa-solid fa-computer-mouse"></i>
-                            <div><div class="tech-highlight-name">Native Input</div><div class="tech-highlight-sub">Gerakan mouse asli OS</div></div>
-                        </div>
-                        <div class="tech-highlight-item">
-                            <i class="fa-solid fa-bolt"></i>
-                            <div><div class="tech-highlight-name">Stable Engine</div><div class="tech-highlight-sub">Performa konsisten</div></div>
-                        </div>
-                        <div class="tech-highlight-item">
-                            <i class="fa-solid fa-plug"></i>
-                            <div><div class="tech-highlight-name">All Mouse</div><div class="tech-highlight-sub">Semua perangkat</div></div>
-                        </div>
-                    </div>
-                    <div class="tech-mode-row">
-                        <div class="tech-mode-pill">
-                            <i class="fa-solid fa-hand"></i>
-                            <div>
-                                <div class="tech-mode-pill-name">Mode Hold</div>
-                                <div class="tech-mode-pill-badge">Tahan RMB → aktif</div>
-                            </div>
-                        </div>
-                        <div class="tech-mode-pill">
-                            <i class="fa-solid fa-toggle-on"></i>
-                            <div>
-                                <div class="tech-mode-pill-name">Mode Toggle</div>
-                                <div class="tech-mode-pill-badge">1x klik → ON/OFF</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ════ DEMO VIDEO SECTION ════ -->
-    <div class="demo-video-strip">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
-            <span class="section-tag">Demo</span>
-            <h2 class="section-title">Video Demo Macro</h2>
-            <div class="section-line"></div>
-        </div>
-        <div class="demo-video-grid">
-            <!-- Hold -->
-            <div class="demo-video-card" onclick="window.open('https://youtube.com/watch?v=kQkogbvjyO4','_blank')">
-                <div class="demo-video-thumb">
-                    <img id="demo-thumb-hold" src="" alt="Mode Hold">
-                    <div class="demo-video-thumb-overlay"></div>
-                    <div class="demo-video-play">
-                        <div class="demo-video-play-btn">
-                            <i class="fa-solid fa-play" style="color:#fff;font-size:14px;margin-left:3px;"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="demo-video-body">
-                    <div>
-                        <div class="demo-video-label">Mode Hold</div>
-                        <div class="demo-video-mode">Tahan RMB → Aktif</div>
-                    </div>
-                    <div class="demo-video-yt">
-                        <i class="fa-brands fa-youtube" style="color:#ef4444;font-size:11px;"></i>
-                        <span>YouTube</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Toggle -->
-            <div class="demo-video-card" onclick="window.open('https://youtube.com/watch?v=Pl_wKZWLln8','_blank')">
-                <div class="demo-video-thumb">
-                    <img id="demo-thumb-toggle" src="" alt="Mode Toggle">
-                    <div class="demo-video-thumb-overlay"></div>
-                    <div class="demo-video-play">
-                        <div class="demo-video-play-btn">
-                            <i class="fa-solid fa-play" style="color:#fff;font-size:14px;margin-left:3px;"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="demo-video-body">
-                    <div>
-                        <div class="demo-video-label">Mode Toggle</div>
-                        <div class="demo-video-mode">1x Klik → ON/OFF</div>
-                    </div>
-                    <div class="demo-video-yt">
-                        <i class="fa-brands fa-youtube" style="color:#ef4444;font-size:11px;"></i>
-                        <span>YouTube</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ════ MAIN CONTENT ════ -->
-    <main class="container" style="padding-bottom:60px;">
-
-        <!-- ── PRODUCT CATALOG ── -->
-        <div id="produk" class="section">
+        <section id="produk" class="section">
             <div class="section-header">
-                <span class="section-tag">Katalog</span>
-                <h2 class="section-title">Produk Kami</h2>
-                <div class="section-line"></div>
-            </div>
-            <!-- Legend -->
-            <div style="display:flex;align-items:center;gap:20px;margin-bottom:20px;">
-                <div style="display:flex;align-items:center;gap:7px;">
-                    <i class="fa-solid fa-code" style="color:var(--red-bright);font-size:12px;"></i>
-                    <span style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--gray);">Software</span>
-                </div>
-                <div style="display:flex;align-items:center;gap:7px;">
-                    <i class="fa-solid fa-microchip" style="color:var(--red-bright);font-size:12px;"></i>
-                    <span style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--gray);">Hardware (Unit-X)</span>
-                </div>
-            </div>
-            <div id="product-list" class="product-grid"></div>
-        </div>
-
-        <!-- ── UPGRADE CTA ── -->
-        <div class="section">
-            <div class="upgrade-banner">
                 <div>
-                    <div class="upgrade-title">Siap untuk <span>Upgrade Skill?</span></div>
-                    <div class="upgrade-sub">Hubungi admin untuk konsultasi & instalasi langsung</div>
+                    <span class="section-tag">Semua Kategori</span>
+                    <h2 class="section-title">Semua Produk</h2>
                 </div>
-                <div id="footer-social-container" class="social-pills"></div>
             </div>
-        </div>
+            <div class="category-section-list" id="product-list"></div>
+        </section>
 
-        <!-- ── TESTIMONIALS ── -->
-        <div id="testimoni" class="section">
-            <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:24px;">
+        <section class="section">
+            <div class="section-header">
                 <div>
-                    <div style="display:inline-flex;align-items:center;gap:7px;padding:4px 12px;border-radius:99px;background:var(--red-subtle);border:1px solid var(--red-border);margin-bottom:10px;">
-                        <i class="fa-solid fa-star" style="color:var(--red-bright);font-size:9px;"></i>
-                        <span style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:9px;letter-spacing:0.06em;text-transform:uppercase;color:var(--red-bright);">Verified Buyers</span>
-                    </div>
-                    <h2 style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:28px;text-transform:uppercase;font-style:italic;">Bukti Transaksi & <span class="text-red">Testimoni</span></h2>
-                    <p style="font-size:12px;color:var(--gray-dim);margin-top:4px;">Screenshot langsung dari pembeli nyata kami</p>
+                    <span class="section-tag">Verified Buyers</span>
+                    <h2 class="section-title">Testimoni</h2>
                 </div>
-                <button onclick="goTo('discord')" style="display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:10px;background:var(--red-subtle);border:1px solid var(--red-border);color:var(--red-bright);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;flex-shrink:0;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='var(--red-subtle)'">
-                    <i class="fa-brands fa-discord"></i> Lihat Lebih Banyak
-                </button>
+                <a class="product-link" href="#" onclick="goTo('discord'); return false;">Lihat Lebih Banyak <i class="fa-brands fa-discord"></i></a>
             </div>
-
-            <!-- Stats -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-num">500+</div>
-                    <div class="stat-label">Total Pembeli</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-num">4.9★</div>
-                    <div class="stat-label">Rating</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-num">100%</div>
-                    <div class="stat-label">Lifetime Access</div>
-                </div>
-            </div>
-
-            <!-- Scroll Gallery -->
             <div id="testi-scroll-container" class="testi-scroll"></div>
-        </div>
+        </section>
 
+        <section class="section">
+            <div class="section-header">
+                <div>
+                    <span class="section-tag">Kontak</span>
+                    <h2 class="section-title">Hubungi Admin</h2>
+                </div>
+                <div class="social-row" id="social-row"></div>
+            </div>
+        </section>
     </main>
 
-    <!-- ════ FOOTER ════ -->
-    <footer>
-        <div class="logo-icon" style="margin:0 auto 12px;width:36px;height:36px;">
-            <i class="fa-solid fa-gun" style="color:#fff;font-size:14px;"></i>
-        </div>
-        <div class="footer-brand">BAM Macro Recoil — Native System Repository</div>
-    </footer>
+    <footer>BAM PROJECT - Digital Game Project Hub</footer>
 
-    <!-- ════ LIGHTBOX ════ -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <img id="lightbox-img" src="" alt="Testimonial Preview">
-    </div>
-
-    <!-- ════ CONTACT MODAL ════ -->
     <div id="contact-modal" class="modal-overlay" onclick="if(event.target===this)closeContact()">
-        <div class="contact-modal-box">
+        <div class="contact-box">
             <button class="modal-close" onclick="closeContact()"><i class="fa-solid fa-xmark"></i></button>
-            <h2 class="contact-title">Hubungi <span class="text-red">Kami</span></h2>
-            <div id="social-links-container"></div>
+            <div class="contact-title">Kontak <span style="color:var(--red-bright);">Admin</span></div>
+            <div class="contact-list" id="contact-list"></div>
         </div>
     </div>
 
-    <!-- ════ DETAIL MODAL ════ -->
-    <div id="detail-modal" class="modal-overlay" onclick="if(event.target===this)closeDetail()" style="align-items:flex-start;padding:20px;">
-        <div class="modal-box" style="margin:auto;">
-            <button class="modal-close" onclick="closeDetail()"><i class="fa-solid fa-xmark"></i></button>
-
-            <!-- Header -->
-            <div class="modal-header">
-                <div style="flex:1;min-width:0;padding-right:12px;">
-                    <div id="modal-tag" class="modal-tag-pill">TAG</div>
-                    <h2 id="modal-title" class="modal-title">TITLE</h2>
-                </div>
-                <div style="text-align:right;flex-shrink:0;">
-                    <div id="modal-price" class="modal-price">PRICE</div>
-                    <div class="modal-lifetime">
-                        <div style="width:6px;height:6px;border-radius:50%;background:var(--red-bright);box-shadow:0 0 5px var(--red);"></div>
-                        <span>Lifetime</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Video -->
-            <div id="modal-video-wrapper" class="modal-video-wrap"></div>
-
-            <!-- Info Panels -->
-            <div class="modal-info-grid">
-                <div class="modal-info-col">
-                    <div class="modal-info-label">
-                        <i class="fa-solid fa-circle-info" style="color:var(--red-bright);font-size:9px;"></i>
-                        <span>Deskripsi</span>
-                    </div>
-                    <p id="modal-desc" class="modal-info-text">-</p>
-                </div>
-                <div class="modal-info-col">
-                    <div class="modal-info-label">
-                        <i class="fa-solid fa-microchip" style="color:var(--red-bright);font-size:9px;"></i>
-                        <span>Spesifikasi</span>
-                    </div>
-                    <ul id="modal-specs" class="modal-info-list"></ul>
-                </div>
-                <div class="modal-info-col">
-                    <div class="modal-info-label">
-                        <i class="fa-solid fa-cart-shopping" style="color:var(--red-bright);font-size:9px;"></i>
-                        <span>Cara Beli</span>
-                    </div>
-                    <ol id="modal-howto" class="modal-info-list"></ol>
-                </div>
-            </div>
-
-            <!-- CTA -->
-            <div class="modal-cta">
-                <button class="modal-btn-order" onclick="openContact()">
-                    <i class="fa-solid fa-bolt"></i> Order Sekarang
-                </button>
-                <button class="modal-btn-wa" onclick="goTo('whatsapp')">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </button>
-            </div>
-        </div>
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Testimoni Preview">
     </div>
 
+    <script src="project-data.js"></script>
     <script>
+        const { SOCIAL, SOCIAL_LINKS, TESTIMONIAL_SOURCE, PROJECT_CATEGORIES, PRODUCTS_BY_CATEGORY } = window.PROJECT_DATA;
 
-        // ╔══════════════════════════════════════════════════════════════╗
-        // ║                    ⚙️  KONFIGURASI UTAMA                     ║
-        // ║         Edit bagian ini untuk mengubah konten website        ║
-        // ╚══════════════════════════════════════════════════════════════╝
-
-        // ── 1. LINK SOSIAL MEDIA & KONTAK ─────────────────────────────
-        const SOCIAL = {
-            whatsapp: "https://api.whatsapp.com/send/?phone=6289697523717",
-            tiktok:   "https://www.tiktok.com/@bampermana_",
-            youtube:  "https://www.youtube.com/channel/UCKydA45oOtKMmzxML44aTbg",
-            discord:  "https://discord.com/invite/zpuM9PRSdQ"
-        };
-
-        const HERO_CONTENT = {
-            eyebrow: "Macro Recoil System",
-            titleLines: [
-                { text: "Kontrol", className: "" },
-                { text: "Recoil", className: "line-red" },
-                { text: "Lebih", className: "line-dim" },
-                { text: "Akurat.", className: "" }
-            ],
-            desc: "",
-            stats: [
-                { value: "500+", label: "Total Pembeli" },
-                { value: "4.9★", label: "Rating" },
-                { value: "100%", label: "Lifetime Access" }
-            ]
-        };
-
-        // ── 2. VIDEO DEMO (YouTube Video ID) ──────────────────────────
-        //    Cara ambil ID: youtube.com/watch?v=XXXX  →  ambil bagian XXXX
-        const DEMO_VIDEOS = {
-            hold:       "32ztP1upt1s",   // Demo Mode Hold
-            toggle:     "Pl_wKZWLln8"    // Demo Mode Toggle
-        };
-
-        const UPDATE_VIDEOS = [
-            { id: "V2Mdcht_h5c", title: "[UPDATE] PUBG PRO v2.0", desc: "Cek Video Sekarang" },
-            { id: "-", title: "Update PUBG Lite v2.0", desc: "Cek Video Sekarang" },
-            { id: "-", title: "-", desc: "-" }
-        ];
-
-        // ── 3. INFO & UPDATE ──────────────────────────────────────────
-        //    Tambah item baru dengan menambah { } di bawah
-        const NEWS_ITEMS = [
-            {
-                title:  "Selamat Datang di BAM Macro Recoil!",
-                date:   "2025",
-                tag:    "News",
-                desc:   "Order resmi hanya melalui kontak di website.",
-                pinned: true
-            },
-			{
-                title:  "INFO UPDATE - [ TIKTOK ]",
-                date:   "2026",
-                tag:    "News",
-                desc:   "TikTok resmi pindah ke @bamrecoil.",
-                pinned: true
-            },
-            {
-                title:  "PUBG PRO UPDATE 2.0",
-                date:   "2026",
-                tag:    "Update",
-                desc:   "Update PUBG PRO v2.0 cek video via youtube!!",
-                pinned: false
-            }
-        ];
-
-        // ── 4. DAFTAR PRODUK ──────────────────────────────────────────
-        //    Untuk menambah produk baru, copy salah satu blok { } dan edit
-        //    videoId / videoId2: isi YouTube ID, atau "-" jika tidak ada
-        const PRODUCTS = [
-            {
-                id:          "pubg-sw-lite",
-                name:        "PUBG  -  Lite",
-                subtitle:    "MODE HOLD / TOGGLE",
-                price:       "Rp 100.000 (Lifetime)",
-                tag:         "PUBG (Software)",
-                image:       "https://4kwallpapers.com/images/wallpapers/playerunknowns-2732x2732-20844.jpg",
-                videoId:     "YoyGEKerbjc",
-                video1Label: "Demo Mode Hold",
-                videoId2:    "n7DOgW1gn5w",
-                video2Label: "Demo Mode Toggle",
-                desc:        "Macro PUBG ini dirancang aktif saat ADS (Aim Down Sight), membantu mengontrol recoil secara otomatis sehingga tembakan lebih stabil dan akurat.",
-                specs:       ["OS: Windows 10 / 11", "Semua jenis mouse", "Tanpa injeksi kode", "Lifetime license"],
-                howto:       ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"]
-            },
-            {
-                id:          "pubg-sw-fr",
-                name:        "PUBG  -  Pro",
-                subtitle:    "MODE HOLD / TOGGLE",
-                price:       "Rp 150.000 (Lifetime)",
-                tag:         "PUBG (Software)",
-                image:       "https://gamerant.com/wp-content/uploads/2021/08/pubg-battlegrounds-silly-name.jpg",
-                videoId:     "yCeOoyfk2Rk",
-                video1Label: "Demo Pro Mode Hold",
-                videoId2:    "KuPa3mpymDo",
-                video2Label: "Demo Pro Mode Toggle",
-                desc:        "Macro PUBG Pro mendukung ADS dan hipfire. Kontrol recoil aktif di semua kondisi, berbeda dari versi Lite yang hanya ADS.",
-                specs:       ["OS: Windows 10 / 11", "Semua jenis mouse", "Tanpa injeksi kode", "Lifetime license"],
-                howto:       ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"]
-            },
-            {
-                id:          "delta-v1-sw",
-                name:        "Delta Force Lite",
-                subtitle:    "Garena & Steam Ready!",
-                price:       "Rp 50.000 (Lifetime)",
-                tag:         "DeltaForce (Software)",
-                image:       "https://cdn-cf.gamivo.com/image_cover.jpg?f=524077&n=0c6d6469-85d0-4402-8cde-f9b042f00547.jpg&h=ab453b3db334aec27f4bded205e0d850",
-                videoId:     "zG8VmiLS0rw",
-                video1Label: "Demo Delta Force V1",
-                videoId2:    "-",
-                video2Label: "-",
-                desc:        "Macro Delta Force V1 kompatibel versi Garena & Steam. Native logic tanpa library luar, aman dan stabil.",
-                specs:       ["OS: Windows 10 / 11", "Garena & Steam", "Semua jenis mouse", "Lifetime license"],
-                howto:       ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"]
-            },
-            {
-                id:          "delta-v2-sw",
-                name:        "Delta Force Pro",
-                subtitle:    "Garena & Steam Ready!",
-                price:       "Rp 100.000 (Lifetime)",
-                tag:         "DeltaForce (Software)",
-                image:       "https://cdn-cf.gamivo.com/image_cover.jpg?f=524077&n=0c6d6469-85d0-4402-8cde-f9b042f00547.jpg&h=ab453b3db334aec27f4bded205e0d850",
-                videoId:     "Od8l251f13M",
-                video1Label: "Demo Delta Force V2",
-                videoId2:    "-",
-                video2Label: "-",
-                desc:        "Macro Delta Force V2 dengan kontrol lebih presisi. Setting lebih lengkap, cocok untuk player yang ingin performa maksimal.",
-                specs:       ["OS: Windows 10 / 11", "Garena & Steam", "Semua jenis mouse", "Lifetime license"],
-                howto:       ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"]
-            },
-            {
-                id:          "bloodstrike-sw",
-                name:        "BloodStrike",
-                subtitle:    "Windows & Steam Ready!",
-                price:       "Rp 50.000 (Lifetime)",
-                tag:         "BloodStrike (Software)",
-                image:       "https://static.tophub.id/tophub/product/blood-strike-0_0dfWa-N75.webp?tr=w-640",
-                videoId:     "-ucNJ4KahjI",
-                video1Label: "Demo BloodStrike",
-                videoId2:    "-",
-                video2Label: "-",
-                desc:        "Macro BloodStrike untuk Windows & Steam. Optimasi FPS & input, respon cepat dan stabil di semua kondisi game.",
-                specs:       ["OS: Windows 10 / 11", "Windows & Steam", "Semua jenis mouse", "Lifetime license"],
-                howto:       ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"]
-            },
-            {
-                id:          "coming-soon-hw",
-                name:        "COMING SOON!!",
-                subtitle:    "-",
-                price:       "-",
-                tag:         "(UNIT-X)",
-                image:       "https://media.indiedb.com/images/games/1/43/42826/COMING_SOON.jpg",
-                videoId:     "-",
-                video1Label: "-",
-                videoId2:    "-",
-                video2Label: "-",
-                desc:        "Produk hardware Unit-X sedang dalam pengembangan. Stay tuned untuk update selanjutnya!",
-                specs:       ["Info segera hadir", "Follow sosial media kami"],
-                howto:       ["Pantau terus update di Discord & TikTok"]
-            }
-        ];
-
-        // ── 5. GITHUB TESTIMONI ───────────────────────────────────────
-        //    Upload foto ke folder "testimoni" di repo, otomatis tampil
-        const GITHUB_USER   = 'bam-source';
-        const GITHUB_REPO   = 'BAM-MACRO-RECOIL';
-        const GITHUB_FOLDER = 'testimoni';
-
-        // ╔══════════════════════════════════════════════════════════════╗
-        // ║              🔧  FUNGSI — JANGAN DIEDIT                     ║
-        // ╚══════════════════════════════════════════════════════════════╝
-
-        let activeVideoId  = '';
-        let activeVideoId2 = '';
-
-        const STAR_HTML = '<i class="fa-solid fa-star" style="color:var(--red-bright);font-size:7px;"></i>'.repeat(5);
-
-        // Render info & update
-        function renderNews() {
-            const container = document.getElementById('hero-news-container');
-            if (!container) return;
-            const sorted = [...NEWS_ITEMS].sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0));
-            const badge  = document.getElementById('hero-news-badge');
-            if (badge && sorted.length > 0) badge.textContent = sorted.length + ' baru';
-            container.innerHTML = sorted.map(n => `
-                <div class="hero-news-item">
-                    <div class="hero-news-dot"></div>
-                    <div style="flex:1;min-width:0;">
-                        <div class="hero-news-meta">
-                            <span class="hero-news-tag">${n.tag}</span>
-                            <span class="hero-news-date">${n.date}</span>
-                            ${n.pinned ? '<i class="fa-solid fa-thumbtack" style="font-size:8px;color:var(--red-bright);"></i>' : ''}
-                        </div>
-                        <div class="hero-news-title">${n.title}</div>
-                        <div class="hero-news-desc">${n.desc}</div>
-                    </div>
-                </div>
+        function renderCategoryNav() {
+            const nav = document.getElementById('category-nav');
+            nav.innerHTML = PROJECT_CATEGORIES.map(category => `
+                <a class="category-tab" href="${category.href}">
+                    <i class="fa-solid ${category.icon}"></i>
+                    ${category.name}
+                </a>
             `).join('');
         }
 
-        function renderHeroContent() {
-            const eyebrow = document.getElementById('hero-eyebrow-text');
-            const title = document.getElementById('hero-title');
-            const desc = document.getElementById('hero-desc');
-            const stats = document.getElementById('hero-stats');
-            if (eyebrow) eyebrow.textContent = HERO_CONTENT.eyebrow;
-            if (title) {
-                title.innerHTML = HERO_CONTENT.titleLines.map(line =>
-                    `<span${line.className ? ` class="${line.className}"` : ''}>${line.text}</span>`
-                ).join('');
-            }
-            if (desc) desc.textContent = HERO_CONTENT.desc;
-            if (stats) {
-                stats.innerHTML = HERO_CONTENT.stats.map(item => `
-                    <div>
-                        <div class="hero-stat-num">${item.value}</div>
-                        <div class="hero-stat-label">${item.label}</div>
-                    </div>
-                `).join('');
-            }
+        function normalizeProduct(product) {
+            return {
+                id: product.id || product.name,
+                name: (product.name || 'Project').replace(/\s+/g, ' ').trim(),
+                subtitle: product.subtitle || product.tag || '',
+                price: product.price === '-' ? 'Dalam Proses' : (product.price || 'Konsultasi Admin'),
+                image: product.image || '',
+                status: product.price === '-' ? 'soon' : product.status
+            };
         }
 
-        // Render produk
-        function renderProducts() {
-            const list = document.getElementById('product-list');
-            list.innerHTML = PRODUCTS.map(p => {
-                const isHW = p.tag.toLowerCase().includes('unit-x');
-                return `
-                <div class="product-card" onclick="openDetail('${p.id}')">
-                    <div class="product-img-wrap">
-                        <img src="${p.image}" alt="${p.name}" loading="lazy">
-                        <div class="product-type-strip">
-                            <i class="fa-solid ${isHW ? 'fa-microchip' : 'fa-code'}" style="color:var(--red-bright);font-size:8px;"></i>
-                            <span>${isHW ? 'Hardware' : 'Software'}</span>
+        function loadCategoryProducts(category) {
+            const products = PRODUCTS_BY_CATEGORY?.[category.id] || [];
+            return {
+                ...category,
+                products: products.map(product => ({ ...normalizeProduct(product), category }))
+            };
+        }
+
+        function loadAllCategoryProducts() {
+            return PROJECT_CATEGORIES.map(loadCategoryProducts);
+        }
+
+        function renderHeroStats(categories) {
+            const products = categories.flatMap(category => category.products);
+            const activeCount = products.filter(product => product.status !== 'soon').length;
+            document.getElementById('hero-stats').innerHTML = `
+                <div class="metric"><strong>${PROJECT_CATEGORIES.length}</strong><span>Kategori</span></div>
+                <div class="metric"><strong>${products.length}</strong><span>Produk</span></div>
+                <div class="metric"><strong>${activeCount}</strong><span>Aktif</span></div>
+            `;
+        }
+
+        function renderProductCard(product) {
+            return `
+                <a class="product-card" href="${product.category.href}">
+                    <div class="product-media" style="background-image:url('${product.image}');">
+                        <div class="product-category">
+                            <i class="fa-solid ${product.category.icon}"></i>
+                            ${product.category.label}
                         </div>
                     </div>
                     <div class="product-body">
-                        <div class="product-name">${p.name}</div>
-                        <div class="product-subtitle">${p.subtitle}</div>
-                        <div class="product-footer">
-                            <span class="product-price">${p.price !== '-' ? p.price.split(' ')[0] + ' ' + p.price.split(' ')[1] : 'Soon'}</span>
-                            <div class="product-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                        <div class="product-title">${product.name}</div>
+                        <p class="product-text">${product.subtitle}</p>
+                        <div class="product-foot">
+                            <span class="product-price">${product.price}</span>
+                            <span class="product-link">Detail <i class="fa-solid fa-chevron-right"></i></span>
                         </div>
                     </div>
-                </div>`;
+                </a>
+            `;
+        }
+
+        function renderProducts(categories) {
+            const list = document.getElementById('product-list');
+            list.innerHTML = categories.map(category => {
+                const products = category.products;
+                return `
+                    <section class="category-product-section">
+                        <div class="category-product-head">
+                            <div class="category-product-title">
+                                <i class="fa-solid ${category.icon}" style="color:var(--red-bright);"></i>
+                                <div>
+                                    <h3>${category.name}</h3>
+                                    <span>${products.length} produk</span>
+                                </div>
+                            </div>
+                            <div class="category-actions">
+                                <button type="button" class="rail-btn" onclick="scrollCategory('${category.id}', -1)" aria-label="Produk sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+                                <button type="button" class="rail-btn" onclick="scrollCategory('${category.id}', 1)" aria-label="Produk berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+                                <a class="product-link" href="${category.href}">Buka <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="product-grid" id="rail-${category.id}">
+                            ${products.map(renderProductCard).join('')}
+                        </div>
+                    </section>
+                `;
             }).join('');
         }
 
-        // Render testimoni dari GitHub
+        function renderSocial() {
+            const row = document.getElementById('social-row');
+            const modal = document.getElementById('contact-list');
+            row.innerHTML = SOCIAL_LINKS.map(link => `
+                <button class="social-pill" onclick="goTo('${link.id}')">
+                    <i class="fa-brands ${link.icon}" style="color:${link.color};"></i>
+                    ${link.label}
+                </button>
+            `).join('');
+            modal.innerHTML = SOCIAL_LINKS.map(link => `
+                <a class="contact-item" href="${SOCIAL[link.id]}" target="_blank">
+                    <i class="fa-brands ${link.icon}" style="color:${link.color};"></i>
+                    ${link.label}
+                </a>
+            `).join('');
+        }
+
         async function renderTestimonials() {
             const container = document.getElementById('testi-scroll-container');
-            container.innerHTML = `<div style="display:flex;align-items:center;gap:10px;padding:20px;color:var(--gray-dim);">
-                <i class="fa-solid fa-spinner fa-spin" style="color:var(--red-bright);"></i>
-                <span style="font-family:'Rajdhani',sans-serif;font-size:13px;">Memuat testimoni...</span>
-            </div>`;
+            container.innerHTML = `<div style="padding:16px;color:var(--gray-dim);font-family:'Rajdhani',sans-serif;font-size:13px;">Memuat testimoni...</div>`;
             try {
-                const res    = await fetch(`https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FOLDER}`);
+                const url = `https://api.github.com/repos/${TESTIMONIAL_SOURCE.githubUser}/${TESTIMONIAL_SOURCE.githubRepo}/contents/${TESTIMONIAL_SOURCE.githubFolder}`;
+                const res = await fetch(url);
                 if (!res.ok) throw new Error('Gagal fetch');
-                const files  = await res.json();
-                const images = files.filter(f => /\.(jpg|jpeg|png|gif|webp)$/i.test(f.name));
-                if (images.length === 0) {
-                    container.innerHTML = `<div style="padding:20px;color:var(--gray-dim);font-family:'Rajdhani',sans-serif;font-size:13px;">Belum ada testimoni.</div>`;
+                const files = await res.json();
+                const images = files.filter(file => /\.(jpg|jpeg|png|gif|webp)$/i.test(file.name));
+                if (!images.length) {
+                    container.innerHTML = `<div style="padding:16px;color:var(--gray-dim);font-family:'Rajdhani',sans-serif;font-size:13px;">Testimoni tersedia melalui Discord resmi.</div>`;
                     return;
                 }
+                const stars = '<i class="fa-solid fa-star" style="color:var(--red-bright);font-size:7px;"></i>'.repeat(5);
                 container.innerHTML = images.map(file => {
                     const proxied = 'https://images.weserv.nl/?url=' + encodeURIComponent(file.download_url);
                     return `
-                    <div class="testi-card" onclick="openLightbox('${proxied}')">
-                        <img src="${proxied}" alt="Testimoni" loading="lazy"
-                            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="testi-placeholder" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;gap:8px;background:#1a1010;">
-                            <i class="fa-solid fa-image" style="color:var(--red-dim);font-size:28px;"></i>
-                            <span style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:10px;text-transform:uppercase;color:var(--gray-dim);">Testimoni</span>
-                        </div>
-                        <div class="testi-overlay"></div>
-                        <div class="testi-info">
-                            <div class="testi-verified">
-                                <div class="testi-verified-dot"></div>
-                                <span>Verified</span>
+                        <div class="testi-card" onclick="openLightbox('${proxied}')">
+                            <img src="${proxied}" alt="Testimoni" loading="lazy">
+                            <div class="testi-overlay"></div>
+                            <div class="testi-info">
+                                <div class="testi-verified"><div class="testi-verified-dot"></div><span>Verified</span></div>
+                                <div class="testi-stars">${stars}</div>
                             </div>
-                            <div class="testi-stars">${STAR_HTML}</div>
                         </div>
-                        <div class="testi-zoom"><i class="fa-solid fa-magnifying-glass-plus" style="color:var(--red-bright);font-size:9px;"></i></div>
-                    </div>`;
+                    `;
                 }).join('');
-            } catch (e) {
-                container.innerHTML = `<div style="padding:20px;color:var(--gray-dim);font-family:'Rajdhani',sans-serif;font-size:13px;">
-                    <i class="fa-solid fa-triangle-exclamation" style="color:var(--red-bright);margin-right:6px;"></i>Gagal memuat testimoni.
-                </div>`;
+            } catch (error) {
+                container.innerHTML = `<div style="padding:16px;color:var(--gray-dim);font-family:'Rajdhani',sans-serif;font-size:13px;">Gagal memuat testimoni.</div>`;
             }
         }
 
-        // Render link sosial media
-        function renderSocialLinks() {
-            const LINKS = [
-                { id: 'whatsapp', icon: 'fa-whatsapp', color: '#25d366', label: 'WhatsApp', bg: 'rgba(37,211,102,0.1)' },
-                { id: 'discord',  icon: 'fa-discord',  color: '#5865f2', label: 'Discord',  bg: 'rgba(88,101,242,0.1)' },
-                { id: 'tiktok',   icon: 'fa-tiktok',   color: '#fff',    label: 'TikTok',   bg: 'rgba(255,255,255,0.06)' },
-                { id: 'youtube',  icon: 'fa-youtube',  color: '#ff0000', label: 'YouTube',  bg: 'rgba(255,0,0,0.1)' },
-            ];
-            const footerEl = document.getElementById('footer-social-container');
-            if (footerEl) footerEl.innerHTML = LINKS.map(l => `
-                <button onclick="goTo('${l.id}')" class="social-pill">
-                    <i class="fa-brands ${l.icon}" style="color:${l.color};font-size:14px;"></i>
-                    <span>${l.label}</span>
-                </button>
-            `).join('');
-            const modalEl = document.getElementById('social-links-container');
-            if (modalEl) modalEl.innerHTML = LINKS.map(l => `
-                <div onclick="goTo('${l.id}')" class="social-link-row">
-                    <div class="social-link-icon" style="background:${l.bg};">
-                        <i class="fa-brands ${l.icon}" style="color:${l.color};"></i>
-                    </div>
-                    <div class="social-link-name">${l.label}</div>
-                    <i class="fa-solid fa-chevron-right" style="color:#6b7280;font-size:10px;margin-left:auto;"></i>
-                </div>
-            `).join('');
+        function goTo(key) { window.open(SOCIAL[key], '_blank'); }
+        function scrollCategory(categoryId, direction) {
+            const rail = document.getElementById(`rail-${categoryId}`);
+            if (!rail) return;
+            rail.scrollBy({ left: direction * Math.max(220, rail.clientWidth * 0.75), behavior: 'smooth' });
         }
-
-        // Render thumbnail video demo
-        function renderMacroVideos() {
-            const map = {
-                hold: ['demo-thumb-hold', 'hero-demo-thumb-hold'],
-                toggle: ['demo-thumb-toggle', 'hero-demo-thumb-toggle']
-            };
-            Object.entries(DEMO_VIDEOS).forEach(([key, videoId]) => {
-                (map[key] || []).forEach(id => {
-                    const img = document.getElementById(id);
-                    if (img) img.src = 'https://img.youtube.com/vi/' + videoId + '/mqdefault.jpg';
-                });
-            });
-        }
-
-        function renderUpdateVideoThumbs() {
-            const track = document.getElementById('hero-update-track');
-            if (!track) return;
-            track.innerHTML = UPDATE_VIDEOS.map((video, index) => `
-                <div class="hero-update-slide">
-                    <div class="hero-update-card" onclick="window.open('https://youtube.com/watch?v=${video.id}','_blank')">
-                        <div class="hero-update-thumb">
-                            <img src="https://img.youtube.com/vi/${video.id}/mqdefault.jpg" alt="${video.title}" loading="lazy">
-                            <div class="demo-video-thumb-overlay"></div>
-                            <div class="demo-video-play">
-                                <div class="demo-video-play-btn">
-                                    <i class="fa-solid fa-play" style="color:#fff;font-size:14px;margin-left:3px;"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hero-update-body">
-                            <div class="hero-update-label">${video.title || `Update Macro ${index + 1}`}</div>
-                            <div class="hero-update-mode">${video.desc || 'Video update terbaru'}</div>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function initUpdateVideoSlider() {
-            const track = document.getElementById('hero-update-track');
-            const prev = document.getElementById('hero-update-prev');
-            const next = document.getElementById('hero-update-next');
-            if (!track || !prev || !next) return;
-
-            const slides = Array.from(track.querySelectorAll('.hero-update-slide'));
-            if (slides.length <= 1) return;
-
-            let currentIndex = 0;
-
-            function getStep() {
-                return window.innerWidth <= 768 ? 100 : 50;
-            }
-
-            function updateSlider(index) {
-                const maxIndex = window.innerWidth <= 768 ? slides.length - 1 : Math.max(0, slides.length - 2);
-                currentIndex = Math.max(0, Math.min(index, maxIndex));
-                track.style.transform = `translateX(-${currentIndex * getStep()}%)`;
-            }
-
-            prev.addEventListener('click', () => updateSlider(currentIndex - 1));
-            next.addEventListener('click', () => updateSlider(currentIndex + 1));
-            window.addEventListener('resize', () => updateSlider(currentIndex));
-
-            updateSlider(0);
-        }
-
-        // Buka detail produk
-        function openDetail(id) {
-            const p = PRODUCTS.find(i => i.id === id);
-            if (!p) return;
-            activeVideoId  = p.videoId;
-            activeVideoId2 = p.videoId2 || '-';
-            document.getElementById('modal-title').innerText = p.name;
-            document.getElementById('modal-price').innerText = p.price;
-            document.getElementById('modal-tag').innerText   = p.tag;
-            const vid1   = p.videoId  && p.videoId  !== '-';
-            const vid2   = p.videoId2 && p.videoId2 !== '-';
-            const thumb1 = vid1 ? `https://img.youtube.com/vi/${p.videoId}/mqdefault.jpg`  : '';
-            const thumb2 = vid2 ? `https://img.youtube.com/vi/${p.videoId2}/mqdefault.jpg` : '';
-            const label1 = p.video1Label || 'Video 1';
-            const label2 = p.video2Label || 'Video 2';
-            function videoBlock(thumbSrc, label, clickFn, borderRight) {
-                return `<div onclick="${clickFn}" style="flex:1;min-width:0;cursor:pointer;${borderRight ? 'border-right:1px solid var(--border);' : ''}position:relative;">
-                    <div style="position:relative;width:100%;padding-bottom:56.25%;overflow:hidden;background:#000;">
-                        <img src="${thumbSrc}" alt="${label}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.55;transition:opacity 0.25s;">
-                        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 55%);pointer-events:none;"></div>
-                        <div style="position:absolute;top:6px;left:8px;display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:99px;background:rgba(220,38,38,0.2);border:1px solid rgba(220,38,38,0.4);">
-                            <i class="fa-brands fa-youtube" style="color:#f87171;font-size:7px;"></i>
-                            <span style="font-size:6.5px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.05em;">${label}</span>
-                        </div>
-                        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
-                            <div style="width:34px;height:34px;border-radius:9px;background:rgba(220,38,38,0.9);display:flex;align-items:center;justify-content:center;box-shadow:0 0 14px rgba(220,38,38,0.6);">
-                                <i class="fa-brands fa-youtube" style="color:#fff;font-size:13px;"></i>
-                            </div>
-                        </div>
-                        <div style="position:absolute;bottom:6px;left:8px;font-size:7px;color:rgba(255,255,255,0.45);text-transform:uppercase;">Klik untuk tonton</div>
-                    </div>
-                </div>`;
-            }
-            const wrapper = document.getElementById('modal-video-wrapper');
-            if (vid1 && vid2) {
-                wrapper.innerHTML = `<div style="display:flex;">${videoBlock(thumb1,label1,'playVideo(1)',true)}${videoBlock(thumb2,label2,'playVideo(2)',false)}</div>`;
-            } else if (vid1) {
-                wrapper.innerHTML = `<div style="display:flex;">${videoBlock(thumb1,label1,'playVideo(1)',false)}</div>`;
-            } else {
-                wrapper.innerHTML = `<div style="padding:20px;text-align:center;"><p style="font-size:11px;color:var(--red-bright);font-weight:700;text-transform:uppercase;">Tidak ada video tersedia</p></div>`;
-            }
-            document.getElementById('modal-desc').innerText = p.desc || '-';
-            document.getElementById('modal-specs').innerHTML  = (p.specs  || []).map(s => `<li><i class="fa-solid fa-check ico"></i>${s}</li>`).join('');
-            document.getElementById('modal-howto').innerHTML  = (p.howto  || []).map((h, i) => `<li><span class="ico" style="font-size:9px;font-weight:700;color:var(--red-bright);flex-shrink:0;">${i+1}.</span>${h}</li>`).join('');
-            document.getElementById('detail-modal').classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Navigasi ke sosial media
-        function goTo(key)     { window.open(SOCIAL[key], '_blank'); }
-        function playVideo(n)  { const id = n === 2 ? activeVideoId2 : activeVideoId; if (id && id !== '-') window.open(`https://youtube.com/watch?v=${id}`, '_blank'); }
-        function closeDetail() { document.getElementById('detail-modal').classList.remove('open');  document.body.style.overflow = 'auto'; }
-        function openContact() { document.getElementById('contact-modal').classList.add('open');    document.body.style.overflow = 'hidden'; }
-        function closeContact(){ document.getElementById('contact-modal').classList.remove('open'); document.body.style.overflow = 'auto'; }
-
         function openLightbox(url) {
-            const img = document.getElementById('lightbox-img');
-            img.onerror = () => closeLightbox();
-            img.src = url;
+            document.getElementById('lightbox-img').src = url;
             document.getElementById('lightbox').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
         function closeLightbox() {
             document.getElementById('lightbox').classList.remove('active');
-            const detailOpen  = document.getElementById('detail-modal').classList.contains('open');
-            const contactOpen = document.getElementById('contact-modal').classList.contains('open');
-            if (!detailOpen && !contactOpen) document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'auto';
         }
+        function openContact() { document.getElementById('contact-modal').classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeContact() { document.getElementById('contact-modal').classList.remove('open'); document.body.style.overflow = 'auto'; }
 
-        // Init
         window.onload = async () => {
-            renderHeroContent();
-            renderProducts();
-            renderSocialLinks();
-            renderMacroVideos();
-            renderUpdateVideoThumbs();
-            initUpdateVideoSlider();
-            renderNews();
+            renderCategoryNav();
+            renderSocial();
+            const categories = loadAllCategoryProducts();
+            renderHeroStats(categories);
+            renderProducts(categories);
             await renderTestimonials();
         };
-
     </script>
-
 </body>
 </html>
