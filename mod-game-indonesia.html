@@ -1157,27 +1157,60 @@
             .nav-inner { padding: 0 14px; }
             .nav-link { display: none; }
             .nav-cta { padding: 8px 12px; font-size: 12px; }
-            .page { padding: 88px 14px 34px; }
+            .page { padding: 80px 14px 28px; }
             .hero-topline {
                 align-items: flex-start;
                 flex-direction: column;
-                padding: 12px 14px;
+                gap: 8px;
+                padding: 9px 12px;
             }
+            .hero-topline-left,
+            .hero-topline-right { gap: 7px; }
             .hero-topline-right { flex-wrap: wrap; }
+            .hero-topline-pill { padding: 3px 8px; font-size: 9px; }
             .hero-topline-text { white-space: normal; }
-            .hero-shell { padding: 16px; gap: 18px; }
-            .hero-stats { grid-template-columns: 1fr; }
-            .mod-showcase { grid-template-columns: 1fr; }
+            .hero-shell { padding: 14px; gap: 14px; }
+            h1 { font-size: 39px; margin-bottom: 12px; }
+            .hero-copy { margin-bottom: 14px; }
+            .hero-actions { gap: 8px; }
+            .btn-primary,
+            .btn-ghost { min-height: 34px; padding: 0 12px; font-size: 12px; }
+            .hero-stats {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 7px;
+                margin-top: 16px;
+                padding-top: 14px;
+            }
+            .hero-stat-card { padding: 8px 6px; }
+            .hero-stat-num { font-size: 18px; }
+            .hero-stat-label { font-size: 7.5px; }
+            .mod-panel-header { padding: 7px 10px; }
+            .mod-info-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; padding: 6px; }
+            .mod-info-item { padding: 8px 6px; }
+            .mod-info-item strong { font-size: 11px; }
+            .mod-info-item span { font-size: 9px; line-height: 1.35; }
+            .mod-showcase { gap: 6px; padding: 6px; }
+            .mod-showcase-card { min-height: 86px; }
+            .mod-showcase-content { left: 8px; right: 8px; bottom: 8px; }
+            .mod-showcase-content strong { font-size: 12px; }
+            .mod-showcase-content span { font-size: 8px; }
             .stats-grid { grid-template-columns: 1fr; }
             .upgrade-banner { padding: 22px 18px; }
             .social-pills { width: 100%; }
             .social-pill { flex: 1 1 calc(50% - 8px); justify-content: center; }
+            .section { padding: 24px 0 4px; }
             .section-header,
             .cta-band { align-items: flex-start; flex-direction: column; }
             .review-meta { grid-template-columns: 1fr; }
             .review-media { min-height: 170px; }
-            h1 { font-size: 43px; }
-            .product-grid { gap: 12px; }
+            .product-grid { gap: 10px; }
+        }
+
+        @media (max-width: 390px) {
+            .mod-showcase { grid-template-columns: 1fr; }
+            .hero-stats { grid-template-columns: 1fr; }
+            .btn-primary,
+            .btn-ghost { flex: 1 1 calc(50% - 8px); }
         }
     </style>
 </head>

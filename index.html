@@ -253,9 +253,13 @@
 
         .hero-image {
             min-height: 170px;
-            background:
-                linear-gradient(to top, rgba(13,11,11,0.96), rgba(13,11,11,0.12)),
-                url("https://4kwallpapers.com/images/wallpapers/playerunknowns-2732x2732-20844.jpg") center/cover;
+            background-color: #070606;
+            background-image:
+                linear-gradient(to top, rgba(13,11,11,0.72), rgba(13,11,11,0.08)),
+                url("assets/Logo_BAM_Transparant.png");
+            background-position: center, center;
+            background-size: cover, contain;
+            background-repeat: no-repeat, no-repeat;
         }
 
         .hero-stats {
@@ -685,8 +689,8 @@
             .nav-inner {
                 flex-wrap: wrap;
                 justify-content: space-between;
-                gap: 8px 12px;
-                padding: 10px 16px;
+                gap: 6px 10px;
+                padding: 8px 14px;
             }
 
             .category-nav {
@@ -694,32 +698,53 @@
                 width: 100%;
                 margin-left: 0;
                 justify-content: flex-start;
+                gap: 6px;
             }
 
-            .nav-cta { padding: 8px 12px; font-size: 12px; }
-            .page { padding-top: 128px; }
+            .category-tab {
+                height: 30px;
+                padding: 0 10px;
+                font-size: 11px;
+                border-radius: 7px;
+            }
+
+            .nav-cta { height: 32px; padding: 0 12px; font-size: 12px; }
+            .page { padding-top: 106px; }
             .hero { grid-template-columns: 1fr; min-height: 0; }
-            .hero-panel { order: -1; }
         }
 
         @media (max-width: 720px) {
-            .page { padding: 122px 14px 32px; }
-            h1 { font-size: 46px; }
-            .hero { gap: 20px; }
-            .hero-image { min-height: 130px; }
-            .hero-stats { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
-            .metric { padding: 8px; }
-            .metric strong { font-size: 17px; }
-            .metric span { font-size: 8.5px; }
+            .page { padding: 104px 14px 28px; }
+            h1 { font-size: 40px; margin-bottom: 10px; }
+            .eyebrow { margin-bottom: 10px; padding: 3px 10px; font-size: 10px; }
+            .hero { gap: 14px; }
+            .hero-actions { gap: 8px; }
+            .btn-primary,
+            .btn-ghost { min-height: 34px; padding: 0 12px; font-size: 12px; }
+            .hero-panel { box-shadow: 0 14px 34px rgba(0,0,0,0.28); }
+            .hero-image { min-height: 96px; }
+            .hero-stats { grid-template-columns: 1fr 1fr 1fr; gap: 6px; padding: 8px; }
+            .metric { padding: 7px; border-radius: 7px; }
+            .metric strong { font-size: 16px; }
+            .metric span { font-size: 8px; }
+            .section { padding: 22px 0 4px; }
             .section-header { align-items: flex-start; flex-direction: column; }
             .category-product-head { align-items: flex-start; flex-direction: column; }
-            .product-grid { gap: 10px; padding: 12px; }
-            .product-grid .product-card { flex-basis: 148px; }
-            .product-media { min-height: 86px; }
+            .category-product-section { padding: 12px; }
+            .product-grid { gap: 8px; padding: 10px; }
+            .product-grid .product-card { flex-basis: 136px; }
+            .product-media { min-height: 76px; }
             .product-body { padding: 9px; }
-            .product-title { font-size: 14px; }
-            .product-text { font-size: 11px; min-height: 30px; }
-            .product-foot { align-items: flex-start; flex-direction: column; gap: 7px; }
+            .product-title { font-size: 13px; }
+            .product-text { font-size: 10.5px; min-height: 28px; }
+            .product-foot { gap: 7px; }
+        }
+
+        @media (max-width: 390px) {
+            .logo-text { font-size: 18px; }
+            .nav-cta { padding: 0 10px; }
+            .btn-primary,
+            .btn-ghost { flex: 1 1 calc(50% - 8px); }
         }
     </style>
 </head>
