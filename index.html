@@ -304,14 +304,21 @@
         }
 
         .section-tag {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             margin-bottom: 8px;
-            color: var(--red-bright);
+            padding: 4px 10px;
+            border: 1px solid rgba(239,68,68,0.55);
+            border-radius: 999px;
+            background: linear-gradient(180deg, rgba(239,68,68,0.95), rgba(185,28,28,0.95));
+            color: #fff;
             font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
             font-size: 11px;
             letter-spacing: 0.08em;
             text-transform: uppercase;
+            box-shadow: 0 6px 16px rgba(220,38,38,0.18);
         }
 
         .section-title {
@@ -381,15 +388,35 @@
         }
 
         .category-product-title h3 {
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            padding: 5px 11px;
+            border: 1px solid rgba(239,68,68,0.55);
+            border-radius: 8px;
+            background: linear-gradient(180deg, rgba(239,68,68,0.95), rgba(185,28,28,0.95));
+            color: #fff;
             font-family: 'Rajdhani', sans-serif;
             font-size: 20px;
             line-height: 1;
             text-transform: uppercase;
+            box-shadow: 0 8px 18px rgba(220,38,38,0.18);
         }
 
         .category-product-title span {
-            color: var(--gray-dim);
-            font-size: 12px;
+            display: inline-flex;
+            width: fit-content;
+            margin-top: 5px;
+            padding: 3px 9px;
+            border: 1px solid rgba(239,68,68,0.55);
+            border-radius: 999px;
+            background: var(--red);
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
         }
 
         .product-grid {
@@ -407,7 +434,7 @@
         .product-grid::-webkit-scrollbar-thumb { background: var(--red-dim); border-radius: 99px; }
 
         .product-grid .product-card {
-            flex: 0 0 168px;
+            flex: 0 0 154px;
             scroll-snap-align: start;
         }
 
@@ -462,22 +489,24 @@
             letter-spacing: 0.06em;
         }
 
-        .product-body { padding: 11px; }
+        .product-body { padding: 10px; }
 
         .product-title {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 16px;
+            font-size: 12.5px;
             font-weight: 700;
             line-height: 1.05;
             text-transform: uppercase;
+            letter-spacing: 0.03em;
+            font-style: italic;
         }
 
         .product-text {
             margin-top: 5px;
             color: var(--gray);
-            font-size: 12px;
+            font-size: 9px;
             line-height: 1.35;
-            min-height: 32px;
+            min-height: 24px;
         }
 
         .product-foot {
@@ -497,9 +526,10 @@
             border-radius: 5px;
             padding: 3px 7px;
             font-family: 'Rajdhani', sans-serif;
-            font-size: 10px;
+            font-size: 9.5px;
             font-weight: 700;
             white-space: nowrap;
+            font-style: italic;
         }
 
         .product-link {
@@ -507,7 +537,7 @@
             align-items: center;
             gap: 6px;
             color: #fff;
-            font-size: 11px;
+            font-size: 10px;
             white-space: nowrap;
         }
 
@@ -717,6 +747,7 @@
             .page { padding: 104px 14px 28px; }
             h1 { font-size: 40px; margin-bottom: 10px; }
             .eyebrow { margin-bottom: 10px; padding: 3px 10px; font-size: 10px; }
+            .section-tag { padding: 3px 9px; font-size: 10px; }
             .hero { gap: 14px; }
             .hero-actions { gap: 8px; }
             .btn-primary,
@@ -735,8 +766,8 @@
             .product-grid .product-card { flex-basis: 136px; }
             .product-media { min-height: 76px; }
             .product-body { padding: 9px; }
-            .product-title { font-size: 13px; }
-            .product-text { font-size: 10.5px; min-height: 28px; }
+            .product-title { font-size: 11.5px; }
+            .product-text { font-size: 8.8px; min-height: 22px; }
             .product-foot { gap: 7px; }
         }
 

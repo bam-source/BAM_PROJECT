@@ -477,14 +477,21 @@
         }
 
         .section-tag {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             margin-bottom: 8px;
-            color: var(--red-bright);
+            padding: 4px 10px;
+            border: 1px solid rgba(239,68,68,0.55);
+            border-radius: 999px;
+            background: linear-gradient(180deg, rgba(239,68,68,0.95), rgba(185,28,28,0.95));
+            color: #fff;
             font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
             font-size: 12px;
             letter-spacing: 0.08em;
             text-transform: uppercase;
+            box-shadow: 0 6px 16px rgba(220,38,38,0.18);
         }
 
         .section-title {
@@ -1172,6 +1179,7 @@
             .hero-shell { padding: 14px; gap: 14px; }
             h1 { font-size: 39px; margin-bottom: 12px; }
             .hero-copy { margin-bottom: 14px; }
+            .section-tag { padding: 3px 9px; font-size: 10px; }
             .hero-actions { gap: 8px; }
             .btn-primary,
             .btn-ghost { min-height: 34px; padding: 0 12px; font-size: 12px; }
