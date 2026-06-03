@@ -507,9 +507,12 @@
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(176px, 220px));
-            gap: 14px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
         }
+
+        @media (min-width: 640px) { .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        @media (min-width: 1024px) { .product-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
 
         .product-card {
             border: 1px solid var(--border);
@@ -518,109 +521,127 @@
             overflow: hidden;
             color: #fff;
             cursor: pointer;
-            transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(220,38,38,0.32);
-            box-shadow: 0 16px 34px rgba(0,0,0,0.28);
-        }
-
-        .product-media {
-            min-height: 112px;
             position: relative;
-            background-size: cover;
-            background-position: center;
+            transition: all 0.25s ease;
         }
 
-        .product-media::after {
+        .product-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(13,11,11,0.95), rgba(13,11,11,0.1));
+            z-index: 1;
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(220,38,38,0.08) 0%, transparent 60%);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
         }
 
-        .product-badge {
+        .product-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--red-border);
+            box-shadow: 0 10px 26px rgba(220,38,38,0.1);
+        }
+
+        .product-card:hover::before { opacity: 1; }
+
+        .product-img-wrap {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: #0f0b0b;
+            position: relative;
+        }
+
+        .product-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .product-img-wrap img { transform: scale(1.04); }
+
+        .product-type-strip {
             position: absolute;
-            left: 10px;
-            top: 10px;
-            z-index: 1;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 4px 8px;
-            border: 1px solid var(--red-border);
-            border-radius: 99px;
-            background: rgba(13,11,11,0.68);
-            color: var(--red-bright);
+            gap: 5px;
+            padding: 4px 10px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(8px);
+        }
+
+        .product-type-strip span {
+            color: #fff;
             font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
+            font-size: 8px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .product-body { padding: 10px; }
+
+        .product-name {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 12.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: #fff;
+            margin-bottom: 1px;
+            font-style: italic;
+        }
+
+        .product-subtitle {
+            color: var(--gray-dim);
             font-size: 9px;
-            text-transform: uppercase;
+            margin-bottom: 8px;
         }
 
-        .product-body { padding: 14px; }
-        .product-title {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            text-transform: uppercase;
-            line-height: 1.05;
-        }
-
-        .product-text {
-            margin-top: 6px;
-            color: var(--gray);
-            font-size: 12px;
-            line-height: 1.45;
-            min-height: 34px;
-        }
-
-        .product-foot {
-            margin-top: 12px;
+        .product-footer {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 12px;
-            flex-wrap: wrap;
+            padding-top: 8px;
+            border-top: 1px solid var(--border);
         }
 
         .product-price {
             font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
-            font-size: 11px;
+            font-size: 9.5px;
+            letter-spacing: 0.02em;
             color: #fff;
             background: var(--red);
-            padding: 3px 7px;
+            padding: 3px 6px;
             border-radius: 5px;
+            font-style: italic;
         }
 
-        .product-link {
-            display: inline-flex;
+        .product-arrow {
+            width: 21px;
+            height: 21px;
+            display: flex;
             align-items: center;
-            gap: 8px;
-            color: #fff;
-            font-size: 12px;
+            justify-content: center;
+            border: 1px solid var(--red-border);
+            border-radius: 50%;
+            color: var(--red-bright);
+            font-size: 8px;
+            transition: all 0.2s ease;
         }
 
-        .product-foot .product-link {
-            min-height: 25px;
-            padding: 0 9px;
-            border: 1px solid rgba(220,38,38,0.24);
-            border-radius: 6px;
-            background: rgba(220,38,38,0.14);
+        .product-card:hover .product-arrow {
+            background: var(--red);
+            border-color: var(--red);
             color: #fff;
-            font-size: 10px;
-            line-height: 1;
-            box-shadow: none;
-            transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
-        }
-
-        .product-foot .product-link:hover {
-            border-color: rgba(220,38,38,0.42);
-            background: rgba(220,38,38,0.24);
-            transform: translateY(-1px);
         }
 
         .testi-scroll {
@@ -638,14 +659,20 @@
 
         .testi-card {
             position: relative;
-            flex: 0 0 190px;
-            height: 160px;
+            flex: 0 0 220px;
+            height: 190px;
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
             scroll-snap-align: start;
             background: rgba(255,255,255,0.025);
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .testi-card:hover {
+            border-color: var(--red-border);
+            transform: scale(1.02);
         }
 
         .testi-card img {
@@ -691,6 +718,20 @@
 
         .testi-stars { display: flex; gap: 2px; }
 
+        .testi-zoom {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 7px;
+            background: rgba(0,0,0,0.6);
+        }
+
         .lightbox {
             position: fixed;
             inset: 0;
@@ -727,6 +768,198 @@
             color: var(--gray);
             margin-top: 6px;
             font-size: 13px;
+        }
+
+        .text-red { color: var(--red-bright); }
+
+        .upgrade-banner {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 28px 32px;
+            border: 1px solid var(--red-border);
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(220,38,38,0.08) 0%, rgba(255,255,255,0.018) 58%, rgba(220,38,38,0.06) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upgrade-banner::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(220,38,38,0.16) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        @media (min-width: 640px) {
+            .upgrade-banner {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+
+        .upgrade-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 1.15;
+            text-transform: uppercase;
+            font-style: italic;
+            letter-spacing: 0.02em;
+        }
+
+        .upgrade-title span { color: var(--red-bright); }
+        .upgrade-sub {
+            color: var(--gray);
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        .social-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            min-height: 34px;
+            padding: 0 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.04);
+            cursor: pointer;
+            transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+        }
+
+        .social-pill:hover {
+            border-color: var(--red-border);
+            background: var(--red-subtle);
+            transform: translateY(-1px);
+        }
+
+        .social-pill span {
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .testimonial-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .verified-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 4px 12px;
+            border-radius: 99px;
+            background: var(--red-subtle);
+            border: 1px solid var(--red-border);
+            margin-bottom: 10px;
+        }
+
+        .verified-pill span {
+            color: var(--red-bright);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 9px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .testimonial-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            line-height: 1.05;
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        .testimonial-sub {
+            color: var(--gray-dim);
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        .testimonial-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 36px;
+            padding: 0 18px;
+            border: 1px solid var(--red-border);
+            border-radius: 10px;
+            background: var(--red-subtle);
+            color: var(--red-bright);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 10px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .testimonial-more:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-1px);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--card-bg);
+            text-align: center;
+            transition: border-color 0.2s ease;
+        }
+
+        .stat-card:hover { border-color: var(--red-border); }
+
+        .stat-num {
+            color: var(--red-bright);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 36px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            margin-top: 6px;
+            color: var(--gray-dim);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 9px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
         }
 
         footer {
@@ -923,7 +1156,6 @@
             .hero-shell { grid-template-columns: 1fr; }
             .mod-info-grid,
             .mod-product-list { grid-template-columns: 1fr; }
-            .product-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
         }
 
         @media (max-width: 720px) {
@@ -941,12 +1173,15 @@
             .hero-shell { padding: 16px; gap: 18px; }
             .hero-stats { grid-template-columns: 1fr; }
             .mod-showcase { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .upgrade-banner { padding: 22px 18px; }
+            .social-pills { width: 100%; }
+            .social-pill { flex: 1 1 calc(50% - 8px); justify-content: center; }
             .section-header,
             .cta-band { align-items: flex-start; flex-direction: column; }
             .review-meta { grid-template-columns: 1fr; }
             .review-media { min-height: 170px; }
             h1 { font-size: 43px; }
-            .product-media { min-height: 96px; }
             .product-grid { gap: 12px; }
         }
     </style>
@@ -1043,24 +1278,46 @@
         </section>
 
         <section class="section">
-            <div class="section-header">
+            <div class="upgrade-banner">
                 <div>
-                    <span class="section-tag">Verified Buyers</span>
-                    <h2 class="section-title">Testimoni</h2>
+                    <div class="upgrade-title">Siap pilih <span>Project Mod Game terbaik?</span></div>
+                    <div class="upgrade-sub">Hubungi admin untuk konsultasi, order, dan update produk langsung</div>
                 </div>
-                <a class="product-link" href="#" onclick="goTo('discord'); return false;">Lihat Lebih Banyak <i class="fa-brands fa-discord"></i></a>
+                <div id="footer-social-container" class="social-pills"></div>
             </div>
-            <div id="testi-scroll-container" class="testi-scroll"></div>
         </section>
 
-        <section class="section">
-            <div class="cta-band">
+        <section id="testimoni" class="section">
+            <div class="testimonial-head">
                 <div>
-                    <h2>Butuh info project?</h2>
-                    <p>Hubungi admin untuk request, konsultasi, atau update ketersediaan produk.</p>
+                    <div class="verified-pill">
+                        <i class="fa-solid fa-star" style="color:var(--red-bright);font-size:9px;"></i>
+                        <span>Verified Buyers</span>
+                    </div>
+                    <h2 class="testimonial-title">Bukti Transaksi & <span class="text-red">Testimoni</span></h2>
+                    <p class="testimonial-sub">Screenshot langsung dari pembeli nyata kami</p>
                 </div>
-                <button class="btn-primary" onclick="openContact()"><i class="fa-solid fa-headset"></i> Kontak Admin</button>
+                <button class="testimonial-more" onclick="goTo('discord')">
+                    <i class="fa-brands fa-discord"></i> Lihat Lebih Banyak
+                </button>
             </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-num">500+</div>
+                    <div class="stat-label">Total Pembeli</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">4.9★</div>
+                    <div class="stat-label">Rating</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">100%</div>
+                    <div class="stat-label">Support Admin</div>
+                </div>
+            </div>
+
+            <div id="testi-scroll-container" class="testi-scroll"></div>
         </section>
     </main>
 
@@ -1101,7 +1358,7 @@
                 <ul class="review-list" id="review-list"></ul>
                 <div class="review-actions">
                     <button class="btn-primary" onclick="openContact()"><i class="fa-solid fa-headset"></i> Kontak Admin</button>
-                    <button class="btn-ghost" onclick="goTo('youtube')"><i class="fa-brands fa-youtube"></i> Cek YouTube</button>
+                    <button class="btn-ghost" onclick="openActiveProductVideo()"><i class="fa-brands fa-youtube"></i> Cek YouTube</button>
                 </div>
             </div>
         </div>
@@ -1155,6 +1412,40 @@
         ];
 
         const PRODUCTS = window.PROJECT_DATA?.PRODUCTS_BY_CATEGORY?.["mod-game-indonesia"] || LEGACY_PRODUCTS;
+        let activeProductIndex = null;
+
+        function isValidVideoId(videoId) {
+            return typeof videoId === 'string' && videoId.trim() && videoId.trim() !== '-';
+        }
+
+        function getYoutubeThumb(product) {
+            return isValidVideoId(product.videoId)
+                ? `https://img.youtube.com/vi/${product.videoId}/mqdefault.jpg`
+                : product.image;
+        }
+
+        function openProductVideo(index) {
+            const product = PRODUCTS[index];
+            if (product && isValidVideoId(product.videoId)) {
+                window.open(`https://youtube.com/watch?v=${product.videoId}`, '_blank');
+                return;
+            }
+            goTo('youtube');
+        }
+
+        function openActiveProductVideo() {
+            if (activeProductIndex !== null) {
+                openProductVideo(activeProductIndex);
+                return;
+            }
+            goTo('youtube');
+        }
+
+        function formatProductPrice(price) {
+            if (!price || price === '-') return 'Info';
+            const parts = String(price).trim().split(/\s+/);
+            return parts.length >= 2 ? `${parts[0]} ${parts[1]}` : price;
+        }
 
         function renderHeroSummary() {
             const total = PRODUCTS.length;
@@ -1190,15 +1481,19 @@
         function renderProducts() {
             document.getElementById('product-list').innerHTML = PRODUCTS.map((product, index) => `
                 <div class="product-card" onclick="openProductReview(${index})">
-                    <div class="product-media" style="background-image:url('${product.image}');">
-                        <div class="product-badge"><i class="fa-solid fa-clock"></i> ${product.price}</div>
+                    <div class="product-img-wrap">
+                        <img src="${getYoutubeThumb(product)}" alt="${product.name}" loading="lazy">
+                        <div class="product-type-strip">
+                            <i class="${isValidVideoId(product.videoId) ? 'fa-brands fa-youtube' : 'fa-solid fa-gamepad'}" style="color:var(--red-bright);font-size:8px;"></i>
+                            <span>${isValidVideoId(product.videoId) ? 'YouTube Preview' : 'Project Mod Game'}</span>
+                        </div>
                     </div>
                     <div class="product-body">
-                        <div class="product-title">${product.name}</div>
-                        <p class="product-text">${product.review?.[0] || product.subtitle || 'Project Mod Game BAM PROJECT.'}</p>
-                        <div class="product-foot">
-                            <span class="product-price">${product.price}</span>
-                            <button class="product-link" onclick="event.stopPropagation(); openProductReview(${index})">Review <i class="fa-solid fa-chevron-right"></i></button>
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-subtitle">${product.subtitle || 'Project Mod Game'}</div>
+                        <div class="product-footer">
+                            <span class="product-price">${formatProductPrice(product.price)}</span>
+                            <div class="product-arrow"><i class="fa-solid fa-chevron-right"></i></div>
                         </div>
                     </div>
                 </div>
@@ -1208,6 +1503,7 @@
         function openProductReview(index) {
             const product = PRODUCTS[index];
             if (!product) return;
+            activeProductIndex = index;
 
             const reviewItems = product.review || product.specs || [
                 'Project masuk kategori Project Mod Game BAM PROJECT.',
@@ -1215,7 +1511,7 @@
                 'Konten preview mengikuti data produk yang aktif di kategori ini.'
             ];
 
-            document.getElementById('review-media').style.backgroundImage = `url('${product.image}')`;
+            document.getElementById('review-media').style.backgroundImage = `url('${getYoutubeThumb(product)}')`;
             document.getElementById('review-title').innerText = product.name || 'Project Mod Game';
             document.getElementById('review-subtitle').innerText = product.desc || product.subtitle || 'Project Mod Game dari BAM PROJECT.';
             document.getElementById('review-price').innerText = product.price || 'Konsultasi Admin';
@@ -1229,6 +1525,7 @@
 
         function closeProductReview() {
             document.getElementById('product-review-modal').classList.remove('open');
+            activeProductIndex = null;
             document.body.style.overflow = 'auto';
         }
 
@@ -1238,6 +1535,17 @@
                     <i class="fa-brands ${link.icon}" style="color:${link.color};"></i>
                     ${link.label}
                 </a>
+            `).join('');
+        }
+
+        function renderFooterSocialLinks() {
+            const container = document.getElementById('footer-social-container');
+            if (!container) return;
+            container.innerHTML = LINKS.map(link => `
+                <button class="social-pill" onclick="goTo('${link.id}')">
+                    <i class="fa-brands ${link.icon}" style="color:${link.color};font-size:14px;"></i>
+                    <span>${link.label}</span>
+                </button>
             `).join('');
         }
 
@@ -1265,6 +1573,7 @@
                                 <div class="testi-verified"><div class="testi-verified-dot"></div><span>Verified</span></div>
                                 <div class="testi-stars">${stars}</div>
                             </div>
+                            <div class="testi-zoom"><i class="fa-solid fa-magnifying-glass-plus" style="color:var(--red-bright);font-size:9px;"></i></div>
                         </div>
                     `;
                 }).join('');
@@ -1290,6 +1599,7 @@
             renderHeroSummary();
             renderProducts();
             renderContact();
+            renderFooterSocialLinks();
             await renderTestimonials();
         };
     </script>

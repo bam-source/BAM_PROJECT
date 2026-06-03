@@ -139,6 +139,7 @@ window.PROJECT_DATA.PRODUCTS_BY_CATEGORY = {
             subtitle: "Preview YouTube",
             price: "Rp 25.000",
             image: "https://static1.thegamerimages.com/wordpress/wp-content/uploads/2021/02/It-Takes-Two-Trailer.jpg",
+            videoId: "-",
             review: [
                 "Project mod game untuk It Takes Two.",
                 "Preview dan informasi penggunaan bisa dicek melalui YouTube.",
@@ -150,6 +151,7 @@ window.PROJECT_DATA.PRODUCTS_BY_CATEGORY = {
             subtitle: "Preview YouTube",
             price: "Rp 50.000",
             image: "https://cdn1.epicgames.com/ecebf45065bc4993abfe0e84c40ff18e/offer/WDOG_STD_Store_Landscape_2580x1450-2580x1450-3fd07dcc02e65aca288d794c177c7512.jpg",
+            videoId: "-",
             review: [
                 "Project mod game untuk Watch Dogs.",
                 "Preview dan informasi penggunaan bisa dicek melalui YouTube.",
@@ -161,6 +163,7 @@ window.PROJECT_DATA.PRODUCTS_BY_CATEGORY = {
             subtitle: "Preview YouTube",
             price: "Rp 20.000",
             image: "https://i.ytimg.com/vi/OS_m7EoEMfk/maxresdefault.jpg",
+            videoId: "OS_m7EoEMfk",
             review: [
                 "Project mod game untuk Mortal Kombat : SMK.",
                 "Preview dan informasi penggunaan bisa dicek melalui YouTube.",
