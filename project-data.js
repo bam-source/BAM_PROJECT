@@ -44,22 +44,22 @@ window.PROJECT_DATA.PRODUCTS_BY_CATEGORY = {
         {
             id: "pubg-sw-lite",
             name: "PUBG - Lite",
-            subtitle: "SOFTWARE",
+            subtitle: "Versi Steam",
             price: "Rp 100.000",
             tag: "PUBG (Software)",
-            image: "https://4kwallpapers.com/images/wallpapers/playerunknowns-2732x2732-20844.jpg",
+            image: "https://gamerant.com/wp-content/uploads/2021/08/pubg-battlegrounds-silly-name.jpg",
             videoId: "YoyGEKerbjc",
             video1Label: "Demo Mode Hold",
             videoId2: "n7DOgW1gn5w",
             video2Label: "Demo Mode Toggle",
-            desc: "Macro PUBG ini dirancang aktif saat ADS (Aim Down Sight), membantu mengontrol recoil secara otomatis sehingga tembakan lebih stabil dan akurat.",
+            desc: "Tersedia Mode HOLD / TOGGLE. Versi Lite Hanya Aktive Ketika SCOPE / ADS. Fitur Terbatas Tapi Tetap Aman Dan Stabil",
             specs: ["OS: Windows 10 / 11", "Semua jenis mouse", "Tanpa injeksi kode", "Lifetime license"],
             howto: ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"]
         },
         {
-            id: "pubg-sw-fr",
+            id: "pubg-sw-pro",
             name: "PUBG - Pro",
-            subtitle: "SOFTWARE",
+            subtitle: "Versi Steam",
             price: "Rp 150.000",
             tag: "PUBG (Software)",
             image: "https://gamerant.com/wp-content/uploads/2021/08/pubg-battlegrounds-silly-name.jpg",
@@ -67,53 +67,8 @@ window.PROJECT_DATA.PRODUCTS_BY_CATEGORY = {
             video1Label: "Demo Pro Mode Hold",
             videoId2: "KuPa3mpymDo",
             video2Label: "Demo Pro Mode Toggle",
-            desc: "Macro PUBG Pro mendukung ADS dan hipfire. Kontrol recoil aktif di semua kondisi, berbeda dari versi Lite yang hanya ADS.",
+            desc: "Tersedia Mode HOLD / TOGGLE. Versi PRO Bisa Aktive Ketika SCOPE Dan Hipfire. Fitur Otomatis Scan Senjata Dan Lebih Powerfull Di Banding Versi Lite.",
             specs: ["OS: Windows 10 / 11", "Semua jenis mouse", "Tanpa injeksi kode", "Lifetime license"],
-            howto: ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"]
-        },
-        {
-            id: "delta-v1-sw",
-            name: "Delta Force Lite",
-            subtitle: "SOFTWARE",
-            price: "Rp 50.000",
-            tag: "DeltaForce (Software)",
-            image: "https://cdn-cf.gamivo.com/image_cover.jpg?f=524077&n=0c6d6469-85d0-4402-8cde-f9b042f00547.jpg&h=ab453b3db334aec27f4bded205e0d850",
-            videoId: "zG8VmiLS0rw",
-            video1Label: "Demo Delta Force V1",
-            videoId2: "-",
-            video2Label: "-",
-            desc: "Macro Delta Force V1 kompatibel versi Garena & Steam. Native logic tanpa library luar, aman dan stabil.",
-            specs: ["OS: Windows 10 / 11", "Garena & Steam", "Semua jenis mouse", "Lifetime license"],
-            howto: ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"]
-        },
-        {
-            id: "delta-v2-sw",
-            name: "Delta Force Pro",
-            subtitle: "SOFTWARE",
-            price: "Rp 100.000",
-            tag: "DeltaForce (Software)",
-            image: "https://cdn-cf.gamivo.com/image_cover.jpg?f=524077&n=0c6d6469-85d0-4402-8cde-f9b042f00547.jpg&h=ab453b3db334aec27f4bded205e0d850",
-            videoId: "Od8l251f13M",
-            video1Label: "Demo Delta Force V2",
-            videoId2: "-",
-            video2Label: "-",
-            desc: "Macro Delta Force V2 dengan kontrol lebih presisi. Setting lebih lengkap, cocok untuk player yang ingin performa maksimal.",
-            specs: ["OS: Windows 10 / 11", "Garena & Steam", "Semua jenis mouse", "Lifetime license"],
-            howto: ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"]
-        },
-        {
-            id: "bloodstrike-sw",
-            name: "BloodStrike",
-            subtitle: "SOFTWARE",
-            price: "Rp 50.000",
-            tag: "BloodStrike (Software)",
-            image: "https://static.tophub.id/tophub/product/blood-strike-0_0dfWa-N75.webp?tr=w-640",
-            videoId: "-ucNJ4KahjI",
-            video1Label: "Demo BloodStrike",
-            videoId2: "-",
-            video2Label: "-",
-            desc: "Macro BloodStrike untuk Windows & Steam. Optimasi FPS & input, respon cepat dan stabil di semua kondisi game.",
-            specs: ["OS: Windows 10 / 11", "Windows & Steam", "Semua jenis mouse", "Lifetime license"],
             howto: ["Hubungi admin via WhatsApp/Discord", "Kirim bukti pembayaran", "Admin kirim file + panduan instalasi", "Aktifkan & langsung pakai"]
         },
         {
@@ -136,37 +91,37 @@ window.PROJECT_DATA.PRODUCTS_BY_CATEGORY = {
     "mod-game-indonesia": [
         {
             name: "It Takes Two",
-            subtitle: "Preview YouTube",
+            subtitle: "Subtitle Indonesia",
             price: "Rp 25.000",
             image: "https://static1.thegamerimages.com/wordpress/wp-content/uploads/2021/02/It-Takes-Two-Trailer.jpg",
             videoId: "-",
             review: [
                 "Project mod game untuk It Takes Two.",
-                "Preview dan informasi penggunaan bisa dicek melalui YouTube.",
+                "Tested Versi Crack (Belum Tested Versi Original)",
                 "Order dan detail file dikonfirmasi langsung melalui admin."
             ]
         },
         {
             name: "Watch Dogs",
-            subtitle: "Preview YouTube",
+            subtitle: "Subtitle Indonesia",
             price: "Rp 50.000",
             image: "https://cdn1.epicgames.com/ecebf45065bc4993abfe0e84c40ff18e/offer/WDOG_STD_Store_Landscape_2580x1450-2580x1450-3fd07dcc02e65aca288d794c177c7512.jpg",
             videoId: "-",
             review: [
                 "Project mod game untuk Watch Dogs.",
-                "Preview dan informasi penggunaan bisa dicek melalui YouTube.",
+                "Tested Versi Crack (Belum Tested Versi Original)",
                 "Order dan detail file dikonfirmasi langsung melalui admin."
             ]
         },
         {
             name: "Mortal Kombat : SMK",
-            subtitle: "Preview YouTube",
+            subtitle: "Subtitle Indonesia",
             price: "Rp 20.000",
             image: "https://i.ytimg.com/vi/OS_m7EoEMfk/maxresdefault.jpg",
             videoId: "OS_m7EoEMfk",
             review: [
-                "Project mod game untuk Mortal Kombat : SMK.",
-                "Preview dan informasi penggunaan bisa dicek melalui YouTube.",
+                "Project mod game untuk Mortal Kombat : SMK.(PS2)",
+                "Versi ISO PS2 , Bisa Di Gunakan Di Mobile dan PCSX2",
                 "Order dan detail file dikonfirmasi langsung melalui admin."
             ]
         }
