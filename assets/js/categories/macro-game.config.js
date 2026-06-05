@@ -20,6 +20,13 @@ window.BAM_CATEGORIES["macro-recoil"] = {
     infoUpdate: {
         badge: "MACRO GAME",
         news: [
+			{
+                title: "REQUEST GAME READY!",
+                date: "2026",
+                tag: "info",
+                description: "Req Macro Hubungi Admin",
+                pinned: false
+            }
             {
                 title: "PUBG PRO UPDATE 2.0",
                 date: "2026",
