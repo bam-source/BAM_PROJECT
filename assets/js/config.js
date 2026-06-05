@@ -6,7 +6,7 @@ window.BAM_CONFIG = {
     social: {
         whatsapp: "https://api.whatsapp.com/send/?phone=6289697523717",
         tiktok: "https://www.tiktok.com/@project_bam",
-        youtube: "https://www.youtube.com/channel/UCKydA45oOtKMmzxML44aTbg",
+        youtube: "https://www.youtube.com/@project_bam_yt",
         discord: "https://discord.com/invite/zpuM9PRSdQ"
     },
     socialLinks: [
