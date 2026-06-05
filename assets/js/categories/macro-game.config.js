@@ -25,14 +25,14 @@ window.BAM_CATEGORIES["macro-recoil"] = {
                 date: "2026",
                 tag: "info",
                 description: "Req Macro Hubungi Admin",
-                pinned: false
+                pinned: true
             },
             {
                 title: "PUBG PRO UPDATE 2.0",
                 date: "2026",
                 tag: "Update",
                 description: "Update PUBG PRO v2.0 cek Discord",
-                pinned: true
+                pinned: false
             }
         ],
         demoVideos: [
