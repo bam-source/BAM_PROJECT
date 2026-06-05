@@ -6,6 +6,7 @@ window.BAM_CATEGORIES["mod-game-indonesia"] = {
     label: "MOD GAME",
     href: "mod-game-indonesia.html",
     icon: "fa-screwdriver-wrench",
+    productThumbnail: "image",
     hero: {
         eyebrow: "Kategori",
         title: ["Project", "Mod Game"],
