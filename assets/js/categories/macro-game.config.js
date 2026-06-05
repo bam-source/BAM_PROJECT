@@ -26,7 +26,7 @@ window.BAM_CATEGORIES["macro-recoil"] = {
                 tag: "info",
                 description: "Req Macro Hubungi Admin",
                 pinned: false
-            }
+            },
             {
                 title: "PUBG PRO UPDATE 2.0",
                 date: "2026",
