@@ -21,13 +21,6 @@ window.BAM_CATEGORIES["macro-recoil"] = {
         badge: "MACRO GAME",
         news: [
             {
-                title: "INFO UPDATE - TIKTOK",
-                date: "2026",
-                tag: "News",
-                description: "TikTok resmi @project_bam",
-                pinned: true
-            },
-            {
                 title: "PUBG PRO UPDATE 2.0",
                 date: "2026",
                 tag: "Update",
