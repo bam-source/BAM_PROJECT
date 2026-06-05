@@ -1,0 +1,188 @@
+.home-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+    gap: 24px;
+    align-items: center;
+    border: 1px solid rgba(17,24,39,0.12);
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+    box-shadow: var(--shadow);
+    padding: 28px;
+}
+
+.home-hero h1 {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(46px, 7vw, 84px);
+    font-weight: 900;
+    line-height: 0.92;
+    text-transform: uppercase;
+}
+
+.home-hero h1 span {
+    display: block;
+    color: var(--red-bright);
+}
+
+.home-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.home-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+}
+
+.metric {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #f8fafc;
+    padding: 11px;
+}
+
+.metric strong {
+    display: block;
+    color: var(--red-bright);
+    font-family: "Rajdhani", sans-serif;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.metric span {
+    display: block;
+    margin-top: 4px;
+    color: var(--dim);
+    font-family: "Rajdhani", sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.brand-panel {
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--red-border);
+    border-radius: 14px;
+    background:
+        radial-gradient(circle at 50% 35%, rgba(220,38,38,0.12), transparent 58%),
+        linear-gradient(180deg, #ffffff, #f8fafc);
+}
+
+.brand-panel img {
+    width: min(78%, 380px);
+    max-height: 220px;
+    object-fit: contain;
+    filter: drop-shadow(0 18px 30px rgba(15,23,42,0.18));
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.category-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--ink);
+    padding: 18px;
+    text-decoration: none;
+    box-shadow: 0 12px 26px rgba(15,23,42,0.06);
+}
+
+.category-card:hover { border-color: var(--red-border); }
+.category-name {
+    font-family: "Rajdhani", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.category-card p {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.category-badge {
+    border: 1px solid var(--red-border);
+    border-radius: 999px;
+    background: var(--red-subtle);
+    color: var(--red-bright);
+    padding: 5px 10px;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.category-product-section {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.70);
+    padding: 14px;
+}
+
+.category-product-section + .category-product-section { margin-top: 16px; }
+
+.category-product-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.category-product-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.category-product-title h3 {
+    font-family: "Rajdhani", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.category-product-title span {
+    display: inline-block;
+    margin-top: 3px;
+    color: var(--dim);
+    font-family: "Rajdhani", sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+    .home-hero { grid-template-columns: 1fr; padding: 16px; gap: 16px; }
+    .home-hero h1 { font-size: clamp(38px, 12vw, 52px); }
+    .brand-panel { min-height: 150px; order: 2; }
+    .brand-panel img { max-height: 92px; width: min(74%, 260px); }
+    .category-grid { grid-template-columns: 1fr; }
+    .category-card { padding: 14px; }
+    .category-name { font-size: 18px; }
+    .category-product-section { padding: 10px; }
+    .category-product-head { align-items: flex-start; }
+}
