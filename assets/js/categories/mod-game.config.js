@@ -77,6 +77,25 @@ window.BAM_CATEGORIES["mod-game-indonesia"] = {
                 "Order dan detail file dikonfirmasi langsung melalui admin."
             ],
             specs: ["Tested Versi Crack (Belum Tested Versi Original)"]
+        },
+        {
+            id: "cities-skylines-subtitle",
+            name: "Cities Skylines",
+            subtitle: "Subtitle Indonesia",
+            price: "Rp 50.000",
+            tag: "Mod Game",
+            status: "active",
+            image: "https://cdn2.unrealengine.com/egs-citiesskylines-colossalorder-s5-1920x1080-689706625.jpg",
+            videoId: "-",
+            video1Label: "-",
+            videoId2: "-",
+            video2Label: "-",
+            description: " ",
+            details: [
+                "Project mod game untuk Cities Skylines",
+                "Order dan detail file dikonfirmasi langsung melalui admin."
+            ],
+            specs: ["Tested Versi Crack (Belum Tested Versi Original)"]
         }
     ]
 };
