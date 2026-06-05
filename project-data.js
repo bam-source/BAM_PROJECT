@@ -2,7 +2,7 @@ window.PROJECT_DATA = window.PROJECT_DATA || {};
 
 window.PROJECT_DATA.SOCIAL = {
     whatsapp: "https://api.whatsapp.com/send/?phone=6289697523717",
-    tiktok: "https://www.tiktok.com/@bamrecoil",
+    tiktok: "https://www.tiktok.com/@project_bam",
     youtube: "https://www.youtube.com/channel/UCKydA45oOtKMmzxML44aTbg",
     discord: "https://discord.com/invite/zpuM9PRSdQ"
 };
