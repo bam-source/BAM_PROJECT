@@ -1,0 +1,76 @@
+{
+  "brand": "BAM PROJECT",
+  "websiteBaseUrl": "https://www.bammacro.my.id",
+  "guildId": "810068861709058068",
+  "roles": {
+    "owner": "♛ Owner",
+    "bot": "⚙ Bot",
+    "public": "◇ Public"
+  },
+  "categories": [
+    {
+      "id": "macro-recoil",
+      "name": "[🎯] Macro Game",
+      "aliases": ["🎮🎧・Macro Recoil", "Macro Recoil", "Project Macro Game"],
+      "websitePath": "macro-recoil.html",
+      "channels": [
+        {
+          "kind": "info",
+          "name": "📌・info",
+          "type": "text",
+          "aliases": ["✨・info-update", "info-update"],
+          "topic": "Info resmi Macro Game BAM PROJECT. Website: https://www.bammacro.my.id/macro-recoil.html",
+          "publicCanSend": false
+        },
+        {
+          "kind": "update",
+          "name": "📣・update",
+          "type": "text",
+          "aliases": ["🌟・macro-update", "macro-update"],
+          "topic": "Update resmi Macro Game BAM PROJECT.",
+          "publicCanSend": false
+        },
+        {
+          "kind": "support",
+          "name": "🛒・support",
+          "type": "text",
+          "aliases": ["macro-support", "order-macro"],
+          "topic": "Tanya, konsultasi, dan order Macro Game di sini.",
+          "publicCanSend": true
+        }
+      ]
+    },
+    {
+      "id": "mod-game-indonesia",
+      "name": "[🧩] Mod Game",
+      "aliases": ["Project Mod Game", "Mod Game Indonesia"],
+      "websitePath": "mod-game-indonesia.html",
+      "channels": [
+        {
+          "kind": "info",
+          "name": "📌・info",
+          "type": "text",
+          "aliases": ["mod-info", "info-mod"],
+          "topic": "Info resmi Mod Game BAM PROJECT. Website: https://www.bammacro.my.id/mod-game-indonesia.html",
+          "publicCanSend": false
+        },
+        {
+          "kind": "update",
+          "name": "📣・update",
+          "type": "text",
+          "aliases": ["mod-update", "update-mod"],
+          "topic": "Update resmi Mod Game BAM PROJECT.",
+          "publicCanSend": false
+        },
+        {
+          "kind": "support",
+          "name": "🛒・support",
+          "type": "text",
+          "aliases": ["mod-support", "order-mod"],
+          "topic": "Tanya, konsultasi, dan order Mod Game di sini.",
+          "publicCanSend": true
+        }
+      ]
+    }
+  ]
+}
