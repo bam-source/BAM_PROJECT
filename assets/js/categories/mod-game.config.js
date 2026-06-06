@@ -48,7 +48,7 @@ window.BAM_CATEGORIES["mod-game-indonesia"] = {
             tag: "Mod Game",
             status: "active",
             image: "https://static1.thegamerimages.com/wordpress/wp-content/uploads/2021/02/It-Takes-Two-Trailer.jpg",
-            videoUrl: "",
+            videoUrl: "https://youtube.com/shorts/tfdbC4yRwlI",
             videoId: "-",
             video1Label: "-",
             videoUrl2: "",
