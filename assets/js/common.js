@@ -10,14 +10,88 @@
             .replaceAll("'", "&#039;");
     }
 
+    function hasVideoValue(value) {
+        const text = String(value ?? "").trim();
+        return Boolean(text && text !== "-");
+    }
+
+    function getYoutubeIdFromUrl(url) {
+        const host = url.hostname.replace(/^www\./, "").toLowerCase();
+        if (host === "youtu.be") {
+            return url.pathname.split("/").filter(Boolean)[0] || "";
+        }
+        if (host.includes("youtube.com") || host.includes("youtube-nocookie.com")) {
+            const queryId = url.searchParams.get("v");
+            if (queryId) return queryId;
+            const parts = url.pathname.split("/").filter(Boolean);
+            const marker = parts.findIndex(part => ["embed", "shorts", "live"].includes(part));
+            if (marker >= 0 && parts[marker + 1]) return parts[marker + 1];
+        }
+        return "";
+    }
+
+    function getVideoPlatform(url) {
+        const host = url.hostname.replace(/^www\./, "").toLowerCase();
+        if (host === "youtu.be" || host.includes("youtube.com") || host.includes("youtube-nocookie.com")) return "youtube";
+        if (host.includes("tiktok.com")) return "tiktok";
+        if (host.includes("instagram.com")) return "instagram";
+        return "link";
+    }
+
+    function videoIcon(platform) {
+        if (platform === "youtube") return "fa-brands fa-youtube";
+        if (platform === "tiktok") return "fa-brands fa-tiktok";
+        if (platform === "instagram") return "fa-brands fa-instagram";
+        return "fa-solid fa-play";
+    }
+
+    function normalizeVideo(value) {
+        if (!hasVideoValue(value)) return null;
+        const raw = String(value).trim();
+        const withProtocol = raw.startsWith("www.") ? `https://${raw}` : raw;
+        const knownHostWithoutProtocol = /^(youtube\.com|youtu\.be|tiktok\.com|instagram\.com)\//i.test(withProtocol);
+        const candidate = knownHostWithoutProtocol ? `https://${withProtocol}` : withProtocol;
+
+        if (/^https?:\/\//i.test(candidate)) {
+            try {
+                const parsed = new URL(candidate);
+                if (!["http:", "https:"].includes(parsed.protocol)) return null;
+                const platform = getVideoPlatform(parsed);
+                const youtubeId = getYoutubeIdFromUrl(parsed);
+                return {
+                    raw,
+                    url: parsed.href,
+                    platform,
+                    youtubeId,
+                    icon: videoIcon(platform)
+                };
+            } catch (error) {
+                return null;
+            }
+        }
+
+        if (!/^[A-Za-z0-9_-]{6,}$/.test(raw)) return null;
+        return {
+            raw,
+            url: `https://youtube.com/watch?v=${raw}`,
+            platform: "youtube",
+            youtubeId: raw,
+            icon: videoIcon("youtube")
+        };
+    }
+
     function isValidVideoId(videoId) {
-        return typeof videoId === "string" && videoId.trim() && videoId.trim() !== "-";
+        return Boolean(normalizeVideo(videoId));
+    }
+
+    function videoThumb(source, fallback = "") {
+        const video = normalizeVideo(source);
+        if (video?.youtubeId) return `https://img.youtube.com/vi/${video.youtubeId}/mqdefault.jpg`;
+        return fallback || config.brand.logo || "";
     }
 
     function youtubeThumb(videoId, fallback = "") {
-        return isValidVideoId(videoId)
-            ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`
-            : fallback;
+        return videoThumb(videoId, fallback);
     }
 
     function getCategory(id) {
@@ -220,6 +294,8 @@
         config,
         escapeHtml,
         isValidVideoId,
+        normalizeVideo,
+        videoThumb,
         youtubeThumb,
         getCategory,
         getCategories,
