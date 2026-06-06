@@ -317,6 +317,13 @@
     gap: 12px;
 }
 
+.modal-video-grid.is-single-video {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+    grid-template-columns: minmax(0, 1fr);
+}
+
 .modal-video-empty {
     width: 100%;
     aspect-ratio: 16 / 9;
