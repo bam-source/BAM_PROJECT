@@ -13,29 +13,30 @@
       "name": "[🎯] Macro Game",
       "aliases": ["🎮🎧・Macro Recoil", "Macro Recoil", "Project Macro Game"],
       "websitePath": "macro-recoil.html",
+      "productConfigPath": "assets/js/categories/macro-game.config.js",
       "channels": [
         {
-          "kind": "info",
-          "name": "📌・info",
+          "kind": "product",
+          "name": "🛍・produk",
           "type": "text",
-          "aliases": ["✨・info-update", "info-update"],
-          "topic": "Info resmi Macro Game BAM PROJECT. Website: https://www.bammacro.my.id/macro-recoil.html",
+          "aliases": ["📌・info", "✨・info-update", "info-update"],
+          "topic": "Daftar produk Macro Game BAM PROJECT. Website: https://www.bammacro.my.id/macro-recoil.html",
           "publicCanSend": false
         },
         {
-          "kind": "update",
-          "name": "📣・update",
+          "kind": "testimonial",
+          "name": "✅・testimoni",
           "type": "text",
-          "aliases": ["🌟・macro-update", "macro-update"],
-          "topic": "Update resmi Macro Game BAM PROJECT.",
+          "aliases": ["testimoni"],
+          "topic": "Testimoni dan bukti transaksi Macro Game BAM PROJECT.",
           "publicCanSend": false
         },
         {
-          "kind": "support",
-          "name": "🛒・support",
+          "kind": "discussion",
+          "name": "💬・diskusi",
           "type": "text",
-          "aliases": ["macro-support", "order-macro"],
-          "topic": "Tanya, konsultasi, dan order Macro Game di sini.",
+          "aliases": ["🛒・support", "macro-support", "order-macro"],
+          "topic": "Diskusi, tanya jawab, dan konsultasi Macro Game.",
           "publicCanSend": true
         }
       ]
@@ -45,29 +46,30 @@
       "name": "[🧩] Mod Game",
       "aliases": ["Project Mod Game", "Mod Game Indonesia"],
       "websitePath": "mod-game-indonesia.html",
+      "productConfigPath": "assets/js/categories/mod-game.config.js",
       "channels": [
         {
-          "kind": "info",
-          "name": "📌・info",
+          "kind": "product",
+          "name": "🛍・produk",
           "type": "text",
-          "aliases": ["mod-info", "info-mod"],
-          "topic": "Info resmi Mod Game BAM PROJECT. Website: https://www.bammacro.my.id/mod-game-indonesia.html",
+          "aliases": ["📌・info", "mod-info", "info-mod"],
+          "topic": "Daftar produk Mod Game BAM PROJECT. Website: https://www.bammacro.my.id/mod-game-indonesia.html",
           "publicCanSend": false
         },
         {
-          "kind": "update",
-          "name": "📣・update",
+          "kind": "testimonial",
+          "name": "✅・testimoni",
           "type": "text",
-          "aliases": ["mod-update", "update-mod"],
-          "topic": "Update resmi Mod Game BAM PROJECT.",
+          "aliases": ["📣・update", "mod-update", "update-mod"],
+          "topic": "Testimoni dan bukti transaksi Mod Game BAM PROJECT.",
           "publicCanSend": false
         },
         {
-          "kind": "support",
-          "name": "🛒・support",
+          "kind": "discussion",
+          "name": "💬・diskusi",
           "type": "text",
-          "aliases": ["mod-support", "order-mod"],
-          "topic": "Tanya, konsultasi, dan order Mod Game di sini.",
+          "aliases": ["🛒・support", "mod-support", "order-mod"],
+          "topic": "Diskusi, tanya jawab, dan konsultasi Mod Game.",
           "publicCanSend": true
         }
       ]
