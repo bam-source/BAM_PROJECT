@@ -93,8 +93,8 @@ window.BAM_CATEGORIES["mod-game-indonesia"] = {
             videoUrl: "",
             videoId: "GcwnBi1qwNA",
             video1Label: "part 1",
-            videoUrl2: "",
-            videoId2: "-",
+            videoUrl2: "https://www.tiktok.com/@project_bam/video/7648378269087173909?is_from_webapp=1&sender_device=pc&web_id=7533798724528473617",
+            videoId2: "part 2",
             video2Label: "-",
             description: " ",
             details: [
