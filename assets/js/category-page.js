@@ -7,6 +7,40 @@
         return product.price;
     }
 
+    function pickVideoSource(primary, fallback) {
+        return window.BAM.isValidVideoId(primary) ? primary : fallback;
+    }
+
+    function openVideoUrl(url) {
+        const video = window.BAM.normalizeVideo(url);
+        if (video) window.open(video.url, "_blank", "noopener");
+    }
+
+    function getProductVideos(product) {
+        return [
+            {
+                slot: 1,
+                source: pickVideoSource(product.videoUrl, product.videoId),
+                label: product.video1Label || "Cek Video",
+                thumbnail: product.video1Thumbnail || product.image
+            },
+            {
+                slot: 2,
+                source: pickVideoSource(product.videoUrl2, product.videoId2),
+                label: product.video2Label || "Cek Video",
+                thumbnail: product.video2Thumbnail || product.image
+            }
+        ].map(item => {
+            const video = window.BAM.normalizeVideo(item.source);
+            if (!video) return null;
+            return {
+                ...item,
+                video,
+                thumbnail: window.BAM.videoThumb(item.source, item.thumbnail)
+            };
+        }).filter(Boolean);
+    }
+
     function renderHero(category) {
         const eyebrow = document.getElementById("hero-eyebrow");
         const title = document.getElementById("hero-title");
@@ -84,7 +118,17 @@
     }
 
     function renderVideoPanel(title, videos = []) {
-        const visible = videos.filter(video => window.BAM.isValidVideoId(video.id));
+        const visible = videos.map(video => {
+            const source = pickVideoSource(video.url, video.id);
+            const normalized = window.BAM.normalizeVideo(source);
+            if (!normalized) return null;
+            return {
+                ...video,
+                source,
+                normalized,
+                thumbnail: window.BAM.videoThumb(source, video.thumbnail || video.image || window.BAM.config.brand.logo)
+            };
+        }).filter(Boolean);
         if (!visible.length) return "";
         return `
             <div class="info-panel">
@@ -93,10 +137,10 @@
                 </div>
                 <div class="video-grid">
                     ${visible.map(video => `
-                        <div class="video-card" data-video="${video.id}">
+                        <div class="video-card" data-video-url="${window.BAM.escapeHtml(video.normalized.url)}">
                             <div class="video-thumb">
-                                <img src="${window.BAM.youtubeThumb(video.id)}" alt="${window.BAM.escapeHtml(video.title)}" loading="lazy">
-                                <div class="video-play"><i class="fa-brands fa-youtube"></i></div>
+                                <img src="${window.BAM.escapeHtml(video.thumbnail)}" alt="${window.BAM.escapeHtml(video.title)}" loading="lazy">
+                                <div class="video-play"><i class="${window.BAM.escapeHtml(video.normalized.icon)}"></i></div>
                             </div>
                             <div class="video-body">
                                 <strong>${window.BAM.escapeHtml(video.title)}</strong>
@@ -135,7 +179,7 @@
         if (!target) return;
         const getProductThumb = product => {
             if (category.productThumbnail === "image") return product.image;
-            return window.BAM.youtubeThumb(product.videoId, product.image);
+            return window.BAM.videoThumb(pickVideoSource(product.videoUrl, product.videoId), product.image);
         };
         target.innerHTML = (category.products || []).map(product => `
             <button class="product-card" type="button" data-product-id="${window.BAM.escapeHtml(product.id)}">
@@ -163,13 +207,12 @@
     }
 
     function renderModalVideos(product) {
-        const videoOne = window.BAM.isValidVideoId(product.videoId);
-        const videoTwo = window.BAM.isValidVideoId(product.videoId2);
-        const videoBlock = (videoId, label, slot) => `
-            <div class="video-card" data-product-video="${slot}">
+        const videos = getProductVideos(product);
+        const videoBlock = video => `
+            <div class="video-card" data-product-video="${video.slot}">
                 <div class="video-thumb">
-                    <img src="${window.BAM.youtubeThumb(videoId)}" alt="${window.BAM.escapeHtml(label)}">
-                    <div class="video-play"><i class="fa-brands fa-youtube"></i></div>
+                    <img src="${window.BAM.escapeHtml(video.thumbnail)}" alt="${window.BAM.escapeHtml(video.label)}">
+                    <div class="video-play"><i class="${window.BAM.escapeHtml(video.video.icon)}"></i></div>
                 </div>
             </div>
         `;
@@ -180,9 +223,8 @@
                 <span>Tersedia melalui admin</span>
             </div>
         `;
-        if (videoOne && videoTwo) return videoBlock(product.videoId, product.video1Label || "Preview YouTube", 1) + videoBlock(product.videoId2, product.video2Label || "Preview YouTube", 2);
-        if (videoOne) return videoBlock(product.videoId, product.video1Label || "Preview YouTube", 1) + emptyBlock;
-        return emptyBlock + emptyBlock;
+        if (!videos.length) return emptyBlock;
+        return videos.map(videoBlock).join("");
     }
 
     function openProduct(productId) {
@@ -222,7 +264,7 @@
                 </ul>
                 <div class="modal-actions">
                     <button class="btn-primary" type="button" data-open-contact><i class="fa-solid fa-headset"></i> Kontak Admin</button>
-                    <button class="btn-ghost" type="button" data-active-product-video><i class="fa-brands fa-youtube"></i> Cek YouTube</button>
+                    <button class="btn-ghost" type="button" data-active-product-video><i class="fa-solid fa-play"></i> Cek Video</button>
                 </div>
             </div>
         `;
@@ -240,9 +282,9 @@
 
     function openProductVideo(slot = 1) {
         if (!activeProduct) return window.BAM.goTo("youtube");
-        const videoId = slot === 2 ? activeProduct.videoId2 : activeProduct.videoId;
-        if (window.BAM.isValidVideoId(videoId)) {
-            window.open(`https://youtube.com/watch?v=${videoId}`, "_blank", "noopener");
+        const video = getProductVideos(activeProduct).find(item => item.slot === slot) || getProductVideos(activeProduct)[0];
+        if (video) {
+            openVideoUrl(video.video.url);
             return;
         }
         window.BAM.goTo("youtube");
@@ -263,9 +305,9 @@
                 closeProduct();
                 return;
             }
-            const video = event.target.closest("[data-video]");
+            const video = event.target.closest("[data-video-url]");
             if (video) {
-                window.open(`https://youtube.com/watch?v=${video.dataset.video}`, "_blank", "noopener");
+                openVideoUrl(video.dataset.videoUrl);
                 return;
             }
             const productVideo = event.target.closest("[data-product-video]");
