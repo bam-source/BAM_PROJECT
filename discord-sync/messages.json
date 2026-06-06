@@ -1,0 +1,57 @@
+{
+  "brand": "BAM PROJECT",
+  "messages": {
+    "macro-recoil": {
+      "info": {
+        "title": "🎯 Macro Game",
+        "description": "Project macro game dengan support admin dan akses lifetime.",
+        "fields": [
+          { "name": "Produk Aktif", "value": "PUBG Lite dan PUBG Pro", "inline": false },
+          { "name": "Website", "value": "https://www.bammacro.my.id/macro-recoil.html", "inline": false },
+          { "name": "Order", "value": "Gunakan channel support untuk konsultasi dan order.", "inline": false }
+        ]
+      },
+      "update": {
+        "title": "📣 Update Macro Game",
+        "description": "REQUEST GAME READY! Request macro bisa langsung hubungi admin. PUBG PRO UPDATE 2.0 tersedia, cek detail melalui support.",
+        "fields": [
+          { "name": "Status", "value": "Update aktif", "inline": true },
+          { "name": "Support", "value": "Admin siap bantu konsultasi.", "inline": true }
+        ]
+      },
+      "support": {
+        "title": "🛒 Support Macro Game",
+        "description": "Silakan tulis kebutuhan kamu di channel ini. Admin akan bantu konsultasi, order, dan instalasi.",
+        "fields": [
+          { "name": "Format singkat", "value": "Game / produk yang dipilih, kebutuhan, dan kendala yang dialami.", "inline": false }
+        ]
+      }
+    },
+    "mod-game-indonesia": {
+      "info": {
+        "title": "🧩 Mod Game",
+        "description": "Project mod game siap order dan konsultasi admin.",
+        "fields": [
+          { "name": "Produk Aktif", "value": "It Takes Two, Watch Dogs, Cities Skylines", "inline": false },
+          { "name": "Website", "value": "https://www.bammacro.my.id/mod-game-indonesia.html", "inline": false },
+          { "name": "Order", "value": "Gunakan channel support untuk konsultasi dan order.", "inline": false }
+        ]
+      },
+      "update": {
+        "title": "📣 Update Mod Game",
+        "description": "Info update dan request game bisa langsung melalui support.",
+        "fields": [
+          { "name": "Status", "value": "Project aktif", "inline": true },
+          { "name": "Support", "value": "Admin siap bantu konsultasi.", "inline": true }
+        ]
+      },
+      "support": {
+        "title": "🛒 Support Mod Game",
+        "description": "Silakan tulis kebutuhan kamu di channel ini. Admin akan bantu cek versi game, detail file, dan proses order.",
+        "fields": [
+          { "name": "Format singkat", "value": "Nama game, versi game, dan jenis bantuan yang dibutuhkan.", "inline": false }
+        ]
+      }
+    }
+  }
+}
