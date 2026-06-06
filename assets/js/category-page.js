@@ -234,10 +234,12 @@
         const modal = document.getElementById("product-modal");
         const details = product.details?.length ? product.details : [product.description].filter(Boolean);
         const specs = product.specs || [];
+        const videoCount = getProductVideos(product).length;
+        const modalVideoGridClass = videoCount === 1 ? "modal-video-grid is-single-video" : "modal-video-grid";
         modal.innerHTML = `
             <button class="modal-close" type="button" data-close-product><i class="fa-solid fa-xmark"></i></button>
             <div class="product-modal-media">
-                <div class="modal-video-grid">${renderModalVideos(product)}</div>
+                <div class="${modalVideoGridClass}">${renderModalVideos(product)}</div>
             </div>
             <div class="product-modal-content">
                 <div>
