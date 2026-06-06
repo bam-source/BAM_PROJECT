@@ -8,6 +8,14 @@
         "title": "🎯 Produk Macro Game",
         "description": "Daftar produk Macro Game yang tersedia di BAM PROJECT.",
         "emptyText": "Belum ada produk aktif. Cek kembali nanti atau diskusi dengan admin."
+      },
+      "testimonial": {
+        "source": "github-testimonials",
+        "folder": "testimoni",
+        "title": "✅ Testimoni Macro Game",
+        "description": "Bukti transaksi dan testimoni terbaru dari pembeli BAM PROJECT.",
+        "limit": 8,
+        "emptyText": "Belum ada testimoni yang bisa ditampilkan."
       }
     },
     "mod-game-indonesia": {
@@ -16,6 +24,14 @@
         "title": "🧩 Produk Mod Game",
         "description": "Daftar produk Mod Game yang tersedia di BAM PROJECT.",
         "emptyText": "Belum ada produk aktif. Cek kembali nanti atau diskusi dengan admin."
+      },
+      "testimonial": {
+        "source": "github-testimonials",
+        "folder": "testimoni",
+        "title": "✅ Testimoni Mod Game",
+        "description": "Bukti transaksi dan testimoni terbaru dari pembeli BAM PROJECT.",
+        "limit": 8,
+        "emptyText": "Belum ada testimoni yang bisa ditampilkan."
       }
     }
   }
