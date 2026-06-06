@@ -27,7 +27,7 @@
           "kind": "testimonial",
           "name": "✅・testimoni",
           "type": "text",
-          "aliases": ["testimoni"],
+          "aliases": ["📣・update", "macro-update", "testimoni"],
           "topic": "Testimoni dan bukti transaksi Macro Game BAM PROJECT.",
           "publicCanSend": false
         },
