@@ -14,7 +14,7 @@
         "folder": "testimoni",
         "title": "✅ Testimoni Macro Game",
         "description": "Bukti transaksi dan testimoni terbaru dari pembeli BAM PROJECT.",
-        "limit": 8,
+        "limit": "all",
         "emptyText": "Belum ada testimoni yang bisa ditampilkan."
       }
     },
@@ -30,7 +30,7 @@
         "folder": "testimoni",
         "title": "✅ Testimoni Mod Game",
         "description": "Bukti transaksi dan testimoni terbaru dari pembeli BAM PROJECT.",
-        "limit": 8,
+        "limit": "all",
         "emptyText": "Belum ada testimoni yang bisa ditampilkan."
       }
     }
