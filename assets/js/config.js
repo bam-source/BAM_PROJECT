@@ -17,7 +17,7 @@ window.BAM_CONFIG = {
     ],
     testimonialSource: {
         githubUser: "bam-source",
-        githubRepo: "BAM-MACRO-RECOIL",
+        githubRepo: "BAM_PROJECT",
         githubFolder: "testimoni"
     },
     categories: [
