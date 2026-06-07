@@ -107,7 +107,7 @@ window.BAM_CATEGORIES["mod-game-indonesia"] = {
             id: "sleeping-dogs-subtitle",
             name: "Sleeping Dogs",
             subtitle: "Subtitle Indonesia",
-            price: "Coomingsoon",
+            price: "soon",
             tag: "Mod Game",
             status: "Comingsoon",
             image: "https://wallpapercave.com/wp/wp2389090.jpg",
