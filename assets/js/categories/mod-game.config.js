@@ -102,6 +102,27 @@ window.BAM_CATEGORIES["mod-game-indonesia"] = {
                 "Order dan detail file dikonfirmasi langsung melalui admin."
             ],
             specs: ["Tested Versi Crack (Belum Tested Versi Original)"]
+        },
+        {
+            id: "sleeping-dogs-subtitle",
+            name: "Sleeping Dogs",
+            subtitle: "Subtitle Indonesia",
+            price: "Coomingsoon",
+            tag: "Mod Game",
+            status: "Comingsoon",
+            image: "https://wallpapercave.com/wp/wp2389090.jpg",
+            videoUrl: "",
+            videoId: "-",
+            video1Label: "-",
+            videoUrl2: "-",
+            videoId2: "-",
+            video2Label: "-",
+            description: "-",
+            details: [
+                "-",
+                "-"
+            ],
+            specs: ["-"]
         }
     ]
 };
