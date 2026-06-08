@@ -1,0 +1,128 @@
+[
+  {
+    "seller": "TEH-ENTI",
+    "package": "1RB/2JAM",
+    "sellerComm": 500.0,
+    "staffComm": 0.0
+  },
+  {
+    "seller": "TEH-ENTI",
+    "package": "2RB/4JAM",
+    "sellerComm": 500.0,
+    "staffComm": 500.0
+  },
+  {
+    "seller": "TEH-ENTI",
+    "package": "5RB/12JAM",
+    "sellerComm": 1000.0,
+    "staffComm": 1000.0
+  },
+  {
+    "seller": "Warung",
+    "package": "1RB/2JAM",
+    "sellerComm": 500.0,
+    "staffComm": 0.0
+  },
+  {
+    "seller": "Warung",
+    "package": "2RB/4JAM",
+    "sellerComm": 500.0,
+    "staffComm": 500.0
+  },
+  {
+    "seller": "Warung",
+    "package": "5RB/12JAM",
+    "sellerComm": 1000.0,
+    "staffComm": 1000.0
+  },
+  {
+    "seller": "Eceu",
+    "package": "1RB/2JAM",
+    "sellerComm": 500.0,
+    "staffComm": 0.0
+  },
+  {
+    "seller": "Eceu",
+    "package": "2RB/4JAM",
+    "sellerComm": 500.0,
+    "staffComm": 500.0
+  },
+  {
+    "seller": "Eceu",
+    "package": "5RB/12JAM",
+    "sellerComm": 500.0,
+    "staffComm": 500.0
+  },
+  {
+    "seller": "HOME",
+    "package": "1RB/2JAM",
+    "sellerComm": 500.0,
+    "staffComm": 0.0
+  },
+  {
+    "seller": "HOME",
+    "package": "2RB/4JAM",
+    "sellerComm": 1000.0,
+    "staffComm": 0.0
+  },
+  {
+    "seller": "HOME",
+    "package": "5RB/12JAM",
+    "sellerComm": 2000.0,
+    "staffComm": 0.0
+  },
+  {
+    "seller": "ILHAM",
+    "package": "1RB/2JAM",
+    "sellerComm": 500.0,
+    "staffComm": 0.0
+  },
+  {
+    "seller": "ILHAM",
+    "package": "2RB/4JAM",
+    "sellerComm": 1000.0,
+    "staffComm": 0.0
+  },
+  {
+    "seller": "ILHAM",
+    "package": "5RB/12JAM",
+    "sellerComm": 2000.0,
+    "staffComm": 0.0
+  },
+  {
+    "seller": "ASEP",
+    "package": "1RB/2JAM",
+    "sellerComm": 500.0,
+    "staffComm": 0.0
+  },
+  {
+    "seller": "ASEP",
+    "package": "2RB/4JAM",
+    "sellerComm": 1000.0,
+    "staffComm": 0.0
+  },
+  {
+    "seller": "ASEP",
+    "package": "5RB/12JAM",
+    "sellerComm": 2000.0,
+    "staffComm": 0.0
+  },
+  {
+    "seller": "RT01",
+    "package": "1RB/2JAM",
+    "sellerComm": 500.0,
+    "staffComm": 0.0
+  },
+  {
+    "seller": "RT01",
+    "package": "2RB/4JAM",
+    "sellerComm": 500.0,
+    "staffComm": 500.0
+  },
+  {
+    "seller": "RT01",
+    "package": "5RB/12JAM",
+    "sellerComm": 500.0,
+    "staffComm": 500.0
+  }
+]
