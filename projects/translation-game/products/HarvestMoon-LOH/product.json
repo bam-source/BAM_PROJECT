@@ -1,0 +1,38 @@
+// ══════════════════════════════════════
+//  CONFIG PRODUK — Harvestmoon-LOH
+//  1 file = 1 produk.
+//  Gambar lokal: relatif ke folder ini,
+//  letakkan di ./img/previews/...
+// ══════════════════════════════════════
+{
+  // ── INFO DASAR ──
+  "id": "Harvestmoon-LOH-subtitle",
+  "name": "HARVESTMOON - LOH",
+  "subtitle": "",
+  "price": "Rp 25.000",
+  "tag": "Translation Game",
+  "status": "active",
+  "labelTopLeft": "MOD SUB INDONESIA",
+  "labelBottomRight": "",
+  "versions": ["TESTED ORIGINAL STEAM"],
+  "link": "",
+  "linkText": "Klik Saya",
+
+  // ── MEDIA ──
+  "image": "https://cdn.staticneo.com/ew/b/bb/Harvest-moon-light-of-hope-grid.jpg",
+  "previews": [
+  { "src": "", "label": "" },
+    { "type": "image", "src": "", "label": "" },
+    { "type": "image", "src": "./img/previews/1.jpg", "label": "Screenshot 1" },
+    { "type": "image", "src": "./img/previews/2.jpg", "label": "Screenshot 2" },
+    { "type": "image", "src": "./img/previews/3.jpg", "label": "Screenshot 3" },
+    { "type": "image", "src": "./img/previews/4.jpg", "label": "Screenshot 4" }
+  ],
+
+  // ── DETAIL & SPESIFIKASI ──
+  "description": "Subtitle Indonesia",
+  "details": [
+    "Order dan detail file dikonfirmasi langsung melalui admin."
+  ],
+  "specs": ["Tested Versi Original Steam"]
+}

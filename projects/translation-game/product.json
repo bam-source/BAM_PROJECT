@@ -6,9 +6,10 @@
 {
   "files": [
     { "file": "products/mytimeatportia-subtitle/product.json" },
-    { "file": "products/it-takes-two-subtitle/product.json" },
-    { "file": "products/watch-dogs-subtitle/product.json" },
     { "file": "products/cities-skylines-subtitle/product.json" },
+    { "file": "products/it-takes-two-subtitle/product.json" },
+    { "file": "products/HarvestMoon-LOH/product.json" },
+    { "file": "products/watch-dogs-subtitle/product.json" },
     { "file": "products/sos-gb-subtitle/product.json" }
   ]
 }
